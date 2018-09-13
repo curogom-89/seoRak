@@ -1,0 +1,29 @@
+﻿메인컬러 - 흰색, 밤색 (RGB 55,39,42) ,노란색
+서브컬러(버튼,텍스트) - 블랙 , 남색 , 다홍색(RGB 225,50,65) ,청록
+
+탑 고정 메뉴-
+
+https://codepen.io/VPenkov/pen/wMZBOg
+
+https://codepen.io/kkrueger/pen/qfoLa
+
+https://codepen.io/bonkalol/pen/adHBz
+
+https://codepen.io/elemental-shift/pen/fxIEa (사이드)
+
+메인 -
+
+https://codepen.io/VPenkov/pen/wMZBOg
+
+
+로그인-
+
+https://codepen.io/kman/pen/DFAzG
+
+https://codepen.io/banunn/pen/AFnal
+
+https://codepen.io/HojjatK/pen/GrDdI
+
+https://codepen.io/vineethtr/pen/PqaPox
+
+
