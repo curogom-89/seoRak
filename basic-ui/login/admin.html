@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    table, th, td {
+      border-collapse: collapse;
+      border: 3px solid black;
+    }
+  </style>
+</head>
+<body>
+  <h1>관리자 페이지</h1>
+  <hr>
+  <dir>
+    <h2>신고내역</h2>
+    <table style="margin-left: auto; margin-right: auto; text-align: center">
+      <thead>
+        <tr>
+          <th>
+            번호
+          </th>
+          <th>
+            신고자
+          </th>
+          <th>
+            대상자
+          </th>
+          <th>
+            사유
+          </th>
+          <th>
+            신고대상자 누적 경고 수
+          </th>
+          <th>
+            경고부여
+          </th>
+          <th>
+            신고삭제
+          </th>
+        </tr>
+        <td>
+          1
+        </td>
+        <td>
+          신고자1  
+        </td>
+        <td>
+          나쁜놈1
+        </td>
+        <td>
+          스팸 게시물 (게시판 : 10)
+        </td>
+        <td>
+          2
+        </td>
+        <td>
+          <button>경고부여</button>
+        </td>
+        <td>
+          <button>신고삭제</button>
+        </td>
+      </thead>
+    </table>
+  </dir>
+  <hr>
+  <dir>
+    <h2>회원 목록</h2>
+    <div>
+    <table style="margin-left: auto; margin-right: auto; margin-bottom: 20px">
+        <thead>
+          <tr>
+            <th>
+              번호
+            </th>
+            <th>
+              ID
+            </th>
+            <th>
+              이름
+            </th>
+            <th>
+              등급
+            </th>
+            <th>
+              포인트
+            </th>
+            <th>
+              누적 경고
+            </th>
+            <th>
+              가입일
+            </th>
+            <th>
+              최근 로그인 시간
+            </th>
+          </tr>
+          <td>
+            1
+          </td>
+          <td>
+            user1  
+          </td>
+          <td>
+            신고자1
+          </td>
+          <td>
+            골드
+          </td>
+          <td>
+            800
+          </td>
+          <td>
+            0
+          </td>
+          <td>
+            2018-06-28
+          </td>
+          <td>
+            2018-09-13 16:19
+          </td>
+        </thead>
+      </table>
+      <from style="text-align: center">
+        <div>
+          <select name="type" id="type">
+            <option>선택</option>
+            <option value="name">이름</option>
+            <option value="id"">ID</option>
+            <option value="grade">등급</option>
+            <option value="point">포인트</option>
+            <option value="joinDate">가입일</option>
+          </select>
+          <input type="text" id="search" />
+          <button>검색</button>
+        </div>
+      </from>
+    </div>
+  </dir>
+
+</body>
+</html>
