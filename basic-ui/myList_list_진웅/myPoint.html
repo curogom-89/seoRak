@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
+<style>
+/*   메뉴 상단   */
+* { box-sizing:border-box }
+*:before, *:after { box-sizing:inherit }
+
+/* Basic styles */
+html {
+  font-size: 62.5%;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  font-family: @font-family-base;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.4rem;
+    line-height: 1.42857143;
+    /* color: #555;
+    background-color: #f7f7f7; */
+}
+
+a { text-decoration: none }
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+main {
+    margin-top: 10rem;
+    text-align: center;
+}
+/* Header styles */
+header {
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: #fff;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    height: 7rem;
+    padding: 0 15px;
+    position: fixed;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    top: 0;
+    width: 100%
+}
+
+.site-logo {
+    transition: color 200ms cubic-bezier(.55, 0, .1, 1);
+    color: #30acff;
+    font-size: 3rem;
+}
+
+.ok-header__logo:hover {color: #546edb}
+
+/* okayNav styles */
+body.okayNav-loaded {
+  overflow-x: hidden;
+}
+.okayNav:not(.loaded) {
+  visibility: hidden;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.okayNav ul {
+  /* We want two navigations - one hidden and one visible */
+  float: left;
+}
+.okayNav a {
+  /* Links general styling */
+  color: #2e2e33;
+  font-size: 1.4rem;
+  font-weight: bold;
+  position: relative;
+  z-index: 1;
+}
+.okayNav__nav--visible {
+  overflow: hidden;
+  white-space: nowrap;
+}
+.okayNav__nav--visible li {
+  display: inline-block;
+}
+.okayNav__nav--visible a {
+  /* Link styling for the visible part of the nav */
+  display: block;
+  transition: color 200ms cubic-bezier(0.55, 0, 0.1, 1);
+  padding: 15px 15px;
+}
+.okayNav__nav--visible a:hover {
+  color: #546edb;
+}
+/* Link styling for the off-screen part of the nav */
+.okayNav__nav--invisible {
+  position: fixed;
+  top: 70px;
+  bottom: 0;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  background: #fff;
+}
+.okayNav__nav--invisible a {
+  background: #fff;
+  width: 240px;
+  display: block;
+  padding: 15px;
+}
+.okayNav__nav--invisible.nav-left {
+  left: 0;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+.okayNav__nav--invisible.nav-right {
+  right: 0;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+.okayNav__nav--invisible.transition-enabled {
+  transition: -webkit-transform 400ms cubic-bezier(0.55, 0, 0.1, 1);
+  transition: transform 400ms cubic-bezier(0.55, 0, 0.1, 1);
+  transition: transform 400ms cubic-bezier(0.55, 0, 0.1, 1), -webkit-transform 400ms cubic-bezier(0.55, 0, 0.1, 1);
+}
+.okayNav__nav--invisible.nav-open {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+/* Kebab icon */
+.okayNav__menu-toggle {
+  position: relative;
+  transition: -webkit-transform 400ms cubic-bezier(0.55, 0, 0.1, 1);
+  transition: transform 400ms cubic-bezier(0.55, 0, 0.1, 1);
+  transition: transform 400ms cubic-bezier(0.55, 0, 0.1, 1), -webkit-transform 400ms cubic-bezier(0.55, 0, 0.1, 1);
+  cursor: pointer;
+  width: 40px;
+  height: 20px;
+  float: left;
+  z-index: 1;
+  top: 15px;
+}
+.okayNav__menu-toggle.okay-invisible {
+  position: absolute;
+  opacity: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  pointer-events: none;
+}
+.okayNav__menu-toggle span {
+  display: block;
+  position: absolute;
+  margin: auto;
+  height: 4px;
+  width: 4px;
+  background: #2e2e33;
+  border-radius: 50%;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+}
+.okayNav__menu-toggle span:nth-child(1) {
+  top: 0;
+}
+.okayNav__menu-toggle span:nth-child(2) {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.okayNav__menu-toggle span:nth-child(3) {
+  bottom: 0;
+}
+.okayNav__menu-toggle.icon--active {
+  /* Kebab icon when off-screen nav is open */
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+.okayNav__menu-toggle.icon--active span {
+  background: #546edb;
+}
+
+
+
+
+
+	* {
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('PT Sans'), local('PTSans-Regular'), url(https://fonts.gstatic.com/s/ptsans/v9/jizaRExUiTo99u79D0KEwA.ttf) format('truetype');
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "PT Sans", Arial, Verdana;
+  background-color: #eee;
+}
+h1 {
+  text-align: center;
+  font-size: 48px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #222;
+}
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 50px;
+  margin: auto;
+  position: relative;
+  background-color: #2c3e50;
+  z-index: 7;
+}
+.menu li {
+  float: left;
+  width: 20%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.menu a {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+  font-size: 18px;
+  z-index: 9;
+}
+a.active {
+  background-color: #e74c3c;
+  pointer-events: none;
+}
+li.slider {
+  width: 20%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #e74c3c;
+  z-index: 8;
+  transition: left 0.4s, background-color 0.4s;
+}
+.menu li:nth-child(1):hover ~ .slider,
+.menu li:nth-child(1):focus ~ .slider,
+.menu li:nth-child(1):active ~ .slider {
+  left: 0;
+  background-color: #3498db;
+}
+.menu li:nth-child(2):hover ~ .slider,
+.menu li:nth-child(2):focus ~ .slider,
+.menu li:nth-child(2):active ~ .slider {
+  left: 20%;
+  background-color: #9b59b6;
+}
+.menu li:nth-child(3):hover ~ .slider,
+.menu li:nth-child(3):focus ~ .slider,
+.menu li:nth-child(3):active ~ .slider {
+  left: 40%;
+  background-color: #e67e22;
+}
+.menu li:nth-child(4):hover ~ .slider,
+.menu li:nth-child(4):focus ~ .slider,
+.menu li:nth-child(4):active ~ .slider {
+  left: 60%;
+  background-color: #16a085;
+}
+.menu li:nth-child(5):hover ~ .slider,
+.menu li:nth-child(5):focus ~ .slider,
+.menu li:nth-child(5):active ~ .slider {
+  left: 80%;
+  background-color: #16a085;
+}
+
+/*   my point   */
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+body,html {
+  background: #f9f9f9;
+  font-family: 'Montserrat', sans-serif;
+}
+span,div,p{
+    font-family: 'Montserrat', sans-serif;
+}
+h1{
+  text-align:center;
+  color:#393939;
+  font-size:3em;
+  font-weight:100;
+  margin-top:100px;
+}
+.chart {
+  font-family: Roboto;
+  border-radius:5px;
+  position:relative;
+  min-height: 400px; 
+  
+  margin: 50px auto;
+  display: block;
+  border:1px solid #ccc;
+  border-bottom:2px solid #8B96A3;
+  background: rgba(255, 255, 255, 9);
+  box-shadow: 0 0px 2px 0px #ccc;
+}
+
+.chart .skills {
+	position:absolute;
+  display: flex;
+  flex-direction: column; 
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+.chart .skills li{
+  text-align:right;
+  font-size:18px;
+  margin:5px 0px;
+  color:#333;
+}
+.chart li{
+  list-style: none;
+  flex: 1;
+  position:relative;
+  padding:10px 0px;
+}
+.chart .bars {
+	display: flex;
+  flex-direction: column;
+	position:absolute;
+  padding: 0;
+  margin: 0;
+  height:100%;
+}
+.chart .bars .bar{
+  width:0px;
+  background:#47EAD4;
+  padding:10px 0px;
+  float:left;
+  color:#333;
+  overflow:hidden;
+  text-align:center;
+}
+.chart .bars .bar:nth-child(odd),#personal {
+    background:#223138;
+    color:#fff;
+}
+
+.chart .bars .bar:nth-child(odd):hover{
+   background:#0F1E26;
+}
+.chart .bars .bar:nth-child(even):hover{
+   background:#40CFBC;
+}
+#profession{
+  background:#47EAD4;
+  color:#333;
+}
+#profession,#personal{
+  padding:10px;
+  display:inline-block;
+  text-align:center;
+}
+.header{
+  position:fixed;
+  left:0px;
+  top:0px;
+  width:100%;
+  background:#f9f9f9;
+  border-bottom:1px solid #DEDEDE;
+  box-shadow: 0 0px 6px 0px #858585;
+}
+
+.footer{
+  position:absolute;
+  bottom:-7%; 
+  right:0px;
+  color:#333;
+}
+
+@media only screen and (max-width: 800px) {
+	.chart{
+   width:100%;
+ } 
+  .skills{ 
+    width:20%;
+  }
+  .bars{
+    width: 75%;
+    left:25%;
+  }
+  
+}
+
+@media only screen and (min-width: 800px) {
+  	.chart{
+     width:90%;
+   } 
+    .skills{
+      width: 13%;
+  }
+  .bars{
+    width: 85%;
+    left:15%;
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  .chart{
+   width:70%;
+    max-width:1000px;
+ } 
+  .skills{
+    width: 13%;
+  }
+  .bars{
+    width:85%;
+    left:15%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+ .chart{
+   width:100%;
+ } 
+  .skills{
+    width:30%;
+  }
+  .bars{
+    width: 65%;
+    left:35%;
+  }
+}
+
+p{
+  width:90%;
+  margin:40px auto;
+  text-align:center;
+}
+</style>
+
+</head>
+<body>
+<!-- 메뉴 상단 -->
+<header id="header">
+        <a class="site-logo" href="#">
+                 SeoRak
+              </a>
+      
+        <nav role="navigation" id="nav-main" class="okayNav">
+          <ul>
+         
+            <li><a href="#">home</a></li>
+            <li><a href="#">로그인</a></li>
+            <li><a href="#">회원가입</a></li>
+          </ul>
+        </nav>
+      </header>
+      <!-- /header -->
+      
+      <main>
+ 
+      </main>
+            
+                 
+      <ul class="menu">
+          <li><a href="#" class="active">Home</a></li>
+          <li><a href="#">마이페이지</a></li>
+          <li><a href="#">게시판</a></li>
+          <li><a href="#">랭킹</a></li>
+          <li><a href="#"><input type="text"/></a></li>
+          <li class="slider"></li>
+        </ul>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdn.rawgit.com/VPenkov/okayNav/master/app/js/jquery.okayNav.js"></script>
+
+<!-- my point -->
+<div>
+        <h1>My Point</h1>
+        <hr>
+        
+</div>
+<p id="button">
+    <input type = 'button' value='Refresh'/>
+    <input type = 'button' value='포인트 보내기'/>
+    <input type = 'button' value='받은 포인트 확인하기'/>
+    <input type = 'button' value='포인트 랭킹'/>
+</p>
+<div class="chart">
+    <div class="skills"></div>
+    <div class="bars"></div> 
+    <div class='footer'>  
+        Point (p)
+    </div> 
+</div>
+    
+      
+<script>
+/* 메뉴 상단 바*/    
+var navigation = $('#nav-main').okayNav();
+
+/* my point */    
+$(function() {
+  //list of skills
+  var skills = {
+                "총 포인트":{work:250,personal:0},
+                "보낸 포인트":{work:70,personal:20},
+                "받은 포인트":{work:20,personal:10},
+                "게시글 포인트" :{work:45,personal:35},
+                "출석 포인트":{work:1,personal:90}
+               };
+  displayData(skills);
+  animate();
+  
+  //add new skill
+  $('input:button').click(function(){
+    var name = $('#txtSkill').val(),
+        perc = $('#txtPerc').val();
+    
+    if(name && perc){
+      skills[name] = {work:perc};
+      displayData(skills);
+      animate();
+
+      var newheight = $('.chart').outerHeight() + 50;
+      $('.chart').css('height',newheight);
+    }else{
+      animate();
+    }
+    $('input:text').val('');
+  });
+});
+
+
+
+//Functions
+//display data
+function displayData(skills){
+  $('.bars').html('');
+  $('.skills').html('');
+  for (var key in skills){
+    var personal = skills[key].personal,
+        work = skills[key].work;
+    
+    $('.skills').append("<li><span>"+key+"</span></li>");
+    $('.bars').append("<li><div data-percentage='"+skills[key].personal+"' class='bar'>"+personal+"</div><div data-percentage='"+skills[key].work+"' class='bar'>"+work+"</div></li>"); 
+    
+  };
+}
+
+
+//animate the data
+function animate(){
+  $('.bar').css('width','0px');
+  $(".bars .bar").delay(1000).each(function(i){
+    var percentage = $(this).data('percentage');
+    
+    $(this).delay(i+"00").animate({'width': percentage + 'px'}, 700);
+   
+  });
+}
+</script>      
+</body>
+</html>
