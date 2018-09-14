@@ -6,10 +6,39 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <style>
+    body {
+      background: rgba(240, 230, 100, 0.2)
+    }
+    table {
+      width: 80%;
+      text-align: center;
+    }
     table, th, td {
       border-collapse: collapse;
-      border: 3px solid black;
+      border: 3px solid white;
     }
+    th {
+      background: rgb(222, 184, 135, 0.8);
+      height: 40px
+    }
+    td {
+      height: 30px
+    }
+
+    tr:nth-child(2n-1) {
+      background: rgb(255, 255, 150, 0.8);
+    }
+    tr:nth-child(2n) {
+      background: rgb(240, 240, 180, 0.8); 
+    }
+
+    tr:nth-child(2n-1):hover {
+      background: rgb(235, 235, 130, 1);
+    }
+    tr:nth-child(2n):hover {
+      background: rgb(220, 220, 170, 1); 
+    }
+
   </style>
 </head>
 <body>
@@ -98,31 +127,62 @@
               최근 로그인 시간
             </th>
           </tr>
-          <td>
-            1
-          </td>
-          <td>
-            user1  
-          </td>
-          <td>
-            신고자1
-          </td>
-          <td>
-            골드
-          </td>
-          <td>
-            800
-          </td>
-          <td>
-            0
-          </td>
-          <td>
-            2018-06-28
-          </td>
-          <td>
-            2018-09-13 16:19
-          </td>
         </thead>
+        <tbody>
+          <tr>
+            <td>
+              1
+            </td>
+            <td>
+              user1  
+            </td>
+            <td>
+              신고자1
+            </td>
+            <td>
+              골드
+            </td>
+            <td>
+              800
+            </td>
+            <td>
+              0
+            </td>
+            <td>
+              2018-06-28
+            </td>
+            <td>
+              2018-09-13 16:19
+            </td>
+          </tr>
+          <tr>
+            <td>
+              2
+            </td>
+            <td>
+              user1  
+            </td>
+            <td>
+              신고자1
+            </td>
+            <td>
+              골드
+            </td>
+            <td>
+              800
+            </td>
+            <td>
+              0
+            </td>
+            <td>
+              2018-06-28
+            </td>
+            <td>
+              2018-09-13 16:19
+            </td>
+          </tr>
+
+        </tbody>
       </table>
       <from style="text-align: center">
         <div>
