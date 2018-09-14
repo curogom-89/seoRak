@@ -6,37 +6,41 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <style>
+    * {
+      color: rgb(80, 80, 80)
+    }
     body {
-      background: rgba(240, 230, 100, 0.2)
+      background: rgb(195, 210, 180);
+    }
+    table, th, td {
+      border-collapse: collapse;
+      border: 2px solid white;
     }
     table {
       width: 80%;
       text-align: center;
-    }
-    table, th, td {
-      border-collapse: collapse;
-      border: 3px solid white;
+      border: 3px rgb(180, 180, 235) solid;
     }
     th {
-      background: rgb(222, 184, 135, 0.8);
-      height: 40px
+      background: rgb(170, 200, 150);
+      height: 40px;
+      color: rgb(80, 80, 80)
     }
     td {
-      height: 30px
+      height: 30px;
+      color: rgb(80, 80, 80)
     }
 
     tr:nth-child(2n-1) {
-      background: rgb(255, 255, 150, 0.8);
+      background: rgb(190, 190, 235);
     }
     tr:nth-child(2n) {
-      background: rgb(240, 240, 180, 0.8); 
+      background: rgb(200, 200, 255); 
     }
 
-    tr:nth-child(2n-1):hover {
-      background: rgb(235, 235, 130, 1);
-    }
-    tr:nth-child(2n):hover {
-      background: rgb(220, 220, 170, 1); 
+    tr:hover {
+      background: rgb(130, 130, 200); 
+      color: rgb(220, 220, 220)
     }
 
   </style>

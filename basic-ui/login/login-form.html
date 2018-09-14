@@ -11,7 +11,7 @@
 }
 
 body {
-  background: #fff;
+  background: rgb(195, 210, 180);
   font-family: 'Raleway', sans-serif;
 }
 
@@ -30,7 +30,7 @@ form#login-form {
   box-shadow: 0 0 0.2em #000;
 }
 form#login-form div.heading {
-  background: burlywood;
+  background: rgb(170, 200, 150);;
   color: #fff;
   text-align: center;
   text-transform: uppercase;
@@ -112,9 +112,9 @@ div.left input[type="email"]:focus, div.left input[type="password"]:focus {
   border: 0.1em solid #bdbdbd;
 }
 div.left input[type="submit"] {
-  background: rgb(255, 255, 150);
+  background: rgb(180, 180, 235);
 
-  color: black;
+  color: rgb(80, 80, 80);
   outline: none;
   text-transform: uppercase;
   padding: 1.2em;
@@ -132,7 +132,7 @@ div.left input[type="submit"] {
   transition: all 0.15s ease-in-out;
 }
 div.left input[type="submit"]:hover {
-  background: rgb(255, 255, 80);
+  background: rgb(220, 220, 24  5);
 }
 
 div.right div.connect {
@@ -279,7 +279,7 @@ div.right a.google-plus:hover {
   </style>
 </head>
 <body>
-  <form action="#" id="login-form">
+  <form action="#" id="login-form" style="z-index: 1">
     <div class="heading">Login to Everdwell</div>
     <div class="left">
       <label for="email">Email</label> <br />
@@ -305,7 +305,7 @@ div.right a.google-plus:hover {
         <i class="fa fa-google-plus" aria-hidden="true">google</i>
       </a> -->
     </div>
-    <ul class="bg-bubbles">
+    <ul class="bg-bubbles" style="z-index: -1">
         <li>1</li>
         <li>2</li>
         <li>3</li>
