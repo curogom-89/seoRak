@@ -1,0 +1,559 @@
+<!DOCTYPE <!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
+   <style>
+   
+   * { box-sizing:border-box }
+*:before, *:after { box-sizing:inherit }
+
+/* Basic styles */
+html {
+  font-size: 62.5%;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  /* font-family: @font-family-base; */
+}
+
+body {
+  font-family: 'Do Hyeon', sans-serif;
+    font-size: 1.4rem;
+    line-height: 1.42857143;
+    /* color: #555;
+    background-color: #f7f7f7; */
+}
+
+a { text-decoration: none }
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+main {
+    margin-top: 10rem;
+    text-align: center;
+}
+/* Header styles */
+header {
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: #fff;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    height: 7rem;
+    padding: 0 15px;
+    position: fixed;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    top: 0;
+    width: 100%
+}
+
+.site-logo {
+    transition: color 200ms cubic-bezier(.55, 0, .1, 1);
+    color: #30acff;
+    font-size: 3rem;
+}
+
+.ok-header__logo:hover {color: #546edb}
+
+/* okayNav styles */
+body.okayNav-loaded {
+  overflow-x: hidden;
+}
+.okayNav:not(.loaded) {
+  visibility: hidden;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.okayNav ul {
+  /* We want two navigations - one hidden and one visible */
+  float: left;
+}
+.okayNav a {
+  /* Links general styling */
+  color: #2e2e33;
+  font-size: 1.4rem;
+  font-weight: bold;
+  position: relative;
+  z-index: 1;
+}
+.okayNav__nav--visible {
+  overflow: hidden;
+  white-space: nowrap;
+}
+.okayNav__nav--visible li {
+  display: inline-block;
+}
+.okayNav__nav--visible a {
+  /* Link styling for the visible part of the nav */
+  display: block;
+  transition: color 200ms cubic-bezier(0.55, 0, 0.1, 1);
+  padding: 15px 15px;
+}
+.okayNav__nav--visible a:hover {
+  color: #546edb;
+}
+/* Link styling for the off-screen part of the nav */
+.okayNav__nav--invisible {
+  position: fixed;
+  top: 70px;
+  bottom: 0;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  background: #fff;
+}
+.okayNav__nav--invisible a {
+  background: #fff;
+  width: 240px;
+  display: block;
+  padding: 15px;
+}
+.okayNav__nav--invisible.nav-left {
+  left: 0;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+.okayNav__nav--invisible.nav-right {
+  right: 0;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+.okayNav__nav--invisible.transition-enabled {
+  transition: -webkit-transform 400ms cubic-bezier(0.55, 0, 0.1, 1);
+  transition: transform 400ms cubic-bezier(0.55, 0, 0.1, 1);
+  transition: transform 400ms cubic-bezier(0.55, 0, 0.1, 1), -webkit-transform 400ms cubic-bezier(0.55, 0, 0.1, 1);
+}
+.okayNav__nav--invisible.nav-open {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+/* Kebab icon */
+.okayNav__menu-toggle {
+  position: relative;
+  transition: -webkit-transform 400ms cubic-bezier(0.55, 0, 0.1, 1);
+  transition: transform 400ms cubic-bezier(0.55, 0, 0.1, 1);
+  transition: transform 400ms cubic-bezier(0.55, 0, 0.1, 1), -webkit-transform 400ms cubic-bezier(0.55, 0, 0.1, 1);
+  cursor: pointer;
+  width: 40px;
+  height: 20px;
+  float: left;
+  z-index: 1;
+  top: 15px;
+}
+.okayNav__menu-toggle.okay-invisible {
+  position: absolute;
+  opacity: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  pointer-events: none;
+}
+.okayNav__menu-toggle span {
+  display: block;
+  position: absolute;
+  margin: auto;
+  height: 4px;
+  width: 4px;
+  background: #2e2e33;
+  border-radius: 50%;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+}
+.okayNav__menu-toggle span:nth-child(1) {
+  top: 0;
+}
+.okayNav__menu-toggle span:nth-child(2) {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.okayNav__menu-toggle span:nth-child(3) {
+  bottom: 0;
+}
+.okayNav__menu-toggle.icon--active {
+  /* Kebab icon when off-screen nav is open */
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+.okayNav__menu-toggle.icon--active span {
+  background: #546edb;
+}
+
+
+
+
+
+	* {
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('PT Sans'), local('PTSans-Regular'), url(https://fonts.gstatic.com/s/ptsans/v9/jizaRExUiTo99u79D0KEwA.ttf) format('truetype');
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Do Hyeon', sans-serif;
+  background-color: rgb(195, 210, 180);
+}
+h1 {
+  text-align: center;
+  font-size: 48px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #222;
+}
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 50px;
+  margin: auto;
+  position: relative;
+  background-color:rgb(170, 200, 150);
+  z-index: 7;
+}
+.menu li {
+  float: left;
+  width: 20%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.menu a {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+  font-size: 18px;
+  z-index: 9;
+}
+a.active {
+  background-color: #e74c3c;
+  pointer-events: none;
+}
+li.slider {
+  width: 20%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #e74c3c;
+  z-index: 8;
+  transition: left 0.4s, background-color 0.4s;
+}
+.menu li:nth-child(1):hover ~ .slider,
+.menu li:nth-child(1):focus ~ .slider,
+.menu li:nth-child(1):active ~ .slider {
+  left: 0;
+  background-color: #3498db;
+}
+.menu li:nth-child(2):hover ~ .slider,
+.menu li:nth-child(2):focus ~ .slider,
+.menu li:nth-child(2):active ~ .slider {
+  left: 20%;
+  background-color: steelblue;
+}
+.menu li:nth-child(3):hover ~ .slider,
+.menu li:nth-child(3):focus ~ .slider,
+.menu li:nth-child(3):active ~ .slider {
+  left: 40%;
+  background-color: #e67e22;
+}
+.menu li:nth-child(4):hover ~ .slider,
+.menu li:nth-child(4):focus ~ .slider,
+.menu li:nth-child(4):active ~ .slider {
+  left: 60%;
+  background-color: #16a085;
+}
+.menu li:nth-child(5):hover ~ .slider,
+.menu li:nth-child(5):focus ~ .slider,
+.menu li:nth-child(5):active ~ .slider {
+  left: 80%;
+  background-color: rgb(255, 150, 150);
+}
+
+
+
+
+.list li {
+  background: url("https://bradfrost.github.com/this-is-responsive/patterns/images/icon_arrow_right.png") no-repeat 97% 50%;
+  border-bottom: 1px solid #ccc;
+  display: table;
+  border-collapse: collapse;
+  width: 100%;
+}
+.inner {
+  display: table-row;
+  overflow: hidden;
+}
+.li-img {
+  display: table-cell;
+  vertical-align: middle;
+  width: 30%;
+  padding-right: 1em;
+}
+.li-img img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.li-text {
+  display: table-cell;
+  vertical-align: middle;
+  width: 70%;
+  font-size: 16px;
+  color:  rgb(80, 80, 80)
+}
+.li-head {
+  margin: 0;
+}
+.li-sub {
+  margin: 0;
+}
+
+@media all and (min-width: 45em) {
+  .list li {
+    float: left;
+    width: 50%;
+  }
+}
+
+@media all and (min-width: 75em) {
+  .list li {
+    width: 33.33333%;
+  }
+}
+
+
+   </style>
+</head>
+<body>
+        <header id="header">
+                <a class="site-logo" href="#">
+                         SeoRak
+                      </a>
+              
+                <nav role="navigation" id="nav-main" class="okayNav">
+                  <ul>
+                 
+                    <li><a href="#">home</a></li>
+                    <li><a href="#">로그인</a></li>
+                    <li><a href="#">회원가입</a></li>
+                  </ul>
+                </nav>
+              </header>
+              <!-- /header -->
+              
+              <main>
+         
+              </main>
+                    
+                         
+              <ul class="menu">
+                  <li><a href="#" class="active">Home</a></li>
+                  <li><a href="#">마이페이지</a></li>
+                  <li><a href="#">게시판</a></li>
+                  <li><a href="#">랭킹</a></li>
+                  <li><a href="#"><input type="text"/></a></li>
+                  <li class="slider"></li>
+                </ul>
+
+
+
+                <!--Pattern HTML-->
+  <div id="pattern" class="pattern">
+    <ul class="list img-list">
+          <li>
+              <a href="#" class="inner">
+                  <div class="li-img">
+                      <img src="https://bradfrost.github.com/this-is-responsive/patterns/images/fpo_square.png" alt="Image Alt Text" />
+                  </div>
+                  <div class="li-text">
+                      <h4 class="li-head">Title of Content</h4>
+                      <p class="li-sub">Summary of content</p>
+                  </div>
+              </a>
+          </li>
+          <li>
+              <a href="#" class="inner">
+                  <div class="li-img">
+                      <img src="https://bradfrost.github.com/this-is-responsive/patterns/images/fpo_square.png" alt="Image Alt Text" />
+                  </div>
+                  <div class="li-text">
+                      <h4 class="li-head">Title of More Content</h4>
+                      <p class="li-sub">Summary of more content</p>
+                  </div>
+              </a>
+          </li>
+          <li>
+              <a href="#" class="inner">
+                  <div class="li-img">
+                      <img src="https://bradfrost.github.com/this-is-responsive/patterns/images/fpo_square.png" alt="Image Alt Text" />
+                  </div>
+                  <div class="li-text">
+                      <h4 class="li-head">Title of Even More Content</h4>
+                      <p class="li-sub">Summary of even more content</p>
+                  </div>
+              </a>
+          </li>
+          <li>
+              <a href="#" class="inner">
+                  <div class="li-img">
+                      <img src="https://bradfrost.github.com/this-is-responsive/patterns/images/fpo_square.png" alt="Image Alt Text" />
+                  </div>
+                  <div class="li-text">
+                      <h4 class="li-head">Title of Content</h4>
+                      <p class="li-sub">Summary of content</p>
+                  </div>
+              </a>
+          </li>
+          <li>
+              <a href="#" class="inner">
+                  <div class="li-img">
+                      <img src="https://bradfrost.github.com/this-is-responsive/patterns/images/fpo_square.png" alt="Image Alt Text" />
+                  </div>
+                  <div class="li-text">
+                      <h4 class="li-head">Title of More Content</h4>
+                      <p class="li-sub">Summary of more content</p>
+                  </div>
+              </a>
+          </li>
+          <li>
+              <a href="#" class="inner">
+                  <div class="li-img">
+                      <img src="https://bradfrost.github.com/this-is-responsive/patterns/images/fpo_square.png" alt="Image Alt Text" />
+                  </div>
+                  <div class="li-text">
+                      <h4 class="li-head">Title of Even More Content</h4>
+                      <p class="li-sub">Summary of even more content</p>
+                  </div>
+              </a>
+          </li>
+          <li>
+              <a href="#" class="inner">
+                  <div class="li-img">
+                      <img src="https://bradfrost.github.com/this-is-responsive/patterns/images/fpo_square.png" alt="Image Alt Text" />
+                  </div>
+                  <div class="li-text">
+                      <h4 class="li-head">Title of Content</h4>
+                      <p class="li-sub">Summary of content</p>
+                  </div>
+              </a>
+          </li>
+          <li>
+              <a href="#" class="inner">
+                  <div class="li-img">
+                      <img src="https://bradfrost.github.com/this-is-responsive/patterns/images/fpo_square.png" alt="Image Alt Text" />
+                  </div>
+                  <div class="li-text">
+                      <h4 class="li-head">Title of More Content</h4>
+                      <p class="li-sub">Summary of more content</p>
+                  </div>
+              </a>
+          </li>
+          <li>
+              <a href="#" class="inner">
+                  <div class="li-img">
+                      <img src="https://bradfrost.github.com/this-is-responsive/patterns/images/fpo_square.png" alt="Image Alt Text" />
+                  </div>
+                  <div class="li-text">
+                      <h4 class="li-head">Title of Even More Content</h4>
+                      <p class="li-sub">Summary of even more content</p>
+                  </div>
+              </a>
+          </li>
+          <li>
+              <a href="#" class="inner">
+                  <div class="li-img">
+                      <img src="https://bradfrost.github.com/this-is-responsive/patterns/images/fpo_square.png" alt="Image Alt Text" />
+                  </div>
+                  <div class="li-text">
+                      <h4 class="li-head">Title of Content</h4>
+                      <p class="li-sub">Summary of content</p>
+                  </div>
+              </a>
+          </li>
+          <li>
+              <a href="#" class="inner">
+                  <div class="li-img">
+                      <img src="https://bradfrost.github.com/this-is-responsive/patterns/images/fpo_square.png" alt="Image Alt Text" />
+                  </div>
+                  <div class="li-text">
+                      <h4 class="li-head">Title of More Content</h4>
+                      <p class="li-sub">Summary of more content</p>
+                  </div>
+              </a>
+          </li>
+          <li>
+              <a href="#" class="inner">
+                  <div class="li-img">
+                      <img src="https://bradfrost.github.com/this-is-responsive/patterns/images/fpo_square.png" alt="Image Alt Text" />
+                  </div>
+                  <div class="li-text">
+                      <h4 class="li-head">Title of Even More Content</h4>
+                      <p class="li-sub">Summary of even more content</p>
+                  </div>
+              </a>
+          </li>
+      </ul>
+  </div>
+  <!--End Pattern HTML-->
+  
+  <!-- <div class="container">	
+      <section class="pattern-description">
+          <h1>List with Thumbnails</h1>
+          <p>A list of items that contain a thumbnail image and a block of text, which could be as simple as a headline, but could also contain sub-text or calls to action.</p>
+          <h2>Considerations</h2>
+          <ul>
+              <li>Read: <a href="http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/" rel="external">The media object saves hundreds of lines of code</a></li>
+          </ul>
+      </section>
+      <footer role="contentinfo">   
+          <div>
+              <nav id="menu">
+                  <a href="https://bradfrost.github.com/this-is-responsive/patterns.html">&larr;More Responsive Patterns</a>
+              </nav>
+          </div>
+      </footer>
+  </div> -->
+
+               
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/VPenkov/okayNav/master/app/js/jquery.okayNav.js"></script>
+<script>
+    var navigation = $('#nav-main').okayNav();
+
+</script>
+    
+
+</body>
+</html>
