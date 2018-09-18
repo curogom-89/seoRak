@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
 <style>
 * {
 	box-sizing: border-box
@@ -22,8 +23,8 @@ html {
 }
 
 body {
-	font-family: 'Roboto', sans-serif;
-	font-size: 1.4rem;
+	  font-family: 'Do Hyeon', sans-serif;
+	font-size: 16px;
 	line-height: 1.42857143;
 	/* color: #555;
     background-color: #f7f7f7; */
@@ -243,8 +244,8 @@ html, body {
 }
 
 body {
-	font-family: "PT Sans", Arial, Verdana;
-	background-color: #eee;
+  font-family: 'Do Hyeon', sans-serif;
+	  background-color: rgb(195, 210, 180);
 }
 
 h1 {
@@ -351,6 +352,7 @@ li.slider {
 
 		<li><a href="#">home</a></li>
 		<li><a href="#">로그인</a></li>
+		<li><a href="#">로그아웃</a></li>
 		<li><a href="#">회원가입</a></li>
 	</ul>
 	</nav> </header>
