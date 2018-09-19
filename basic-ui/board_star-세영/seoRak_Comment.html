@@ -6,12 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-       table, th, td {
-           border: 1px solid black;
-           border-collapse: collapse;
-           width: 1000px;
-           height: 20px;
-           margin: auto;
+       table {
+            border: 1px solid black;
+            border-collapse: collapse;
+            margin: auto;
+        }
+       #search {
+           height: 100px;
+       }
+       #file {
+           margin-left: 65%;
        }
 
        #btn2 {
@@ -37,54 +41,62 @@
           list-style: none;
           margin-left: 40%;
       }
+
+      #recom{
+          margin-left: 25%;
+      }
     </style>
 </head>
 <body>
    <h2>상세보기</h2>
    <hr>
    <div>
-       <table>
-           <tr>
-               <th>번호</th>
-               <th>2</th>
-               <th>조회수</th>
-               <th>50</th>
-               <th><button type="button" name="btn1">추천</button></th>
-               <th><button type="button" name="btn1">비추천</button></th>
-           </tr>
-           <tr>
-               <th>카테고리</th>
-               <th>자유</th>
-               <th>제목</th>
-               <th>내일아침</th>
-               <th>작성자</th>
-               <th>방진웅</th>
-           </tr>
-           <tr>
-               <th>추천서적</th>
-               <th>오늘만 산다</th>
-               <th>별점</th>
-               <th>3</th>
-               <th>추천수</th>
-               <th>50</th>
-           </tr>
-           <tr>
-               <th>조회수</th>
-               <th>50</th>
-               <th>작성일</th>
-               <th colspan="3">2018-09-13</th>
+        <form>
+        <table>
+            <tr>
+                <td>
+                    <select name="cho" id="cho">
+                        <option value="">선택</option>
+                        <option value="">추천</option>
+                        <option value="">비평</option>
+                        <option value="">자유</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" name="title" id="title" size="100" placeholder="제목을 입력하세요">
+                </td>
+                <td rowspan="5">
+                    
+                </td>
             </tr>
             <tr>
-            <th>제목</th>
-            <th colspan="5">내일아침</th>
-            
-        </tr>
-        <tr>
-            <th colspan="6">
-                <textarea name="contents" rows="8" cols="150">할말이 없다</textarea>
-            </th>
-        </tr>
-       </table>
+                <td rowspan="4">
+                     책표지
+                </td>
+            </tr>
+            <tr>
+                <td><input type="text" name="book" id="book" size="100" placeholder="책 제목"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="publisher" id="publisher" size="100" placeholder="출판사"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="author" id="author" size="100" placeholder="저자"></td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                <textarea name="" id="" cols="110" rows="10"></textarea>
+             </td>
+            </tr>
+        </table>
+        <hr>
+
+        <button type="submit" name="recom" id="recom">추천</button>
+        <button type="submit" name="fal" id="fal">비추천</button>
+        <button type="submit" name="del" id="del">삭제</button>
+        <button type="submit" name="up" id="up">수정</button>
+        <button type="submit" name="list" id="list">목록</button>
+        <input type="file" name="attach" id="file"/>
     </div>
        <hr>
        <h2 id="comm">comment</h2>
@@ -92,28 +104,10 @@
        <textarea name="contents" rows="8" cols="70" id="cow"></textarea>
        <div>
        <button type="button" name="in" id="in">입력</button>
+       
         </div>
         <hr>
-        <div>
-            <ul>
-                <li>신득수</li>
-                <li>내일도 아플예정임</li>
-                <li>병원은 안감</li>
-                <li>집세내고 die</li>
-            </ul>
-            <button type="button" id="comname">수정</button>
-            <button type="button">삭제</button>
-        </div>
-        <hr>
-        <div>
-                <ul>
-                    <li>정인용</li>
-                    <li>모기랑 잠</li>
-                    <li>방에 모기향 넣어줌</li>
-                    <li>집세내고 die</li>
-                </ul>
                 <button type="button" id="comname">수정</button>
                 <button type="button">삭제</button>
-            </div>
 </body>
 </html>
