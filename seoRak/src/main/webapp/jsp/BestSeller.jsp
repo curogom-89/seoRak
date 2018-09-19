@@ -92,6 +92,9 @@ tbody tr:hover {
  .selectbutton{
   margin-left: 181px;
  }
+ .selectDate{
+ margin-left: 181px;
+ }
  
  
  #BestSeller #title,#BestSeller #timeMonth, #weeksBestSeller #timeDetail, #weeksBestSeller #weekTitle{
@@ -122,19 +125,11 @@ color:#326295;
    <div class="time"><h1>베스트셀러</h1></div> 
    
    
-   <div class="selectBookmarket">
-   <select class="Bookmarket" >
-                <option value="0">교보문고</option>    
-                <option value="1">YES 24</option>    
-                <option selected value="3">알라딘</option>
-                <option selected value="4">인터파크 도서</option> 
-                <option selected value="5">반디앤루니스</option> 
-                <option selected value="6">도서 11번가</option>                              
-   </select>
+   
    <div class="selectDate"> <input type="week" name="mydata" value="2018-09-15"/></div>
                    
             
-   </div>
+  
    <div class="selectbutton"><button>선택</button></div>
    
    <br>
@@ -152,7 +147,7 @@ color:#326295;
                 <th>출판사</th>
                 <th>저자</th>
                 <th>발간일</th>
-                <th style="font-size:3px;">추천<br>비추천</th>
+                <th style="font-size:3px;">별점</th>
             
             </tr>
             </thead>
@@ -164,10 +159,11 @@ color:#326295;
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
                 <td>2017.02.02</td>
-                <td>
-                	<button>추천</button><br>
-                	<button style="font-size:10px">비추천</button>
+              
+                	<td>
+                	별점
                 </td>
+                
                
             </tr>
 				<tr>
@@ -179,10 +175,8 @@ color:#326295;
 					<td>야쿠마루 가쿠 저</td>
 					<td>2017.02.02</td>
 					<td>
-						<button>추천</button>
-						<br>
-						<button style="font-size:10px">비추천</button>
-					</td>
+                	별점
+                </td>
 
 				</tr>
 				<tr>
@@ -194,9 +188,7 @@ color:#326295;
 					<td>야쿠마루 가쿠 저</td>
 					<td>2017.02.02</td>
 					<td>
-						<button>추천</button>
-						<br>
-						<button style="font-size:10px">비추천</button>
+						별점
 					</td>
 
 				</tr>
@@ -208,8 +200,7 @@ color:#326295;
                 <td>야쿠마루 가쿠 저</td>
                 <td>2017.02.02</td>
                 <td>
-                	<button>추천</button><br>
-                	<button style="font-size:10px">비추천</button>
+                	별점
                 </td>              
             </tr>
             <tr>
@@ -220,8 +211,7 @@ color:#326295;
                 <td>야쿠마루 가쿠 저</td>
                 <td>2017.02.02</td>
                 <td>
-                	<button>추천</button><br>
-                	<button style="font-size:10px">비추천</button>
+                	별점
                 </td>           
             </tr>
              <tr>
@@ -232,8 +222,7 @@ color:#326295;
                 <td>야쿠마루 가쿠 저</td>
                 <td>2017.02.02</td>
                 <td>
-                	<button>추천</button><br>
-                	<button style="font-size:10px">비추천</button>
+                	별점
                 </td>             
             </tr>
              <tr>
@@ -244,8 +233,7 @@ color:#326295;
                 <td>야쿠마루 가쿠 저</td>
                 <td>2017.02.02</td>
                 <td>
-                	<button>추천</button><br>
-                	<button style="font-size:10px">비추천</button>
+                	별점
                 </td>            
             </tr>
              <tr>
@@ -256,8 +244,7 @@ color:#326295;
                 <td>야쿠마루 가쿠 저</td>
                 <td>2017.02.02</td>
                 <td>
-                	<button>추천</button><br>
-                	<button style="font-size:10px">비추천</button>
+                	별점
                 </td>             
             </tr>
              <tr>
@@ -268,8 +255,7 @@ color:#326295;
                 <td>야쿠마루 가쿠 저</td>
                 <td>2017.02.02</td>
                 <td>
-                	<button>추천</button><br>
-                	<button style="font-size:10px">비추천</button>
+                	별점
                 </td>         
             </tr>
              <tr>
@@ -280,8 +266,7 @@ color:#326295;
                 <td>야쿠마루 가쿠 저</td>
                 <td>2017.02.02</td>
                 <td>
-                	<button>추천</button><br>
-                	<button style="font-size:10px">비추천</button>
+                	별점
                 </td>               
             </tr>
              <tr>
@@ -292,8 +277,7 @@ color:#326295;
                 <td>야쿠마루 가쿠 저</td>
                 <td>2017.02.02</td>
                 <td>
-                	<button>추천</button><br>
-                	<button style="font-size:10px">비추천</button>
+                	별점
                 </td>               
             </tr>
             </tbody>

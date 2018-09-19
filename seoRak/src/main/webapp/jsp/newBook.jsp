@@ -112,12 +112,25 @@ color:#326295;
  width:429.6;
 	height:1569.6px;
 }
+ .selectBookmarket{
+  margin-left: 181px;
+ }
 </style>
 <body>
 
   <%@include file="topList.jsp"%>
   <div class="time"><h1>신간도서/추천도서</h1></div> 
-   
+   <div class="selectBookmarket">
+   <select class="Bookmarket" >
+                <option value="0">교보문고</option>    
+                <option value="1">YES 24</option>    
+                <option selected value="3">알라딘</option>
+                <option selected value="4">인터파크 도서</option> 
+                <option selected value="5">반디앤루니스</option> 
+                <option selected value="6">도서 11번가</option>                              
+   </select>
+   <br><br>
+    </div>
  
     <div id="newBook">
  		<span id="newTitle" style="font-size:15px;">신간서적</span><br>
@@ -135,7 +148,7 @@ color:#326295;
                 <th>출판사</th>
                 <th>저자</th>
                 <th>발간일</th>
-            	<th style="font-size:3px; ">추천<br>비추천</th>
+            	
             </tr>
             </thead>
             <tbody>
@@ -146,10 +159,7 @@ color:#326295;
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
                 <td>2017.02.02</td>
-                <td>
-                	<button>추천</button><br>
-                	<button style="font-size:10px">비추천</button>
-                </td>
+               
             </tr>
              <tr>
                
@@ -158,10 +168,7 @@ color:#326295;
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
                 <td>2017.02.02</td>
-                <td>
-                	<button>추천</button><br>
-                	<button style="font-size:10px">비추천</button>
-                </td>
+              	
             </tr>
              <tr>
                 
@@ -170,10 +177,7 @@ color:#326295;
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
                 <td>2017.02.02</td>
-                <td>
-                	<button>추천</button><br>
-                	<button style="font-size:10px">비추천</button>
-                </td>
+                
             </tr>
              <tr>
                 
@@ -182,10 +186,7 @@ color:#326295;
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
                 <td>2017.02.02</td>
-                <td>
-                	<button>추천</button><br>
-                	<button style="font-size:10px">비추천</button>
-                </td>
+               
             </tr>
             <tr>
                 
@@ -194,10 +195,7 @@ color:#326295;
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
                 <td>2017.02.02</td>
-                <td>
-                	<button>추천</button><br>
-                	<button style="font-size:10px">비추천</button>
-                </td>
+                
             </tr>
              <tr>
                 
@@ -206,10 +204,7 @@ color:#326295;
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
                 <td>2017.02.02</td>
-                <td>
-                	<button>추천</button><br>
-                	<button style="font-size:10px">비추천</button>
-                </td>
+               
             </tr>
              <tr>
                
@@ -218,10 +213,7 @@ color:#326295;
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
                 <td>2017.02.02</td>
-                <td>
-                	<button>추천</button><br>
-                	<button style="font-size:10px">비추천</button>
-                </td>
+              
             </tr>
              <tr>
               
@@ -230,10 +222,7 @@ color:#326295;
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
                 <td>2017.02.02</td>
-                <td>
-                	<button>추천</button><br>
-                	<button style="font-size:10px">비추천</button>
-                </td>
+                
             </tr>
              <tr>
                 
@@ -242,10 +231,7 @@ color:#326295;
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
                 <td>2017.02.02</td>
-                <td>
-                	<button>추천</button><br>
-                	<button style="font-size:10px">비추천</button>
-                </td>
+               
             </tr>
              <tr>
                
@@ -254,10 +240,7 @@ color:#326295;
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
                 <td>2017.02.02</td>
-                <td>
-                	<button>추천</button><br>
-                	<button style="font-size:10px">비추천</button>
-                </td>
+               
             </tr>
              <tr>
               
@@ -266,10 +249,7 @@ color:#326295;
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
                 <td>2017.02.02</td>
-                <td>
-                	<button>추천</button><br>
-                	<button style="font-size:10px">비추천</button>
-                </td>
+             
             </tr>
             </tbody>
         </table>
@@ -297,7 +277,7 @@ color:#326295;
                 <th>출판사</th>
                 <th>발간일</th>
                 <th>그림</th>
-                <th>순위변동</th>
+               
             </tr>
             </thead>
             <tbody>
@@ -308,7 +288,7 @@ color:#326295;
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
                 <td>2017.02.02</td>
-                <td>3계단 상승</td>
+                
             </tr>
              <tr>
                 <td>2</td>
@@ -317,7 +297,7 @@ color:#326295;
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
                 <td>2017.02.02</td>
-                <td>new</td>
+                
             </tr>
              <tr>
                 <td>3</td>
@@ -326,7 +306,7 @@ color:#326295;
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
                 <td>2017.02.02</td>
-                <td>new</td>
+          
             </tr>
              <tr>
                 <td>4</td>
@@ -335,7 +315,7 @@ color:#326295;
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
                 <td>2017.02.02</td>
-                <td>new</td>
+            
             </tr>
             <tr>
                 <td>5</td>
@@ -344,7 +324,7 @@ color:#326295;
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
                 <td>2017.02.02</td>
-                <td>3계단 하락</td>
+              
             </tr>
              <tr>
                 <td>6</td>
@@ -353,7 +333,7 @@ color:#326295;
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
                 <td>2017.02.02</td>
-                <td>new</td>
+            
             </tr>
              <tr>
                 <td>6</td>
@@ -362,7 +342,7 @@ color:#326295;
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
                 <td>2017.02.02</td>
-                <td>new</td>
+                
             </tr>
              <tr>
                 <td>7</td>
@@ -371,7 +351,7 @@ color:#326295;
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
                 <td>2017.02.02</td>
-                <td>new</td>
+           
             </tr>
              <tr>
                 <td>8</td>
@@ -380,7 +360,7 @@ color:#326295;
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
                 <td>2017.02.02</td>
-                <td>new</td>
+       
             </tr>
              <tr>
                 <td>9</td>
@@ -389,7 +369,7 @@ color:#326295;
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
                 <td>2017.02.02</td>
-                <td>new</td>
+              
             </tr>
              <tr>
                 <td>10</td>
@@ -398,10 +378,10 @@ color:#326295;
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
                 <td>2017.02.02</td>
-                <td>new</td>
+             
             </tr>
             </tbody>
-            </tbody>
+            
         </table>  
        
     </div>
