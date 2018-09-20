@@ -26,7 +26,6 @@ table {
 </style>
 </head>
 <body>
-<%@include file="topList.jsp" %>
 	<h2>글쓰기</h2>
 	<hr>
 	<div>
@@ -69,8 +68,8 @@ table {
 			<input type="file" name="attach" id="file" />
 			<hr>
 			<!-- file : <input type="file" name="attach" /> -->
-			<button name="btn1" type="submit" id="btn1"><a href="freeBoard.jsp">목록으로</a></button>
-			<button name="btn2" type="submit" id="btn2"><a href="freeBoard.jsp">작성</a></button>
+			<button name="btn1" type="submit" id="btn1">목록으로</button>
+			<button name="btn2" type="submit" id="btn2">작성</button>
 			<button name="btn3" type="submit" id="btn3">삭제</button>
 		</form>
 	</div>

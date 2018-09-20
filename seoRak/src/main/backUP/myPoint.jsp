@@ -8,7 +8,7 @@
 <style>
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 body,html {
-  background: rgb(195, 210, 180);
+  background: #f9f9f9;
   font-family: 'Montserrat', sans-serif;
 }
 span,div,p{

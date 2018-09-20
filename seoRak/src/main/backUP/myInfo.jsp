@@ -444,7 +444,7 @@
 			width : 50%;
 			height : 70%;
 			text-align : left;
-			top: -100%;
+			top: -80%;
 			left : 40%;
 			/* border : 1px solid black; */
 			word-break: break-all;
@@ -455,7 +455,7 @@
 			width : 50%;
 			height : 70%;
 			text-align : left;
-			top: -100%;
+			top: -80%;
 			left : 40%;
 			/* border : 1px solid black; */
 			word-break: break-all;
@@ -501,7 +501,33 @@
 </head>
 
 <body>
-	<%@include file="topList.jsp" %>
+	<header id="header"> <a class="site-logo" href="#"> SeoRak </a>
+	<nav role="navigation" id="nav-main" class="okayNav">
+		<ul>
+			<li><a href="#">home</a></li>
+			<li><a href="#">로그인</a></li>
+			<li><a href="#">로그아웃</a></li>
+			<li><a href="#">회원가입</a></li>
+		</ul>
+	</nav>
+	</header>
+	<!-- /header -->
+	<main></main>
+	<ul class="menu">
+		<li><a href="#" class="active">Home</a></li>
+		<li><a href="#">마이페이지</a></li>
+		<li><a href="#">게시판</a></li>
+		<li><a href="#">랭킹</a></li>
+		<li><a href="#"><img src="../img/searchIcon.png" id="searchIcon"><input id="searchBar" type="text" placeholder="도서검색"/></a></li>
+		<li class="slider"></li>
+	</ul>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script
+		src="https://cdn.rawgit.com/VPenkov/okayNav/master/app/js/jquery.okayNav.js"></script>
+	<script>
+    var navigation = $('#nav-main').okayNav();
+	</script>
 	
 	<div class="all">
 		<div id="myList">
@@ -630,7 +656,7 @@
 				<table>
                 <thead>
                 	<tr>
-               			<th colspan="5">최신 게시글</th>
+               			<th>최신 게시글</th>
                		</tr>
                     <tr>
                         <th>NO</th>

@@ -120,7 +120,7 @@ div.left input[type="email"]:focus, div.left input[type="password"]:focus
 	border: 0.1em solid #bdbdbd;
 }
 
-div.left input[type="submit"], #signIn {
+div.left input[type="submit"] {
 	background: rgb(180, 180, 235);
 	color: rgb(80, 80, 80);
 	outline: none;
@@ -138,7 +138,6 @@ div.left input[type="submit"], #signIn {
 	-o-transition: all 0.15s ease-in-out;
 	-webkit-transition: all 0.15s ease-in-out;
 	transition: all 0.15s ease-in-out;
-	
 }
 
 div.left input[type="submit"]:hover {
@@ -314,22 +313,19 @@ div.right a.google-plus:hover {
             transform: translateY(-1000px) rotate(600deg);
   }
 }
-#signIn{
-	a
-}
 </style>
 
 </head>
 <body>
-  <form action="myInfo.jsp" id="login-form" style="z-index: 5">
+  <form action="#" id="login-form" style="z-index: 1">
     <div class="heading">Login to seRock</div>
     <div class="left">
       <label for="email">Email</label> <br />
       <input type="email" name="email" id="email" /> <br />
       <label for="pass">Password</label> <br />
       <input type="password" name="password" id="pass" /> <br />
-  	  <input type="submit"  value="Login" />
-      <a href="signUp.jsp"><input id="signIn" type="button"  value="Sign-In" /></a>
+      <input type="submit" value="Login" />
+      <input type="submit" value="Sign-In" />
     </div>
     <div class="right">
       <div class="connect">Connect with</div>
@@ -350,8 +346,8 @@ div.right a.google-plus:hover {
 
   </form>  
   <dir id="bubble">
-      <ul class="bg-bubbles" style="z-index: 1">
-        <li><img src="../img/myBookList_a1.PNG"> 1</li>
+      <ul class="bg-bubbles" style="z-index: -1">
+        <li>1</li>
         <li>2</li>
         <li>3</li>
         <li>4</li>
@@ -364,11 +360,6 @@ div.right a.google-plus:hover {
       </ul>
      </dir>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script>
-	var signIn = document.queryselect("#signIn")
-	signIn.addEventListener("click", function(){
-		request.redircet("signUp.jsp")
-	}))
-	</script>
+
 </body>
 </html>

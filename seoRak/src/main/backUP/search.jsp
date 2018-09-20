@@ -69,7 +69,7 @@
           <li>
               <a href="#" class="inner">
                   <div class="li-img">
-                  <img src="../img/myBookList_a1.PNG">
+                      <img src="https://bradfrost.github.com/this-is-responsive/patterns/images/fpo_square.png" alt="Image Alt Text" />
                   </div>
                   <div class="li-text">
                       <h4 class="li-head">Title of Content</h4>
@@ -80,7 +80,7 @@
           <li>
               <a href="#" class="inner">
                   <div class="li-img">
-                     <img src="../img/myBookList_a1.PNG">
+                      <img src="https://bradfrost.github.com/this-is-responsive/patterns/images/fpo_square.png" alt="Image Alt Text" />
                   </div>
                   <div class="li-text">
                       <h4 class="li-head">Title of More Content</h4>
@@ -91,7 +91,7 @@
           <li>
               <a href="#" class="inner">
                   <div class="li-img">
-                    <img src="../img/myBookList_a1.PNG">
+                      <img src="https://bradfrost.github.com/this-is-responsive/patterns/images/fpo_square.png" alt="Image Alt Text" />
                   </div>
                   <div class="li-text">
                       <h4 class="li-head">Title of Even More Content</h4>
@@ -102,7 +102,8 @@
           <li>
               <a href="#" class="inner">
                   <div class="li-img">
-                    <img src="../img/myBookList_a1.PNG">                  </div>
+                      <img src="https://bradfrost.github.com/this-is-responsive/patterns/images/fpo_square.png" alt="Image Alt Text" />
+                  </div>
                   <div class="li-text">
                       <h4 class="li-head">Title of Content</h4>
                       <p class="li-sub">Summary of content</p>
@@ -112,7 +113,7 @@
           <li>
               <a href="#" class="inner">
                   <div class="li-img">
-                    <img src="../img/myBookList_a1.PNG">
+                      <img src="https://bradfrost.github.com/this-is-responsive/patterns/images/fpo_square.png" alt="Image Alt Text" />
                   </div>
                   <div class="li-text">
                       <h4 class="li-head">Title of More Content</h4>
@@ -123,7 +124,7 @@
           <li>
               <a href="#" class="inner">
                   <div class="li-img">
-                 <img src="../img/myBookList_a1.PNG">
+                      <img src="https://bradfrost.github.com/this-is-responsive/patterns/images/fpo_square.png" alt="Image Alt Text" />
                   </div>
                   <div class="li-text">
                       <h4 class="li-head">Title of Even More Content</h4>
@@ -134,7 +135,7 @@
           <li>
               <a href="#" class="inner">
                   <div class="li-img">
-                  <img src="../img/myBookList_a1.PNG">
+                      <img src="https://bradfrost.github.com/this-is-responsive/patterns/images/fpo_square.png" alt="Image Alt Text" />
                   </div>
                   <div class="li-text">
                       <h4 class="li-head">Title of Content</h4>
@@ -145,7 +146,7 @@
           <li>
               <a href="#" class="inner">
                   <div class="li-img">
-                  <img src="../img/myBookList_a1.PNG">
+                      <img src="https://bradfrost.github.com/this-is-responsive/patterns/images/fpo_square.png" alt="Image Alt Text" />
                   </div>
                   <div class="li-text">
                       <h4 class="li-head">Title of More Content</h4>
@@ -156,7 +157,7 @@
           <li>
               <a href="#" class="inner">
                   <div class="li-img">
-                    <img src="../img/myBookList_a1.PNG">
+                      <img src="https://bradfrost.github.com/this-is-responsive/patterns/images/fpo_square.png" alt="Image Alt Text" />
                   </div>
                   <div class="li-text">
                       <h4 class="li-head">Title of Even More Content</h4>
@@ -167,7 +168,7 @@
           <li>
               <a href="#" class="inner">
                   <div class="li-img">
-                 <img src="../img/myBookList_a1.PNG">
+                      <img src="https://bradfrost.github.com/this-is-responsive/patterns/images/fpo_square.png" alt="Image Alt Text" />
                   </div>
                   <div class="li-text">
                       <h4 class="li-head">Title of Content</h4>
@@ -178,7 +179,8 @@
           <li>
               <a href="#" class="inner">
                   <div class="li-img">
-                   <img src="../img/myBookList_a1.PNG">                  </div>
+                      <img src="https://bradfrost.github.com/this-is-responsive/patterns/images/fpo_square.png" alt="Image Alt Text" />
+                  </div>
                   <div class="li-text">
                       <h4 class="li-head">Title of More Content</h4>
                       <p class="li-sub">Summary of more content</p>
@@ -188,7 +190,8 @@
           <li>
               <a href="#" class="inner">
                   <div class="li-img">
-                  <img src="../img/myBookList_a1.PNG">                  </div>
+                      <img src="https://bradfrost.github.com/this-is-responsive/patterns/images/fpo_square.png" alt="Image Alt Text" />
+                  </div>
                   <div class="li-text">
                       <h4 class="li-head">Title of Even More Content</h4>
                       <p class="li-sub">Summary of even more content</p>

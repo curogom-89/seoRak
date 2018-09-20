@@ -123,7 +123,6 @@ h2 {
 </style>
 </head>
 <body>
-<%@include file="topList.jsp" %>
 	<h2>보낸 쪽지함</h2>
 	<hr>
 	<div>

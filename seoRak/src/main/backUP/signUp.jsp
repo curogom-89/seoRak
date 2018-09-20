@@ -142,7 +142,7 @@ h1{
 			<label for="checkHuman">자동가입 방지</label> <input type="text" id="checkHuman" name="checkHuman" style="width: 50%" />
 			<img src="../img/captcha.jpg" style="margin-left: 10px; width: 45%;" />
 		</fieldset>
-		<button id="submit"><a href="loginForm.jsp">회원가입</a></button>
+		<button id="submit">회원가입</button>
 	</form>
 </body>
 </html>

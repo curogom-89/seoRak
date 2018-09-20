@@ -55,6 +55,7 @@ ul {
 </style>
 </head>
 <body>
+<%@include file="topList.jsp" %>
 	<h2>상세보기</h2>
 	<hr>
 	<div>

@@ -16,18 +16,46 @@ table {
 	height: 100px;
 }
 
-#btn1 {
+#file {
 	margin-left: 65%;
 }
 
-#file {
-	margin-left: 65%;
+#btn2 {
+	margin-left: 800px;
+}
+
+#comm {
+	margin-left: 500px;
+}
+
+#lo {
+	margin-right: 820px;
+}
+
+#cow {
+	margin-left: 500px;
+}
+
+#in {
+	margin-left: 61%;
+}
+
+#comname {
+	margin-left: 60%;
+}
+
+ul {
+	list-style: none;
+	margin-left: 40%;
+}
+
+#recom {
+	margin-left: 25%;
 }
 </style>
 </head>
 <body>
-<%@include file="topList.jsp" %>
-	<h2>글쓰기</h2>
+	<h2>상세보기</h2>
 	<hr>
 	<div>
 		<form>
@@ -41,9 +69,7 @@ table {
 					</select></td>
 					<td><input type="text" name="title" id="title" size="100"
 						placeholder="제목을 입력하세요"></td>
-					<td rowspan="5">
-						<button type="submit" name="search" id="search">도서검색</button>
-					</td>
+					<td rowspan="5"></td>
 				</tr>
 				<tr>
 					<td rowspan="4">책표지</td>
@@ -66,14 +92,25 @@ table {
 				</tr>
 			</table>
 			<hr>
+
+			<button type="submit" name="recom" id="recom">추천</button>
+			<button type="submit" name="fal" id="fal">비추천</button>
+			<button type="submit" name="del" id="del">삭제</button>
+			<button type="submit" name="up" id="up">수정</button>
+			<button type="submit" name="list" id="list">목록</button>
 			<input type="file" name="attach" id="file" />
-			<hr>
-			<!-- file : <input type="file" name="attach" /> -->
-			<button name="btn1" type="submit" id="btn1"><a href="freeBoard.jsp">목록으로</a></button>
-			<button name="btn2" type="submit" id="btn2"><a href="freeBoard.jsp">작성</a></button>
-			<button name="btn3" type="submit" id="btn3">삭제</button>
-		</form>
 	</div>
+	<hr>
+	<h2 id="comm">comment</h2>
+	<hr width="200px" size="3" color="black" id="lo">
+	<textarea name="contents" rows="8" cols="70" id="cow"></textarea>
+	<div>
+		<button type="button" name="in" id="in">입력</button>
+
+	</div>
+	<hr>
+	<button type="button" id="comname">수정</button>
+	<button type="button">삭제</button>
 
 </body>
 </html>

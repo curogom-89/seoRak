@@ -150,7 +150,6 @@ label.error {
       <div class="head">
         <h2>쪽지쓰기</h2>
       </div>
-      
       <input type="text" name="name" id="meo1" placeholder="보낸사람" /><br />
       <input  type="email" name="email"  id="meo1" placeholder="받는사람" /><br />
       <input  type="email" name="email" id="meo1" placeholder="제목" /><br />

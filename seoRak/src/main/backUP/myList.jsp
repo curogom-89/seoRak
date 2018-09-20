@@ -32,21 +32,19 @@ td{
 }
 #boardSearch{
         width: 500px;
-   
+        transform: translate(600px)
 }
-#searchbox{
-	width: 80%;
-    padding-top:10px; 
-    
-    margin-top: 10px;
- 	margin-left: 450px;
-;
-	
+button{
+    width: 80px;
+    transform: translate(600px)
 }
-#boardSearch{
-	margin: auto auto;
+p{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    margin: auto;
+    position: relative;
 }
-
 </style>
 </head>
 <body>
@@ -111,12 +109,11 @@ td{
     </table>
         
     </div>
-    <div id="searchbox">
-    
-    	<input id="boardSearch" type="text">
-        <button class="searchBotton">검색</button>
-        <button class="searchBotton">선택삭제</button>
-    </div>
+    <p>
+        <input id="boardSearch" type="text">
+        <button>검색</button>
+        <button>선택삭제</button>
+    </p>
     
 </body>
 </html>
