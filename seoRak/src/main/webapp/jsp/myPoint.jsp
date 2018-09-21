@@ -9,11 +9,8 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 body,html {
   background: rgb(195, 210, 180);
-  font-family: 'Montserrat', sans-serif;
 }
-span,div,p{
-    font-family: 'Montserrat', sans-serif;
-}
+
 h1{
   text-align:center;
   color:#393939;
@@ -22,21 +19,19 @@ h1{
   margin-top:100px;
 }
 .chart {
-  font-family: Roboto;
-  border-radius:5px;
+  border-radius:20px;
   position:relative;
   min-height: 400px; 
-  
   margin: 50px auto;
   display: block;
   border:1px solid #ccc;
   border-bottom:2px solid #8B96A3;
   background: rgba(255, 255, 255, 9);
-  box-shadow: 0 0px 2px 0px #ccc;
+  
 }
 
 .chart .skills {
-	position:absolute;
+  position:absolute;
   display: flex;
   flex-direction: column; 
   height: 100%;
@@ -45,7 +40,7 @@ h1{
 }
 .chart .skills li{
   text-align:right;
-  font-size:18px;
+  font-size:15px;
   margin:5px 0px;
   color:#333;
 }
@@ -56,9 +51,9 @@ h1{
   padding:10px 0px;
 }
 .chart .bars {
-	display: flex;
+  display: flex;
   flex-direction: column;
-	position:absolute;
+  position:absolute;
   padding: 0;
   margin: 0;
   height:100%;
@@ -104,8 +99,8 @@ h1{
 
 .footer{
   position:absolute;
-  bottom:-7%; 
-  right:0px;
+  bottom:-10%; 
+  right:20px;
   color:#333;
 }
 
@@ -139,7 +134,7 @@ h1{
 @media only screen and (min-width: 1300px) {
   .chart{
    width:70%;
-    max-width:1000px;
+    max-width:700px;
  } 
   .skills{
     width: 13%;
@@ -175,12 +170,12 @@ p{
 	<div>
 		<h1>My Point</h1>
 		<hr>
-
 	</div>
 	<p id="button">
-		<input type='button' value='Refresh' /> <input type='button'
-			value='포인트 보내기' /> <input type='button' value='받은 포인트 확인하기' /> <input
-			type='button' value='포인트 랭킹' />
+		<input type='button' value='Refresh' />
+		<input type='button' value='포인트 보내기' />
+		<input type='button' value='받은 포인트 확인하기' />
+		<input type='button' value='포인트 랭킹' />
 	</p>
 	<div class="chart">
 		<div class="skills"></div>

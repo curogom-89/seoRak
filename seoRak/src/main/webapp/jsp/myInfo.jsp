@@ -363,6 +363,7 @@
 			top : 9px;
 			
 		}
+		
 		div[id="myList"]{
 			position : relative;
 			width : 73%;
@@ -461,6 +462,10 @@
 			word-break: break-all;
 			line-height:30px;
 		}
+		button{
+			position : relative;
+			left : 670px;
+		}
 	/* book ranking  */	
 	table {
 		position : relative;
@@ -505,7 +510,10 @@
 	
 	<div class="all">
 		<div id="myList">
-			<div id="title">_My Book</div>
+			<div id="title">_My Book
+				<button>서재 추가</button>
+				<button>책 추가</button>
+			</div>
 			<div id="book1">
 				<img src="../img/myBookList_a1.PNG">
 				<div id="text1">
