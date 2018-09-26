@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.serRak.repository.mapper.LoginMapper">
+
+	<resultMap id="memberMap" type="Member">
+		<result column="member_id" property="memberId" />
+		<result column="member_no" property="memberNo" />
+		<result column="member_password" property="memberPassword" />
+		<result column="member_nickname" property="memberNickname" />
+		<result column="member_grade" property="memberGrade" />
+		<result column="member_sns" property="memberSns" />
+		<result column="member_login_date" property="memberLoginDate" />
+		<result column="member_warining" property="memberWarining" />
+		<result column="member_total_point" property="memberTotalPoint" />
+		
+	</resultMap>
+
+	<insert id="signInMember" parameterType="Member">
+		insert into seorak_member(
+		member_id,
+		member_no,
+		member_password,
+		member_nickname
+		) values (
+		#{memberId},
+		s_member_no.nextval,
+		#{memberPassword},
+		#{memberNickname}
+		)
+	</insert>
+		
+	
+</mapper>
