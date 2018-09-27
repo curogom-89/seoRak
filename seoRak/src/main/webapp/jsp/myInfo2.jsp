@@ -58,7 +58,7 @@ html h2, body h2 {
     position: relative;
     z-index: 1;
     perspective: 600px;
-    left:70px;
+    left:20px;
     
 }
 #myBook #front {
@@ -83,7 +83,7 @@ html h2, body h2 {
     position: relative;
     z-index: 1;
     perspective: 600px;
-    left:100px;
+    left:-00px;
 }
 #bookRank #front {
     border-radius: 10px;
@@ -106,7 +106,7 @@ html h2, body h2 {
     position: relative;
     z-index: 1;
     perspective: 600px;
-    left:370px;
+    left:270px;
 }
 #boardList #front {
     border-radius: 10px;
@@ -128,7 +128,7 @@ html h2, body h2 {
     position: relative;
     z-index: 1;
     perspective: 600px;
-    left:400px;
+    left:250px;
 }
 #newBookList #front {
     border-radius: 10px;
@@ -146,7 +146,7 @@ html h2, body h2 {
 
 #card {
   height: 500px;
-  width: 300px;
+  width: 250px;
   /* margin: 0 auto; */
   position: relative;
   z-index: 1;
@@ -187,8 +187,8 @@ html h2, body h2 {
   background-size: cover;
 }
 #card #front #avatar {
-  width: 114px;
-  height: 114px;
+  width: 130px;
+  height: 130px;
   top: 30%;
   left: 50%;
   margin: -77px 0 0 -57px;
@@ -378,24 +378,24 @@ html h2, body h2 {
 
 
 table {
-		position : relative;
-	    border-collapse: collapse;
-	    width: 400px;
-	    height:70%;
-      left: -80px;
-      top: 90px;
-      color: white;
+	position : relative;
+	border-collapse: collapse;
+	width: 400px;
+	height:70%;
+    left: 20px;
+    top: 90px;
+    color: white;
 	}
   table[id=new_board]{
     position: relative;
-    left : -260px;
+    left : -240px;
     top : 100px;
     width: 350px;
 
   }
   table[id=hot_board]{
     float: right;
-    left : -25px;
+    left : -40px;
     width: 350px;
     top: -250px;
   }
@@ -462,7 +462,7 @@ table {
             </div>
             <div id="back">
               <div class="back-info">
-                <p>My name is Jesse Couch, and I am an award winning, intensely creative, coffee-fueled front-end web designer and developer. My style and approach are very straight-forward — I obsess about keeping things as simple as humanly possible. That's it. If you like bells and whistles for the sake of bells and whistles, look elsewhere - but if you want to remain laser-focused on the goals for your new website, it's time time to talk.</p>
+                <p>My name is Jesse Couch, and I am an award winning, intensely creative, </p>
               </div>
               <div id="social-bar">
                 <a href="javascript:void" class="more-info">
