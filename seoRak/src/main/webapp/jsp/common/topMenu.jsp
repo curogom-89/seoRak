@@ -6,9 +6,12 @@
 	<ul>
 
 		<li><a href="myInfo.jsp">home</a></li>
+		<li><a href="myPoint.jsp">포인트</a></li>
 		<li><a href="message.jsp">쪽지함</a></li>
 		<li><a href="loginForm.jsp">로그인</a></li>
 		<li><a href="#">로그아웃</a></li>
+		<li><a href="myInfo.jsp">회원님</a></li>
+		<li><a href="admin.jsp">관리자</a></li>
 		<li><a href="signUp.jsp">회원가입</a></li>
 	</ul>
 	</nav> </header>
@@ -25,6 +28,8 @@
 		<li><a href="#"><img src="../img/searchIcon.png" onclick="javascript:location.href='search.jsp'" id="searchIcon"><input id="searchBar" type="text" placeholder="도서검색"/></a></li>
 		<li class="slider"></li>
 	</ul>
+
+	
 	<script>
     var navigation = $('#nav-main').okayNav();
 	</script>
