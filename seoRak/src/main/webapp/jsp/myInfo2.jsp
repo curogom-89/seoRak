@@ -58,7 +58,9 @@ html h2, body h2 {
     position: relative;
     z-index: 1;
     perspective: 600px;
-    left:20px;
+    left:60px;
+    top : 40px;
+    border : 1px solid white;
     
 }
 #myBook #front {
@@ -66,14 +68,12 @@ html h2, body h2 {
     height: 100%;
     width: 100%;
     position: absolute;
-    left: 40px;
-    top: 40px;
     transform-style: preserve-3d;
     backface-visibility: hidden;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     background: black;
     opacity: 0.3;
-    
+    top: 0px;
 }
 
 #bookRank {
@@ -312,13 +312,12 @@ html h2, body h2 {
   }
 }
 /* table */
-
 #title_list  {
     position: relative;
     color: white;
     font-size: 40px;
-    left: 80px;
-    top: 60px;
+	left: 40px;
+    top: 20px; 
     font-weight: bold;
     
 }
@@ -374,6 +373,15 @@ html h2, body h2 {
   background: white;
   float: left;
   margin: 0px 20px 0px 0px;
+}
+button{
+	position : relative;
+	float : right;
+	display : inline;
+	margin-right : 10px;
+}
+secBack{
+
 }
 
 
@@ -477,23 +485,30 @@ table {
         </div>
 
     <!-- my List -->
+    
+   	
     <div id="content">
-        <div id="myBook">
-            <div id="title_list">My Book List</div>
-            <div id="front">
-              <div id="book_container">
-                <div id="book_img">
-                  img1
-                </div>
-                <div id="book_img">
-                  img2
-                </div>
-                <div id="book_img">
-                  img3
-                </div>     
-              </div>  
-            </div>
-        </div>
+    	<form action="http://localhost:8000/seoRak/jsp/myList.jsp">
+	    	<button>책 추가</button>
+	   		<button>내 리스트 보러가기</button>
+	        <div id="myBook">
+	            <div id="title_list">My Book List</div>
+	            <div id="front">
+	              <div id="book_container">
+	                <div id="book_img">
+	                  img1
+	                </div>
+	                <div id="book_img">
+	                  img2
+	                </div>
+	                <div id="book_img">
+	                  img3
+	                </div>
+	                <div id="secBack"></div>     
+	              </div>  
+	            </div>
+	        </div>
+        </form>
     </div>
 
     <!-- book Rank -->
