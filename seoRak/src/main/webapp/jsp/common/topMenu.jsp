@@ -5,14 +5,14 @@
 	</a> <nav role="navigation" id="nav-main" class="okayNav">
 	<ul>
 
-		<li><a href="myInfo.jsp">home</a></li>
-		<li><a href="myPoint.jsp">포인트</a></li>
-		<li><a href="message.jsp">쪽지함</a></li>
-		<li><a href="loginForm.jsp">로그인</a></li>
+		<li><a href="jsp/myInfo.jsp">home</a></li>
+		<li><a href="jsp/myPoint.jsp">포인트</a></li>
+		<li><a href="jsp/message.jsp">쪽지함</a></li>
+		<li><a href="jsp/loginForm.jsp">로그인</a></li>
 		<li><a href="#">로그아웃</a></li>
-		<li><a href="myInfo.jsp">회원님</a></li>
-		<li><a href="admin.jsp">관리자</a></li>
-		<li><a href="signUp.jsp">회원가입</a></li>
+		<li><a href="jsp/myInfo.jsp">회원님</a></li>
+		<li><a href="jsp/admin.jsp">관리자</a></li>
+		<li><a href="jsp/signUp.jsp">회원가입</a></li>
 	</ul>
 	</nav> </header>
 	<!-- /header -->

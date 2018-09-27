@@ -298,10 +298,13 @@ div.right a.facebook:hover {
 	a
 }
 </style>
+<script src="https://code.jquery.com/jquery-3.3.1.js"
+	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+	crossorigin="anonymous"></script>
 
 </head>
 <body>
-  <form action="myInfo.jsp" id="login-form" style="z-index: 5">
+  <form action="/seoRak/login/login.do" id="login-form" style="z-index: 5" onsubmit="return check()">
     <div class="heading">Login to seRock</div>
     <div class="left">
       <label for="email">Email</label> <br />
@@ -317,7 +320,7 @@ div.right a.facebook:hover {
         <span class="fontawesome-facebook">카카오로 로그인</span>
         <i class="fa fa-facebook" aria-hidden="true"></i>
       </a> <br />
-      <a href="https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=YjI86DNmOfwfD8Ah_H_c&redirect_uri=http://localhost:8000/seorak/main.do&state=ohrFfajrB1JNKDzT" class="naver">
+      <a href="https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=YjI86DNmOfwfD8Ah_H_c&redirect_uri=http://127.0.0.1:8000/seoRak/login/naver.do&state=ohrFfajrB1JNKDzT" class="naver">
         <img id="naver" src="/seoRak/img/naver.png" style="width: 220px; ">
         <!-- <i class="fa fa-twitter" aria-hidden="true">네이버로 로그인</i> -->
       </a>
@@ -345,10 +348,21 @@ div.right a.facebook:hover {
      </dir>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script>
-	var signIn = document.queryselect("#signIn")
-	signIn.addEventListener("click", function(){
-		request.redircet("signUp.jsp")
-	}))
+		function check () {
+			$.ajax({
+				type: "POST",
+				url: "/seoRak/login/login.do",
+				data : "id="+$("#email").val()+"&pass=" + $("#pass").val(),
+				success: function(data) {
+					if(data == 1) {
+						alert("이메일 혹은 비밀번호가 잘못되었습니다.")
+						return false;
+					} else {
+						;;
+					}
+				}
+			});
+		}
 	</script>
 </body>
 </html>

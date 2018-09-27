@@ -124,8 +124,7 @@ h1 {
 <body>
 	<h1>회원가입</h1>
 	<div id="title"></div>
-	<form id="signIn" action="<c:url value="/login/signUp.do"/>"
-		method="post" onsubmit="return check()">
+	<form id="signIn" action="<c:url value="/login/signUp.do"/>" method="post" onsubmit="return check()">
 		<fieldset>
 			<label for="nickName">닉네임</label> 
 			<input type="text" id="nickName" name="nickName" style="width: 85%" />

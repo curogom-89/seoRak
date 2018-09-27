@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.co.serRak.repository.mapper.LoginMapper">
+<mapper namespace="kr.co.seoRak.repository.mapper.LoginMapper">
 
 	<resultMap id="memberMap" type="Member">
 		<result column="member_id" property="memberId" />
@@ -13,7 +13,6 @@
 		<result column="member_login_date" property="memberLoginDate" />
 		<result column="member_warining" property="memberWarining" />
 		<result column="member_total_point" property="memberTotalPoint" />
-		
 	</resultMap>
 
 	<insert id="signInMember" parameterType="Member">
@@ -29,6 +28,25 @@
 		#{memberNickname}
 		)
 	</insert>
-		
+	
+	<select id="nickCheck" parameterType="string" resultMap="memberMap">
+		select *
+		from seorak_member
+		where member_nickname = #{nickName}
+	</select>
+	
+	<select id="idCheck" parameterType="string" resultMap="memberMap">
+		select *
+		from seorak_member
+		where member_id = #{id}
+	</select>
+	
+	<select id="login" parameterType="Member" resultMap="memberMap">
+		select *
+		from seorak_member
+		where member_id = #{memberId}
+		and member_password = #{memberPassword}
+	</select>
+	
 	
 </mapper>

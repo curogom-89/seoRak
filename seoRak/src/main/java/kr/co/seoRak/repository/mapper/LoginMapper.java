@@ -6,4 +6,5 @@ public interface LoginMapper {
 	int signInMember (Member member);
 	String nickCheck (String nickName);
 	String idCheck (String id);
+	Member login (Member member);
 }

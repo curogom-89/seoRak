@@ -10,7 +10,7 @@
 	
 	<!-- SQL의 결과를 담을 VO 객체들의 별칭을 설정하여 사용의 편의를 도모  -->
 	<typeAliases>
-		<typeAlias alias="Board" type="kr.co.mlec.repository.domain.Board" />
+		<typeAlias alias="Member" type="kr.co.seoRak.repository.domain.Member" />
 	</typeAliases>
 	
 	<environments default="development">
@@ -29,6 +29,6 @@
 		사용자가 직접 작성한 SQL 문장들이 들어있는 xml 파일의 위치를 알려준다.
 	 -->
 	<mappers>
-		<mapper resource="config/sqlmap/board.xml"/>
+		<mapper resource="config/sqlmap/login.xml"/>
 	</mappers>
 </configuration>
