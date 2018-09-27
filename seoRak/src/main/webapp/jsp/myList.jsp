@@ -112,10 +112,10 @@ td{
         
     </div>
     <div id="searchbox">
-    
     	<input id="boardSearch" type="text">
         <button class="searchBotton">검색</button>
         <button class="searchBotton">선택삭제</button>
+        <button class="searchBotton"><a href="myListWrite.jsp">책 추가</a></button>
     </div>
     
 </body>
