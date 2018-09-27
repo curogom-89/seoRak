@@ -180,28 +180,8 @@ div.right a.facebook:hover {
 	background: rgb(247, 247, 102, 0.8);
 }
 
-div.right a.twitter {
-	background: green;
-	-moz-transition: all 0.15s ease-in-out;
-	-o-transition: all 0.15s ease-in-out;
-	-webkit-transition: all 0.15s ease-in-out;
-	transition: all 0.15s ease-in-out;
-}
-
-div.right a.twitter:hover {
-	background: rgba(26, 139, 26, 0.8);
-}
-
-div.right a.google-plus {
-	background: #e9544f;
-	-moz-transition: all 0.15s ease-in-out;
-	-o-transition: all 0.15s ease-in-out;
-	-webkit-transition: all 0.15s ease-in-out;
-	transition: all 0.15s ease-in-out;
-}
-
-div.right a.google-plus:hover {
-	background: rgba(233, 84, 79, 0.8);
+#naver:hover {
+	opacity: 80%;
 }
 
 .bg-bubbles {
@@ -337,9 +317,9 @@ div.right a.google-plus:hover {
         <span class="fontawesome-facebook">카카오로 로그인</span>
         <i class="fa fa-facebook" aria-hidden="true"></i>
       </a> <br />
-      <a href="" class="twitter">
-        <span class="fontawesome-twitter"></span>
-        <i class="fa fa-twitter" aria-hidden="true">네이버로 로그인</i>
+      <a href="https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=YjI86DNmOfwfD8Ah_H_c&redirect_uri=http://localhost:8000/seorak/main.do&state=ohrFfajrB1JNKDzT" class="naver">
+        <img id="naver" src="/seoRak/img/naver.png" style="width: 220px; ">
+        <!-- <i class="fa fa-twitter" aria-hidden="true">네이버로 로그인</i> -->
       </a>
       <!-- <br />
       <a href="" class="google-plus">
