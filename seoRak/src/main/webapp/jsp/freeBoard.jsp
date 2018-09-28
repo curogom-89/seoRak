@@ -1,5 +1,16 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="kr.co.seoRak.repository.domain.Board"%>
+<%@page import="kr.co.seoRak.common.db.MyAppSqlConfig"%>
+<%@page import="kr.co.seoRak.repository.mapper.BoardMapper"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+<% 
+	BoardMapper mapper = MyAppSqlConfig.getSqlSessionInstance().getMapper(BoardMapper.class);
+	List<Board> list = mapper.selectAllBoard();
+
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -115,6 +126,10 @@ body {
 /*--------------------------------------------------top bar----------------------------------------------------------------------------*/
 
 </style>
+<script src="https://code.jquery.com/jquery-3.3.1.js"
+	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+	crossorigin="anonymous"></script>
+
 </head>
 <body>
 <%@include file="topList.jsp" %>
@@ -131,50 +146,40 @@ body {
 			<div class="cell">제목</div>
 			<div class="cell">작성자</div>
 			<div class="cell">추천서적</div>
-			<div class="cell">별점</div>
 			<div class="cell">추천수</div>
 			<div class="cell">조회수</div>
 			<div class="cell">작성일</div>
 		</div>
-
+		
+		<%for (Board b : list) {%>
+		
 		<div class="row">
-			<div class="cell" data-title="Username">1</div>
-			<div class="cell" data-title="Email">추천</div>
-			<div class="cell" data-title="Password">오늘 점심</div>
-			<div class="cell" data-title="Active">신득수</div>
-			<div class="cell" data-title="Active">오늘만 산다</div>
-			<div class="cell" data-title="Active">3</div>
-			<div class="cell" data-title="Active">22</div>
-			<div class="cell" data-title="Active">50</div>
-			<div class="cell" data-title="Active">2018-09-13</div>
+			<div class="cell" ><%=b.getBoardNo()%></div>
+			<div class="cell" ><%=b.getBoardCategory()%></div>
+			<div class="cell" ><%=b.getBoardTitle() %></div>
+			<div class="cell" ><%=b.getBoardWriter() %></div>
+			<div class="cell" >추천서적</div>
+			<div class="cell" >추천수</div>
+			<div class="cell" >조회수</div>
+			<%
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			String boardDate = sdf.format(b.getBoardDate());
+			%>
+			<div class="cell" ><%=boardDate%></div>
 		</div>
-
-		<div class="row">
-			<div class="cell" data-title="Username">2</div>
-			<div class="cell" data-title="Email">자유</div>
-			<div class="cell" data-title="Password">내일아침</div>
-			<div class="cell" data-title="Active">방진웅</div>
-			<div class="cell" data-title="Active">이것이 자바다</div>
-			<div class="cell" data-title="Active">5</div>
-			<div class="cell" data-title="Active">50</div>
-			<div class="cell" data-title="Active">50</div>
-			<div class="cell" data-title="Active">2018-09-13</div>
-		</div>
-
-		<div class="row">
-			<div class="cell" data-title="Username">3</div>
-			<div class="cell" data-title="Email">비평</div>
-			<div class="cell" data-title="Password">내일 저녁</div>
-			<div class="cell" data-title="Active">최창유</div>
-			<div class="cell" data-title="Active">자바의 정석</div>
-			<div class="cell" data-title="Active">5</div>
-			<div class="cell" data-title="Active">80</div>
-			<div class="cell" data-title="Active">200</div>
-			<div class="cell" data-title="Active">2018-09-13</div>
-		</div>
+			
+		<% } %>
+		
 	</div>
 	<button type="button" id="write">글쓰기</button>
-	<button type="button" id="re">수정</button>
+	<button type="button" id="update">수정</button>
+	
+	<script type="text/javascript">
+		$("#write").click(function() {
+			window.location.replace("/seoRak/jsp/boardwrite.jsp");
+			
+		})
+	</script>
 
 </body>
 </html>

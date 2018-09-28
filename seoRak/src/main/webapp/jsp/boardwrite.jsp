@@ -24,25 +24,29 @@ table {
 	margin-left: 65%;
 }
 </style>
+<script src="https://code.jquery.com/jquery-3.3.1.js"
+	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+	crossorigin="anonymous"></script>
 </head>
+
 <body>
 <%@include file="topList.jsp" %>
 	<h2>글쓰기</h2>
 	<hr>
 	<div>
-		<form>
+		<form action="/seoRak/board/writer.do" method="post" id="writeForm">
 			<table>
 				<tr>
-					<td><select name="cho" id="cho">
-							<option value="">선택</option>
-							<option value="">추천</option>
-							<option value="">비평</option>
-							<option value="">자유</option>
+					<td><select name="category" id="category">
+							<option value="0">선택</option>
+							<option value="추천">추천</option>
+							<option value="비평">비평</option>
+							<option value="자유">자유</option>
 					</select></td>
 					<td><input type="text" name="title" id="title" size="100"
 						placeholder="제목을 입력하세요"></td>
 					<td rowspan="5">
-						<button type="submit" name="search" id="search">도서검색</button>
+						<button type="button" name="search" id="search">도서검색</button>
 					</td>
 				</tr>
 				<tr>
@@ -57,11 +61,15 @@ table {
 						size="100" placeholder="출판사"></td>
 				</tr>
 				<tr>
+					<td><input type="text" name="writer" id="writer"
+						size="100" placeholder="작성자"></td>
+				</tr>
+				<tr>
 					<td><input type="text" name="author" id="author" size="100"
 						placeholder="저자"></td>
 				</tr>
 				<tr>
-					<td colspan="3"><textarea name="" id="" cols="110" rows="10"></textarea>
+					<td colspan="3"><textarea name="content" id="content" cols="110" rows="10"></textarea>
 					</td>
 				</tr>
 			</table>
@@ -69,11 +77,17 @@ table {
 			<input type="file" name="attach" id="file" />
 			<hr>
 			<!-- file : <input type="file" name="attach" /> -->
-			<button name="btn1" type="submit" id="btn1"><a href="freeBoard.jsp">목록으로</a></button>
-			<button name="btn2" type="submit" id="btn2"><a href="freeBoard.jsp">작성</a></button>
-			<button name="btn3" type="submit" id="btn3">삭제</button>
+			<button name="btn1" type="button" id="btn1"><a href="freeBoard.jsp">목록으로</a></button>
+			<button name="btn2" type="button" id="btn2"><a href="#">작성</a></button>
+			<button name="btn3" type="button" id="btn3">삭제</button>
 		</form>
 	</div>
+	
+	<script type="text/javascript">
+		$("#btn2").click(function () {
+			$("#writeForm").submit()
+		})
+	</script>
 
 </body>
 </html>

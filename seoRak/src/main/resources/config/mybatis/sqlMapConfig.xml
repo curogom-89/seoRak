@@ -11,6 +11,7 @@
 	<!-- SQL의 결과를 담을 VO 객체들의 별칭을 설정하여 사용의 편의를 도모  -->
 	<typeAliases>
 		<typeAlias alias="Member" type="kr.co.seoRak.repository.domain.Member" />
+		<typeAlias alias="Board" type="kr.co.seoRak.repository.domain.Board"/>
 	</typeAliases>
 	
 	<environments default="development">
@@ -31,5 +32,6 @@
 	<mappers>
 		<mapper resource="config/sqlmap/login.xml"/>
 		<mapper resource="config/sqlmap/admin.xml"/>
+		<mapper resource="config/sqlmap/board.xml"/>
 	</mappers>
 </configuration>
