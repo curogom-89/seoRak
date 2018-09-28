@@ -311,7 +311,7 @@ div.right a.facebook:hover {
 			alert("아이디 혹은 비밀번호가 일치하지 않습니다.")
 		</script>
 	</c:if>
-  <form action="/seoRak/login/login.do" id="login-form" style="z-index: 5" method="post">
+  <form action="<c:url value='/login/login.do'/>" id="login-form" style="z-index: 5" method="post">
     <div class="heading">Login to seRock</div>
     <div class="left">
       <label for="email">Email</label> <br />
@@ -319,7 +319,7 @@ div.right a.facebook:hover {
       <label for="pass">Password</label> <br />
       <input type="password" name="password" id="pass" /> <br />
   	  <input type="submit"  value="Login" />
-      <a href="signUp.jsp"><input id="signIn" type="button"  value="Sign-In" /></a>
+      <a href="<c:url value="signUp.jsp"/>"><input id="signIn" type="button"  value="Sign-In" /></a>
     </div>
     <div class="right">
       <div class="connect">Connect with</div>
@@ -328,7 +328,7 @@ div.right a.facebook:hover {
         <i class="fa fa-facebook" aria-hidden="true"></i>
       </a> <br />
       <a href="https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=YjI86DNmOfwfD8Ah_H_c&redirect_uri=http://127.0.0.1:8000/seoRak/login/naver.do&state=ohrFfajrB1JNKDzT" class="naver">
-        <img id="naver" src="/seoRak/img/naver.png" style="width: 220px; ">
+        <img id="naver" src="<c:url value='/img/naver.png'/>" style="width: 220px; ">
         <!-- <i class="fa fa-twitter" aria-hidden="true">네이버로 로그인</i> -->
       </a>
       <!-- <br />
@@ -341,7 +341,7 @@ div.right a.facebook:hover {
   </form>  
   <dir id="bubble">
       <ul class="bg-bubbles" style="z-index: 1">
-        <li><img src="../img/myBookList_a1.PNG"> 1</li>
+        <li><img src="<c:url value='/img/myBookList_a1.PNG'/>"> 1</li>
         <li>2</li>
         <li>3</li>
         <li>4</li>

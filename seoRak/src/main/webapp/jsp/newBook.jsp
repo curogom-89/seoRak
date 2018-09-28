@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -154,7 +155,7 @@ color:#326295;
             <tbody>
              <tr>
                
-                <td><img src="https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914"/></td>
+                <td><img src="<c:url value='https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914'/>"/></td>
                 <td>돌이킬 수 없는 약속</td>
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
@@ -163,7 +164,7 @@ color:#326295;
             </tr>
              <tr>
                
-                <td><img src="https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914"/></td>
+                <td><img src="<c:url value='https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914'/>"/></td>
                 <td>돌이킬 수 없는 약속</td>
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
@@ -172,7 +173,7 @@ color:#326295;
             </tr>
              <tr>
                 
-                <td><img src="https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914"/></td>
+                <td><img src="<c:url value='https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914'/>"/></td>
                 <td>돌이킬 수 없는 약속</td>
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
@@ -181,7 +182,7 @@ color:#326295;
             </tr>
              <tr>
                 
-                <td><img src="https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914"/></td>
+                <td><img src="<c:url value='https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914'/>"/></td>
                 <td>돌이킬 수 없는 약속</td>
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
@@ -190,7 +191,7 @@ color:#326295;
             </tr>
             <tr>
                 
-                <td><img src="https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914"/></td>
+                <td><img src="<c:url value='https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914'/>"/></td>
                 <td>돌이킬 수 없는 약속</td>
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
@@ -199,7 +200,7 @@ color:#326295;
             </tr>
              <tr>
                 
-                <td><img src="https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914"/></td>
+                <td><img src="<c:url value='https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914'/>"/></td>
                 <td>돌이킬 수 없는 약속</td>
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
@@ -208,7 +209,7 @@ color:#326295;
             </tr>
              <tr>
                
-                <td><img src="https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914"/></td>
+                <td><img src="<c:url value='https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914'/>"/></td>
                 <td>돌이킬 수 없는 약속</td>
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
@@ -217,7 +218,7 @@ color:#326295;
             </tr>
              <tr>
               
-                <td><img src="https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914"/></td>
+                <td><img src="<c:url value='https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914'/>"/></td>
                 <td>돌이킬 수 없는 약속</td>
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
@@ -226,7 +227,7 @@ color:#326295;
             </tr>
              <tr>
                 
-                <td><img src="https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914"/></td>
+                <td><img src="<c:url value='https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914'/>"/></td>
                 <td>돌이킬 수 없는 약속</td>
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
@@ -235,7 +236,7 @@ color:#326295;
             </tr>
              <tr>
                
-                <td><img src="https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914"/></td>
+                <td><img src="<c:url value='https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914'/>"/></td>
                 <td>돌이킬 수 없는 약속</td>
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
@@ -244,7 +245,7 @@ color:#326295;
             </tr>
              <tr>
               
-                <td><img src="https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914"/></td>
+                <td><img src="<c:url value='https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914'/>"/></td>
                 <td>돌이킬 수 없는 약속</td>
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
@@ -283,7 +284,7 @@ color:#326295;
             <tbody>
              <tr>
                 <td>1</td>
-                <td><img src="https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914"/></td>
+                <td><img src="<c:url value='https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914'/>"/></td>
                 <td>돌이킬 수 없는 약속</td>
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
@@ -292,7 +293,7 @@ color:#326295;
             </tr>
              <tr>
                 <td>2</td>
-                <td><img src="https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914"/></td>
+                <td><img src="<c:url value='https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914'/>"/></td>
                 <td>돌이킬 수 없는 약속</td>
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
@@ -301,7 +302,7 @@ color:#326295;
             </tr>
              <tr>
                 <td>3</td>
-                <td><img src="https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914"/></td>
+                <td><img src="<c:url value='https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914'/>"/></td>
                 <td>돌이킬 수 없는 약속</td>
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
@@ -310,7 +311,7 @@ color:#326295;
             </tr>
              <tr>
                 <td>4</td>
-                <td><img src="https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914"/></td>
+                <td><img src="<c:url value='https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914'/>"/></td>
                 <td>돌이킬 수 없는 약속</td>
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
@@ -319,7 +320,7 @@ color:#326295;
             </tr>
             <tr>
                 <td>5</td>
-                <td><img src="https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914"/></td>
+                <td><img src="<c:url value='https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914'/>"/></td>
                 <td>돌이킬 수 없는 약속</td>
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
@@ -328,7 +329,7 @@ color:#326295;
             </tr>
              <tr>
                 <td>6</td>
-                <td><img src="https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914"/></td>
+                <td><img src="<c:url value='https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914'/>"/></td>
                 <td>돌이킬 수 없는 약속</td>
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
@@ -337,7 +338,7 @@ color:#326295;
             </tr>
              <tr>
                 <td>6</td>
-                <td><img src="https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914"/></td>
+                <td><img src="<c:url value='https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914'/>"/></td>
                 <td>돌이킬 수 없는 약속</td>
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
@@ -346,7 +347,7 @@ color:#326295;
             </tr>
              <tr>
                 <td>7</td>
-                <td><img src="https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914"/></td>
+                <td><img src="<c:url value='https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914'/>"/></td>
                 <td>돌이킬 수 없는 약속</td>
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
@@ -355,7 +356,7 @@ color:#326295;
             </tr>
              <tr>
                 <td>8</td>
-                <td><img src="https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914"/></td>
+                <td><img src="<c:url value='https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914'/>"/></td>
                 <td>돌이킬 수 없는 약속</td>
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
@@ -364,7 +365,7 @@ color:#326295;
             </tr>
              <tr>
                 <td>9</td>
-                <td><img src="https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914"/></td>
+                <td><img src="<c:url value='https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914'/>"/></td>
                 <td>돌이킬 수 없는 약속</td>
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>
@@ -373,7 +374,7 @@ color:#326295;
             </tr>
              <tr>
                 <td>10</td>
-                <td><img src="https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914"/></td>
+                <td><img src="<c:url value='https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914'/>"/></td>
                 <td>돌이킬 수 없는 약속</td>
                 <td>출판사</td>
                 <td>야쿠마루 가쿠 저</td>

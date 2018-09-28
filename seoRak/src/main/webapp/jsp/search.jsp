@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -80,7 +81,7 @@
           <li>
               <a href="#" class="inner">
                   <div class="li-img">
-                     <img src="../img/myBookList_a1.PNG">
+                  	 <img src="<c:url value='/img/myBookList_a1.PNG'/>"/>
                   </div>
                   <div class="li-text">
                       <h4 class="li-head">Title of More Content</h4>
@@ -91,7 +92,38 @@
           <li>
               <a href="#" class="inner">
                   <div class="li-img">
-                    <img src="../img/myBookList_a1.PNG">
+                	 <img src="<c:url value='/img/myBookList_a1.PNG'/>"/>                  </div>
+                  <div class="li-text">
+                      <h4 class="li-head">Title of Even More Content</h4>
+                      <p class="li-sub">Summary of even more content</p>
+                  </div>
+              </a>
+          </li>
+          <li>
+              <a href="#" class="inner">
+                  <div class="li-img">
+                	 <img src="<c:url value='/img/myBookList_a1.PNG'/>"/>           </div>
+                  <div class="li-text">
+                      <h4 class="li-head">Title of Content</h4>
+                      <p class="li-sub">Summary of content</p>
+                  </div>
+              </a>
+          </li>
+          <li>
+              <a href="#" class="inner">
+                  <div class="li-img">
+                 	 <img src="<c:url value='/img/myBookList_a1.PNG'/>"/>
+                  </div>
+                  <div class="li-text">
+                      <h4 class="li-head">Title of More Content</h4>
+                      <p class="li-sub">Summary of more content</p>
+                  </div>
+              </a>
+          </li>
+          <li>
+              <a href="#" class="inner">
+                  <div class="li-img">
+              	 <img src="<c:url value='/img/myBookList_a1.PNG'/>"/>
                   </div>
                   <div class="li-text">
                       <h4 class="li-head">Title of Even More Content</h4>
@@ -102,7 +134,8 @@
           <li>
               <a href="#" class="inner">
                   <div class="li-img">
-                    <img src="../img/myBookList_a1.PNG">                  </div>
+                 	 <img src="<c:url value='/img/myBookList_a1.PNG'/>"/>
+                  </div>
                   <div class="li-text">
                       <h4 class="li-head">Title of Content</h4>
                       <p class="li-sub">Summary of content</p>
@@ -112,11 +145,22 @@
           <li>
               <a href="#" class="inner">
                   <div class="li-img">
-                    <img src="../img/myBookList_a1.PNG">
+                	 <img src="<c:url value='/img/myBookList_a1.PNG'/>"/>
                   </div>
                   <div class="li-text">
                       <h4 class="li-head">Title of More Content</h4>
                       <p class="li-sub">Summary of more content</p>
+                  </div>
+              </a>
+          </li>
+          <li>
+              <a href="#" class="inner">
+                  <div class="li-img">
+                 		 <img src="<c:url value='/img/myBookList_a1.PNG'/>"/>
+                  </div>
+                  <div class="li-text">
+                      <h4 class="li-head">Title of Even More Content</h4>
+                      <p class="li-sub">Summary of even more content</p>
                   </div>
               </a>
           </li>
@@ -126,17 +170,6 @@
                  <img src="../img/myBookList_a1.PNG">
                   </div>
                   <div class="li-text">
-                      <h4 class="li-head">Title of Even More Content</h4>
-                      <p class="li-sub">Summary of even more content</p>
-                  </div>
-              </a>
-          </li>
-          <li>
-              <a href="#" class="inner">
-                  <div class="li-img">
-                  <img src="../img/myBookList_a1.PNG">
-                  </div>
-                  <div class="li-text">
                       <h4 class="li-head">Title of Content</h4>
                       <p class="li-sub">Summary of content</p>
                   </div>
@@ -145,8 +178,7 @@
           <li>
               <a href="#" class="inner">
                   <div class="li-img">
-                  <img src="../img/myBookList_a1.PNG">
-                  </div>
+                  	 <img src="<c:url value='/img/myBookList_a1.PNG'/>"/>     </div>
                   <div class="li-text">
                       <h4 class="li-head">Title of More Content</h4>
                       <p class="li-sub">Summary of more content</p>
@@ -156,39 +188,7 @@
           <li>
               <a href="#" class="inner">
                   <div class="li-img">
-                    <img src="../img/myBookList_a1.PNG">
-                  </div>
-                  <div class="li-text">
-                      <h4 class="li-head">Title of Even More Content</h4>
-                      <p class="li-sub">Summary of even more content</p>
-                  </div>
-              </a>
-          </li>
-          <li>
-              <a href="#" class="inner">
-                  <div class="li-img">
-                 <img src="../img/myBookList_a1.PNG">
-                  </div>
-                  <div class="li-text">
-                      <h4 class="li-head">Title of Content</h4>
-                      <p class="li-sub">Summary of content</p>
-                  </div>
-              </a>
-          </li>
-          <li>
-              <a href="#" class="inner">
-                  <div class="li-img">
-                   <img src="../img/myBookList_a1.PNG">                  </div>
-                  <div class="li-text">
-                      <h4 class="li-head">Title of More Content</h4>
-                      <p class="li-sub">Summary of more content</p>
-                  </div>
-              </a>
-          </li>
-          <li>
-              <a href="#" class="inner">
-                  <div class="li-img">
-                  <img src="../img/myBookList_a1.PNG">                  </div>
+              	 <img src="<c:url value='/img/myBookList_a1.PNG'/>"/>           </div>
                   <div class="li-text">
                       <h4 class="li-head">Title of Even More Content</h4>
                       <p class="li-sub">Summary of even more content</p>

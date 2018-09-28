@@ -76,14 +76,14 @@
 <h2>seoRak</h2>
 </div>
 <div id="out">
-<img src="../img/bookbook.JPG" id="mama"/>
+<img src="<c:url value='/img/bookbook.JPG'/>" id="mama"/>
 </div><br>
 <div id="loging">
-	<form action="/seoRak/login/login.do" id="login" method="post">
+	<form action="<c:url value="/login/login.do"/>" id="login" method="post">
 	<span><a>E-mail: <input type="text" name="email"></a></span>
 	<span><a>Password: <input type="password" name="password"></a></span> 
 	<span class="log"><a class="button" id="submit" href="#" /> 로그인 </a></span>
-	<span class="sig"><a class="button" href="signUp.jsp"> 회원가입</a></span>
+	<span class="sig"><a class="button" href="<c:url value=" signUp.jsp"/>"> 회원가입</a></span>
 	</form>
 </div>
     <script>

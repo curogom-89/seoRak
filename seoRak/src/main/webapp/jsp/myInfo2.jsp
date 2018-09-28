@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,7 +15,7 @@
 		/* my info */
 * {
   box-sizing: border-box;
-  transition: .5s ease-in-out;
+  transition: 1s ease-in-out;
 }
 
 html, body {
@@ -43,7 +44,7 @@ html h2, body h2 {
 
 #wrapper.loaded {
   opacity: 1;
-  transition: 2.5s ease-in-out;
+  transition: 1s ease-in-out;
 }
 #wrapper #content {
   display: table-cell;
@@ -229,7 +230,7 @@ html h2, body h2 {
 #card #front #social-bar a:hover {
   color: rgb(0, 3, 172);
   background: rgba(255, 255, 255, 0.3);
-  transition: .25s ease-in-out;
+  transition: 1s ease-in-out;
 }
 #card #back {
   transform: rotateY(180deg);
@@ -265,7 +266,7 @@ html h2, body h2 {
 #card #back #social-bar a:hover {
   color: #450300;
   background: rgba(223, 74, 66, 0.5);
-  transition: .25s ease-in-out;
+  transition: 1s ease-in-out;
 }
 #card .info {
   display: table-cell;
@@ -422,7 +423,7 @@ table {
 		/* background-color: #2ea879; */
 	}
 	tbody tr:nth-child(2n-1) {
-	    transition: all .125s ease-in-out;
+	    transition: all 1s ease-in-out;
 	}
 	tbody tr:hover {
 	    background-color: rgba(50,98,149,.3);
@@ -457,7 +458,7 @@ table {
                   <h1>User ID</h1>
                   <h2>User NickName</h2>
                   <h2>저장 가능 서재 수량</h2>
-                  <h2><a href="myPoint.jsp" id="popoz">포인트</a></h2>
+                  <h2><a href="<c:url value='myPoint.jsp'/>" id="popoz">포인트</a></h2>
                 </div>
               </div>
               <div id="social-bar">

@@ -9,12 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/main.do")
+@WebServlet("/jsp/main.do")
 public class Main extends HttpServlet{
 
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-		RequestDispatcher rd = request.getRequestDispatcher("/jsp/topList.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/jsp/myInfo2.jsp");
 		
 		rd.forward(request, response);
 	}

@@ -46,8 +46,7 @@ public class LoginController extends HttpServlet {
 			
 			HttpSession session = request.getSession();
 			session.setAttribute("user", loginMember);
-			
-			response.sendRedirect("/seoRak/main.do");
+			response.sendRedirect("/seoRak/jsp/main.do");
 		} else {
 			RequestDispatcher rd = request.getRequestDispatcher("/jsp/loginForm.jsp");
 			request.setAttribute("unmatch", true);
