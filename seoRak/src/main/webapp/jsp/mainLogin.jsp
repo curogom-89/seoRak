@@ -30,14 +30,14 @@
 	background:rgba(250, 240, 240, 0.4);
 	margin-left: 350px;
 	}
-	a{
+	.button{
 	font-size: 16px;
 	}
-	a:link{
+	.button:link{
 	text-decoration: none; 
 	color: rgb(255,255,255);
 	}
-	a:hover{
+	.button:hover{
 	color: black;
 	}
 	span{
@@ -56,20 +56,40 @@
 	background:rgb(180, 180, 235);
 	line-height: 50px;
 	}
-
+	
+	h2{
+	transition: color 200ms cubic-bezier(.55, 0, .1, 1);
+	color: #30acff;
+	font-size: 4rem;
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
+	}
 </style>
+
+<script src="https://code.jquery.com/jquery-3.3.1.js"
+	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+	crossorigin="anonymous"></script>
+
 </head>
 <body>
-
-<div>
+<h2>seoRak</h2>
+</div>
+<div id="out">
 <img src="../img/bookbook.JPG" id="mama"/>
 </div><br>
 <div id="loging">
-	<span><a>E-mail: <input type="text"></a></span>
-	<span><a>Password: <input type="password"></a></span> 
-	<span class="log"><a href="<c:url value="myInfo2.jsp" />"> 로그인 </a></span>
-	<span class="sig"><a href="signUp.jsp"> 회원가입</a></span>
+	<form action="/seoRak/login/login.do" id="login" method="post">
+	<span><a>E-mail: <input type="text" name="email"></a></span>
+	<span><a>Password: <input type="password" name="password"></a></span> 
+	<span class="log"><a class="button" id="submit" href="#" /> 로그인 </a></span>
+	<span class="sig"><a class="button" href="signUp.jsp"> 회원가입</a></span>
+	</form>
 </div>
-    
+    <script>
+    	$("#submit").click(function() {
+    		$("#login").submit()
+    	});
+    </script>
 </body>
 </html>
