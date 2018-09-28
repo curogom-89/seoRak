@@ -21,7 +21,6 @@ html, body {
   background-color: rgba(45, 49, 255, 0.7);
   height: 100%;
 
-  font-family: helvetica neue,helvetica,arial,sans-serif;
 }
 html h1, body h1 {
   font-size: 25px;
@@ -58,9 +57,7 @@ html h2, body h2 {
     position: relative;
     z-index: 1;
     perspective: 600px;
-    left:60px;
-    top : 40px;
-    border : 1px solid white;
+    left:20px;
     
 }
 #myBook #front {
@@ -68,12 +65,14 @@ html h2, body h2 {
     height: 100%;
     width: 100%;
     position: absolute;
+    left: 40px;
+    top: 40px;
     transform-style: preserve-3d;
     backface-visibility: hidden;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     background: black;
     opacity: 0.3;
-    top: 0px;
+    
 }
 
 #bookRank {
@@ -312,12 +311,13 @@ html h2, body h2 {
   }
 }
 /* table */
+
 #title_list  {
     position: relative;
     color: white;
     font-size: 40px;
-	left: 40px;
-    top: 20px; 
+    left: 80px;
+    top: 60px;
     font-weight: bold;
     
 }
@@ -373,15 +373,6 @@ html h2, body h2 {
   background: white;
   float: left;
   margin: 0px 20px 0px 0px;
-}
-button{
-	position : relative;
-	float : right;
-	display : inline;
-	margin-right : 10px;
-}
-secBack{
-
 }
 
 
@@ -440,6 +431,14 @@ table {
 	td.rank {
 		text-transform: capitalize;
 	}
+	#popoz{
+	text-decoration: none;
+	
+	color:  rgb(0,0,170);
+	}
+	#popoz:hover{
+	text-decoration: none;
+	}
 	</style>
 </head>
 
@@ -458,7 +457,7 @@ table {
                   <h1>User ID</h1>
                   <h2>User NickName</h2>
                   <h2>저장 가능 서재 수량</h2>
-                  <h2>포인트</h2>
+                  <h2><a href="myPoint.jsp" id="popoz">포인트</a></h2>
                 </div>
               </div>
               <div id="social-bar">
@@ -485,30 +484,23 @@ table {
         </div>
 
     <!-- my List -->
-    
-   	
     <div id="content">
-    	<form action="http://localhost:8000/seoRak/jsp/myList.jsp">
-	    	<button>책 추가</button>
-	   		<button>내 리스트 보러가기</button>
-	        <div id="myBook">
-	            <div id="title_list">My Book List</div>
-	            <div id="front">
-	              <div id="book_container">
-	                <div id="book_img">
-	                  img1
-	                </div>
-	                <div id="book_img">
-	                  img2
-	                </div>
-	                <div id="book_img">
-	                  img3
-	                </div>
-	                <div id="secBack"></div>     
-	              </div>  
-	            </div>
-	        </div>
-        </form>
+        <div id="myBook">
+            <div id="title_list">My Book List</div>
+            <div id="front">
+              <div id="book_container">
+                <div id="book_img">
+                  img1
+                </div>
+                <div id="book_img">
+                  img2
+                </div>
+                <div id="book_img">
+                  img3
+                </div>     
+              </div>  
+            </div>
+        </div>
     </div>
 
     <!-- book Rank -->
