@@ -6,13 +6,21 @@
 	<ul>
 
 		<li><a href="jsp/myInfo.jsp">home</a></li>
-		<li><a href="jsp/myPoint.jsp">포인트</a></li>
-		<li><a href="jsp/message.jsp">쪽지함</a></li>
-		<li><a href="jsp/loginForm.jsp">로그인</a></li>
-		<li><a href="#">로그아웃</a></li>
-		<li><a href="jsp/myInfo.jsp">회원님</a></li>
-		<li><a href="jsp/admin.jsp">관리자</a></li>
-		<li><a href="jsp/signUp.jsp">회원가입</a></li>
+		<c:choose>
+			<c:when test="${empty user}">
+				<li><a href="jsp/loginForm.jsp">로그인</a></li>
+				<li><a href="jsp/signUp.jsp">회원가입</a></li>
+			</c:when>
+			<c:otherwise>
+				<li><a href="jsp/myPoint.jsp">포인트</a></li>
+				<li><a href="jsp/message.jsp">쪽지함</a></li>
+				<li><a href="jsp/myInfo.jsp">${user.memberNickname }</a></li>	
+				<li><a href='<c:url value="/login/logout.do" />'>로그아웃</a></li>
+			</c:otherwise>
+		</c:choose>
+		<c:if test="${user.memberGrade } == 'admin'">
+			<li><a href="jsp/admin.jsp">관리자</a></li>
+		</c:if>
 	</ul>
 	</nav> </header>
 	<!-- /header -->
