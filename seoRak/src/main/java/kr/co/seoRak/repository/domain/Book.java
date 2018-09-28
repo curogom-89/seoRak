@@ -1,4 +1,4 @@
-package kr.co.serRak.repository.domain;
+package kr.co.seoRak.repository.domain;
 
 public class Book {
 	String title;

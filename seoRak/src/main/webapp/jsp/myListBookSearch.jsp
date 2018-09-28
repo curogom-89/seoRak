@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>
+<%@ page import="kr.co.seoRak.repository.domain.Book" %>    
+<% 
+	List<Book> list = (List<Book>)request.getAttribute("list");
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -94,7 +99,7 @@
 		table {
 			position : relative;
 			border-collapse: collapse;
-			width: 400px;
+			width: 800px;
 			height:70%;
 		    left: 0%;
 		    top: 0px;
@@ -103,15 +108,15 @@
 		th {
 		   /* background-color: #27ae60; */
 		    white-space: nowrap;
-	        font-size: 20px;
+	        font-size: 30px;
 	        color:rgb(156, 156, 156);
+	        border-bottom: 1px solid rgb(156, 156, 156);
 		}
 		td {
 	        font-size: 10px;
 	    }
 		td, th {
 		    text-align: center;
-	        /* color: white; */
 	  	}
 		tbody th {
 			/* background-color: #2ea879; */
@@ -135,7 +140,7 @@
 		</div>
 	</center>
 	<hr>
-	<form class="search-form" action="myList/Search.do">
+	<form class="search-form" action="/seoRak/jsp/myList/Search.do">
 		<select class="search-select" name="detail">
 			<option value="1">제목</option>
 			<option value="2">출판사</option>
@@ -164,7 +169,6 @@
 	</script>	
 	<p>
 	</p>
-	<hr>
 	<center>
 	<table id="new_book_list">
                  <thead>
@@ -177,8 +181,30 @@
                       </tr>
                  </thead>
                  <tbody>
+                 	<%
+                 	if(list != null){
+                 		for(Book b : list){
+							int no = list.indexOf(b);
+	                 	    String img = b.getImage();
+                 	%>
+                 	  <tr>
+                 	  	<td> <%= no+1 %> </td>
+                        <td><img src="<%= img %>"/></td>
+                        <td onclick="addBook()"><a href=""> <%= b.getTitle() %> </a></td>
+                        <td> <%= b.getPublisher() %> </td>
+                        <td> <%= b.getAuthor() %> </td>
+                      </tr>
+                 	<%		
+		                	}
+		                }
+                 	%>
 	         	</tbody>
 	         </table>
          </center>
+         <script>
+         	function addBook(no){
+         		alert(no);
+         	}
+         </script>
 </body>
 </html>

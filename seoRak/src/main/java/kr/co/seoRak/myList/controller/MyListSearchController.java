@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
-import kr.co.serRak.repository.domain.Book;
-import kr.co.serRak.repository.domain.Items;
+import kr.co.seoRak.repository.domain.Book;
+import kr.co.seoRak.repository.domain.Items;
 
 @WebServlet("/jsp/myList/Search.do")
 public class MyListSearchController extends HttpServlet{
@@ -37,7 +37,7 @@ public class MyListSearchController extends HttpServlet{
 		}
 		request.setAttribute("list", list);
 		// http://localhost:8000/seoRak/jsp/myListBookSearch.jsp
-		RequestDispatcher rd = request.getRequestDispatcher("/jsp/myListBookSearch2.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/jsp/myListBookSearch.jsp");
 		rd.forward(request, response);
 	}
 	
@@ -70,7 +70,6 @@ public class MyListSearchController extends HttpServlet{
 			Items items = gson.fromJson(br, Items.class);
 			
 			List<Book> list = items.getItems();
-			
 			
 			return list;
 			

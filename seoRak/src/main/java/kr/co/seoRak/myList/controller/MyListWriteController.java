@@ -22,9 +22,6 @@ public class MyListWriteController extends HttpServlet {
 		
 		System.out.println(request.getContextPath());
 		
-		
-				
-		
 	}
 
 	

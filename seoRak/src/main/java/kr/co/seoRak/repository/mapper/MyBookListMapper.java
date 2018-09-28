@@ -1,6 +1,6 @@
-package kr.co.serRak.repository.mapper;
+package kr.co.seoRak.repository.mapper;
 
-import kr.co.serRak.repository.domain.MyBookList;
+import kr.co.seoRak.repository.domain.MyBookList;
 
 public interface MyBookListMapper {
 	void insertMyBookList(MyBookList mBookList);
