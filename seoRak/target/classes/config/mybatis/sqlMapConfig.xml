@@ -30,5 +30,6 @@
 	 -->
 	<mappers>
 		<mapper resource="config/sqlmap/login.xml"/>
+		<mapper resource="config/sqlmap/admin.xml"/>
 	</mappers>
 </configuration>

@@ -1,5 +1,11 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="kr.co.seoRak.repository.domain.Member"%>
+<%@page import="kr.co.seoRak.common.db.MyAppSqlConfig"%>
+<%@page import="java.util.List"%>
+<%@page import="kr.co.seoRak.repository.mapper.AdminMapper"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -44,7 +50,10 @@
     }
 
   </style>
-
+<% 
+	AdminMapper mapper = MyAppSqlConfig.getSqlSessionInstance().getMapper(AdminMapper.class); 
+	List<Member> list = mapper.memberAll();
+%>
 </head>
 <body>
 	<%@include file="topList.jsp"   %>
@@ -108,86 +117,26 @@
     <table style="margin-left: auto; margin-right: auto; margin-bottom: 20px">
         <thead>
           <tr>
-            <th>
-              번호
-            </th>
-            <th>
-              ID
-            </th>
-            <th>
-              이름
-            </th>
-            <th>
-              등급
-            </th>
-            <th>
-              포인트
-            </th>
-            <th>
-              누적 경고
-            </th>
-            <th>
-              가입일
-            </th>
-            <th>
-              최근 로그인 시간
-            </th>
+            <th>번호</th><th>ID</th><th>닉네임</th><th>등급</th><th>포인트</th><th>누적 경고</th><th>최근 로그인 시간</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>
-              1
-            </td>
-            <td>
-              user1  
-            </td>
-            <td>
-              신고자1
-            </td>
-            <td>
-              골드
-            </td>
-            <td>
-              800
-            </td>
-            <td>
-              0
-            </td>
-            <td>
-              2018-06-28
-            </td>
-            <td>
-              2018-09-13 16:19
-            </td>
-          </tr>
-          <tr>
-            <td>
-              2
-            </td>
-            <td>
-              user1  
-            </td>
-            <td>
-              신고자1
-            </td>
-            <td>
-              골드
-            </td>
-            <td>
-              800
-            </td>
-            <td>
-              0
-            </td>
-            <td>
-              2018-06-28
-            </td>
-            <td>
-              2018-09-13 16:19
-            </td>
-          </tr>
-
+        <%for (Member m : list) {%>
+		<tr>
+			<td><%=m.getMemberNo()%></td>
+			<td><%=m.getMemberId()%></td>
+			<td><%=m.getMemberNickname()%></td>
+			<td><%=m.getMemberGrade()%></td>
+			<td><%=m.getMemberTotalPoint()%></td>
+			<td><%=m.getMemberWarining()%></td>
+			<%
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			String loginDate = sdf.format(m.getMemberLoginDate());	
+			%>
+			<td><%=loginDate%></td>
+		</tr>
+		<%} %>
+        	
         </tbody>
       </table>
       <from style="text-align: center">

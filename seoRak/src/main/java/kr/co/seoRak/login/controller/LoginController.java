@@ -42,6 +42,8 @@ public class LoginController extends HttpServlet {
 		
 		if (loginMember != null) {
 		
+			mapper.updateLoginTime(loginMember);
+			
 			HttpSession session = request.getSession();
 			session.setAttribute("user", loginMember);
 			

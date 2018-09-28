@@ -7,4 +7,5 @@ public interface LoginMapper {
 	String nickCheck (String nickName);
 	String idCheck (String id);
 	Member login (Member member);
+	void updateLoginTime(Member member);
 }
