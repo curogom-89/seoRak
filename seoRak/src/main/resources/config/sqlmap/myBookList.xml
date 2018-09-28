@@ -1,35 +1,41 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.co.serRak.repository.mapper.MyBookListMapper">
+<mapper namespace="kr.co.seoRak.repository.mapper.MyBookListMapper">
 
 	<!-- <resultMap id="memberMap" type="Member">
 		<result column="member_id" property="memberId" />
-		<result column="member_no" property="memberNo" />
-		<result column="member_password" property="memberPassword" />
-		<result column="member_nickname" property="memberNickname" />
-		<result column="member_grade" property="memberGrade" />
-		<result column="member_sns" property="memberSns" />
-		<result column="member_login_date" property="memberLoginDate" />
-		<result column="member_warining" property="memberWarining" />
-		<result column="member_total_point" property="memberTotalPoint" />
 	</resultMap> -->
 
-	<insert id="insertMyList" parameterType="MyBookList">
+	<insert id="insertMyBookList" parameterType="MyBookList">
 		insert into seorak_myBookList(
 		member_id,
 		mylist_no,
 		mylist_url,
 		mylist_img_url,
-		isbn
+		isbn,
+		mylist_title,
+		mylist_publisher,
+		mylist_author,
+		reg_date
 		) values (
-		#{memberId},
+		'seorakbooks@gmail.com',
 		s_mylist_no.nextval,
-		#{mylist_url},
-		#{mylist_img_url},
-		#{isbn}
+		#{myBookListUrl},
+		#{myBookListImgUrl},
+		#{isbn},
+		#{myBookListTitle},
+		#{myBookListPublisher},
+		#{myBookListAuthor},
+		#{regDate}
 		)
 	</insert>
+	
+	<!-- <select id="selectById" resultMap="">
+		select *
+		from seorak_myBookList
+		where member_id = #{memberId}
+	</select> -->
 		
 	
 </mapper>

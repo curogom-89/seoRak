@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
-<%@ page import="kr.co.seoRak.repository.domain.Book" %>    
+<%@ page import="kr.co.seoRak.repository.domain.Book" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+  
 <% 
 	List<Book> list = (List<Book>)request.getAttribute("list");
 %>
@@ -11,6 +13,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.js"
+       	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+       	crossorigin="anonymous"></script>
+       	
 <title>Insert title here</title>
 	<style>
  /*-------------------- BODY --------------------*/
@@ -140,7 +147,8 @@
 		</div>
 	</center>
 	<hr>
-	<form class="search-form" action="/seoRak/jsp/myList/Search.do">
+	<!--"/seoRak/jsp/myList/Search.do"  -->
+	<form class="search-form" action='<c:url value="/myList/Search.do"/>'>
 		<select class="search-select" name="detail">
 			<option value="1">제목</option>
 			<option value="2">출판사</option>
@@ -190,7 +198,11 @@
                  	  <tr>
                  	  	<td> <%= no+1 %> </td>
                         <td><img src="<%= img %>"/></td>
-                        <td onclick="addBook()"><a href=""> <%= b.getTitle() %> </a></td>
+                        <td id="title">
+                        	<a href="/seoRak_me/jsp/myListWrite.jsp?title=<%= b.getTitle() %>&publisher=<%= b.getPublisher() %>&author=<%= b.getAuthor() %>&img=<%= b.getImage() %>&link=<%= b.getLink() %>&isbn=<%= b.getIsbn() %> ">
+                        		<%= b.getTitle() %>
+                        	</a>
+                        </td>
                         <td> <%= b.getPublisher() %> </td>
                         <td> <%= b.getAuthor() %> </td>
                       </tr>
@@ -202,9 +214,14 @@
 	         </table>
          </center>
          <script>
-         	function addBook(no){
-         		alert(no);
-         	}
+         	/* $("#title").click(function(){
+         		$.ajax({
+         			type : "POST",
+         			url : "/jsp/myList/Write.do",
+         			data : ""
+         		})
+         		
+         	}) */
          </script>
 </body>
 </html>

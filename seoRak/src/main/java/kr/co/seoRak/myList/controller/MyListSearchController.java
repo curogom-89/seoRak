@@ -20,7 +20,7 @@ import com.google.gson.Gson;
 import kr.co.seoRak.repository.domain.Book;
 import kr.co.seoRak.repository.domain.Items;
 
-@WebServlet("/jsp/myList/Search.do")
+@WebServlet("/myList/Search.do")
 public class MyListSearchController extends HttpServlet{
 	
 	@Override
@@ -28,13 +28,13 @@ public class MyListSearchController extends HttpServlet{
 		int detail = Integer.parseInt(request.getParameter("detail"));
 		String title = request.getParameter("content");
 		List<Book> list = searchBook(title);
-		for ( Book b : list ) {
-			System.out.println("작가 : " + b.getAuthor());
-			System.out.println("이미지 주소 : " + b.getImage());
-			System.out.println("isbn : " + b.getIsbn());
-			System.out.println("제목 : " + b.getTitle());
-			System.out.println("출판사" + b.getPublisher());
-		}
+//		for ( Book b : list ) {
+//			System.out.println("작가 : " + b.getAuthor());
+//			System.out.println("이미지 주소 : " + b.getImage());
+//			System.out.println("isbn : " + b.getIsbn());
+//			System.out.println("제목 : " + b.getTitle());
+//			System.out.println("출판사" + b.getPublisher());
+//		}
 		request.setAttribute("list", list);
 		// http://localhost:8000/seoRak/jsp/myListBookSearch.jsp
 		RequestDispatcher rd = request.getRequestDispatcher("/jsp/myListBookSearch.jsp");

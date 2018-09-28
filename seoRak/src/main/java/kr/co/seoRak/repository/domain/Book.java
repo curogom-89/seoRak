@@ -9,7 +9,6 @@ public class Book {
 	String isbn;
 	String description;
 	
-	
 	public String getTitle() {
 		return title;
 	}
