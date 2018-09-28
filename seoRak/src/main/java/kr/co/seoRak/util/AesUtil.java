@@ -44,8 +44,12 @@ public class AesUtil {
     
     private String encrypt(String salt, String iv, String passPhrase, String plaintext) throws Exception {
         SecretKey key = generateKey(salt, passPhrase);
-        byte[] encrypted = doFinal(Cipher.ENCRYPT_MODE, key, iv, plaintext.getBytes("UTF-8"));
-        return encodeBase64(encrypted);
+        try {
+        	byte[] encrypted = doFinal(Cipher.ENCRYPT_MODE, key, iv, plaintext.getBytes("UTF-8"));
+        	return encodeBase64(encrypted);        	
+        } catch (Exception e) {
+        	return "";
+        }
     }
 
     
@@ -96,5 +100,10 @@ public class AesUtil {
 //        return encodeHex(salt);
 //
 //    }
+
+    public static void main(String[] args) throws Exception {
+		AesUtil aesUtil = new AesUtil();
+		System.out.println(aesUtil.decrypt("nu6gQnF690TispZvdhDiGw=="));
+	}
     
 }

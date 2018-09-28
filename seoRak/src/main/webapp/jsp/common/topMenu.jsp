@@ -16,11 +16,11 @@
 				<li><a href="jsp/message.jsp">쪽지함</a></li>
 				<li><a href="jsp/myInfo.jsp">${user.memberNickname }</a></li>	
 				<li><a href='<c:url value="/login/logout.do" />'>로그아웃</a></li>
+				<c:if test="${user.memberGrade=='admin'}">
+					<li><a href="jsp/admin.jsp">관리자</a></li>
+				</c:if>
 			</c:otherwise>
 		</c:choose>
-		<c:if test="${user.memberGrade } == 'admin'">
-			<li><a href="jsp/admin.jsp">관리자</a></li>
-		</c:if>
 	</ul>
 	</nav> </header>
 	<!-- /header -->

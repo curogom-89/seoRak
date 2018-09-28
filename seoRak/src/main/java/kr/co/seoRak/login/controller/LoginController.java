@@ -3,6 +3,7 @@ package kr.co.seoRak.login.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,10 +20,10 @@ import kr.co.seoRak.util.AesUtil;
 public class LoginController extends HttpServlet {
 
 	@Override
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void service(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
+		AesUtil aesUtil = new AesUtil();
 		
 		String id = request.getParameter("email");
-		AesUtil aesUtil = new AesUtil();
 		String pass = null;
 		try {
 			pass = aesUtil.encrypt(request.getParameter("password"));
@@ -36,21 +37,21 @@ public class LoginController extends HttpServlet {
 		
 		member.setMemberId(id);
 		member.setMemberPassword(pass);
-		
+
 		Member loginMember = mapper.login(member);
-		System.out.println(id +", "+ pass);
 		
-		if (loginMember == null) {
-			PrintWriter out = response.getWriter();
-			out.println("땡-");
-			out.close();
-		} else {
-			
+		if (loginMember != null) {
+		
 			HttpSession session = request.getSession();
-			session.setAttribute("user", member);
+			session.setAttribute("user", loginMember);
 			
-			response.sendRedirect(request.getContextPath() + "/main.do");
+			response.sendRedirect("/seoRak/main.do");
+		} else {
+			RequestDispatcher rd = request.getRequestDispatcher("/jsp/loginForm.jsp");
+			request.setAttribute("unmatch", true);
+			rd.forward(request, response);
 		}
+
 	}
 	
 	

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -304,7 +306,12 @@ div.right a.facebook:hover {
 
 </head>
 <body>
-  <form action="/seoRak/login/login.do" id="login-form" style="z-index: 5" onsubmit="return check()">
+	<c:if test="${unmatch}">
+		<script type="text/javascript">
+			alert("아이디 혹은 비밀번호가 일치하지 않습니다.")
+		</script>
+	</c:if>
+  <form action="/seoRak/login/login.do" id="login-form" style="z-index: 5" method="post">
     <div class="heading">Login to seRock</div>
     <div class="left">
       <label for="email">Email</label> <br />
@@ -347,6 +354,7 @@ div.right a.facebook:hover {
       </ul>
      </dir>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<!-- 
 	<script>
 		function check () {
 			$.ajax({
@@ -358,11 +366,15 @@ div.right a.facebook:hover {
 						alert("이메일 혹은 비밀번호가 잘못되었습니다.")
 						return false;
 					} else {
-						;;
+						window.location.replace("/seoRak/main.do")
+						
+						return true;
+						
 					}
 				}
 			});
 		}
 	</script>
+	 -->
 </body>
 </html>
