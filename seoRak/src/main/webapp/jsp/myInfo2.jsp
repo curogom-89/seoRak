@@ -314,12 +314,13 @@ html h2, body h2 {
 /* table */
 
 #title_list  {
-    position: relative;
+    position: absolute;
     color: white;
     font-size: 40px;
-    left: 80px;
-    top: 60px;
+    left: 40px;
+    top: 20px;
     font-weight: bold;
+    opacity : 1.0;
     
 }
 #title_book_rank  {
@@ -440,6 +441,12 @@ table {
 	#popoz:hover{
 	text-decoration: none;
 	}
+	
+	button{
+		position : absolute;
+		right : 50px;
+		top: 30px;
+	}
 	</style>
 </head>
 
@@ -486,10 +493,15 @@ table {
 
     <!-- my List -->
     <div id="content">
+    
         <div id="myBook">
-            <div id="title_list">My Book List</div>
+        	
             <div id="front">
-              <div id="book_container">
+            	<form method="POST" action='<c:url value="list.do" />'>
+            		<button>내 서재 바로가기</button>
+            	</form>
+    			<div id="title_list">My Book List</div>
+              	<div id="book_container">
                 <div id="book_img">
                   img1
                 </div>
@@ -498,7 +510,8 @@ table {
                 </div>
                 <div id="book_img">
                   img3
-                </div>     
+                </div> 
+                  
               </div>  
             </div>
         </div>

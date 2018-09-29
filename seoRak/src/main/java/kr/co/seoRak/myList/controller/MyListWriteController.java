@@ -8,8 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kr.co.seoRak.common.db.MyAppSqlConfig;
+import kr.co.seoRak.repository.domain.Member;
 import kr.co.seoRak.repository.domain.MyBookList;
 import kr.co.seoRak.repository.mapper.MyBookListMapper;
 
@@ -20,6 +22,7 @@ public class MyListWriteController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		System.out.println("호출 성공");
+		
 		request.setCharacterEncoding("utf-8");
 		String title = request.getParameter("title");
 		String publisher = request.getParameter("publisher");
@@ -27,7 +30,10 @@ public class MyListWriteController extends HttpServlet {
 		String img = request.getParameter("img");
 		String link = request.getParameter("link");
 		String isbn = request.getParameter("isbn");
-		System.out.println(title);
+		HttpSession session = request.getSession();
+		Member member = (Member)session.getAttribute("user");
+		String memberId = member.getMemberId();
+		System.out.println(memberId);
 		System.out.println(publisher);
 		System.out.println(author);
 		System.out.println(img);
@@ -35,6 +41,7 @@ public class MyListWriteController extends HttpServlet {
 		System.out.println(isbn);
 		
 		MyBookList mbl = new MyBookList();
+		mbl.setMemberId(memberId);
 		mbl.setIsbn(isbn);
 		mbl.setMyBookListImgUrl(img);
 		mbl.setMyBookListUrl(link);
@@ -48,7 +55,9 @@ public class MyListWriteController extends HttpServlet {
 		System.out.println("------------1");
 		mapper.insertMyBookList(mbl);
 		System.out.println(request.getContextPath());
-		response.sendRedirect(request.getContextPath() + "/jsp/myList.jsp");
+		response.sendRedirect(request.getContextPath() + "/jsp/list.do");
+		//http://localhost:8000/seoRak/jsp/myList.do
+//		http://localhost:8000/seoRak/jsp/list.do
 
 	}
 

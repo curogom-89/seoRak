@@ -7,6 +7,7 @@
 <% 
 	List<Book> list = (List<Book>)request.getAttribute("list");
 %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -148,7 +149,7 @@
 	</center>
 	<hr>
 	<!--"/seoRak/jsp/myList/Search.do"  -->
-	<form class="search-form" action='<c:url value="/myList/Search.do"/>'>
+	<form class="search-form" action='<c:url value="/jsp/myList/Search.do"/>'>
 		<select class="search-select" name="detail">
 			<option value="1">제목</option>
 			<option value="2">출판사</option>
@@ -199,7 +200,8 @@
                  	  	<td> <%= no+1 %> </td>
                         <td><img src="<%= img %>"/></td>
                         <td id="title">
-                        	<a href="/seoRak_me/jsp/myListWrite.jsp?title=<%= b.getTitle() %>&publisher=<%= b.getPublisher() %>&author=<%= b.getAuthor() %>&img=<%= b.getImage() %>&link=<%= b.getLink() %>&isbn=<%= b.getIsbn() %> ">
+                        <!-- http://localhost:8000/seoRak/jsp/myListWrite.jsp -->
+                        	<a href="/seoRak/jsp/myListWrite.jsp?title=<%= b.getTitle() %>&publisher=<%= b.getPublisher() %>&author=<%= b.getAuthor() %>&img=<%= b.getImage() %>&link=<%= b.getLink() %>&isbn=<%= b.getIsbn() %> ">
                         		<%= b.getTitle() %>
                         	</a>
                         </td>

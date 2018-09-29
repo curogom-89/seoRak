@@ -1,6 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>    
+<%@ page import="kr.co.seoRak.repository.domain.MyBookList" %>    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%
+	List<MyBookList> list = (List<MyBookList>)request.getAttribute("list");
+%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -19,7 +26,6 @@ table{
         position: relative;
         background-color: #a4cef8;
         z-index: 7;
-        
 }
 tr{
     text-align : center
@@ -68,43 +74,25 @@ td{
             <th>작성일</th>
             <th>삭제</th>
         </tr>
-        
+        <%
+        	for(MyBookList mbl : list){
+        %>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><%= mbl.getMyBookListNo() %></td>
+            <td><img src="<%= mbl.getMyBookListImgUrl() %>"></td>
+            <td><%= mbl.getMyBookListTitle() %></td>
+            <td><%= mbl.getMyBookListPublisher() %></td>
+            <td><%= mbl.getMyBookListAuthor() %> </td>
+            <td><%= mbl.getRegDate() %></td>
             <td>
-            	<input type="checkbox" name="delete" id="delete_1"></button>
-            	<label for="delete_1">delete</label>
+            	<form method="POST" action='<c:url value="/jsp/delete.do" />'>
+	            	<button>삭제</button>
+            	</form>
             </td>
         </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-            	<input type="checkbox" name="delete" id="delete_2"></button>
-            	<label for="delete_2">delete</label>
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-            	<input type="checkbox" name="delete" id="delete_3"></button>
-            	<label for="delete_3">delete</label>
-            </td>
-        </tr>
+        <%
+        	}
+        %>
     </table>
         
     </div>

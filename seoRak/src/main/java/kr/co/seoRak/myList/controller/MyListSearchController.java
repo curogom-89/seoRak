@@ -20,7 +20,7 @@ import com.google.gson.Gson;
 import kr.co.seoRak.repository.domain.Book;
 import kr.co.seoRak.repository.domain.Items;
 
-@WebServlet("/myList/Search.do")
+@WebServlet("/jsp/myList/Search.do")
 public class MyListSearchController extends HttpServlet{
 	
 	@Override
