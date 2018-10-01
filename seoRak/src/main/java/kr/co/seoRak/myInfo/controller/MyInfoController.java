@@ -1,7 +1,9 @@
-package kr.co.seoRak.myList.controller;
+package kr.co.seoRak.myInfo.controller;
 
 import java.io.IOException;
+import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,32 +16,28 @@ import kr.co.seoRak.repository.domain.Member;
 import kr.co.seoRak.repository.domain.MyBookList;
 import kr.co.seoRak.repository.mapper.MyBookListMapper;
 
-@WebServlet("/jsp/delete.do")
-public class MyListDeleteController extends HttpServlet{
+@WebServlet("/jsp/myInfo.do")
+public class MyInfoController extends HttpServlet {
 
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("호출 성공");
-		request.setCharacterEncoding("utf-8");
-		int no = Integer.parseInt(request.getParameter("no"));
 		
 		HttpSession session = request.getSession();
-		Member loginMember = (Member)session.getAttribute("user");
-		String id = loginMember.getMemberId();
-		
-		System.out.println(no);
-		System.out.println(id);
-		
-		MyBookList mbl = new MyBookList();
-		mbl.setMemberId(id);
-		mbl.setMyBookListNo(no);
+		Member member = (Member)session.getAttribute("user");
+		String memberId = member.getMemberId();
 		
 		MyBookListMapper mapper = MyAppSqlConfig.getSqlSessionInstance().getMapper(MyBookListMapper.class);
-		mapper.deleteMyBookList(mbl);
+		List<MyBookList> list = mapper.selectById(memberId);
+		request.setAttribute("list", list);
+		request.setAttribute("member", member);
 		
-		response.sendRedirect("/seoRak/jsp/list.do");
-	}
+		// http://localhost:8000/seoRak/jsp/myInfo2.jsp
+		System.out.println(request.getContextPath());
+		RequestDispatcher rd = request.getRequestDispatcher("/jsp/myInfo.jsp");
+		rd.forward(request, response);
 
+	}
 	
 	
+
 }

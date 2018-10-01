@@ -1,6 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ page import="java.util.*" %>
+<%@ page import="kr.co.seoRak.repository.domain.MyBookList" %>
+<%@ page import="kr.co.seoRak.repository.domain.Member" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<% 
+	List<MyBookList> list = (List<MyBookList>)request.getAttribute("list");
+	Member member = (Member)request.getAttribute("member");
+	/* String img = list.get(0).getMyBookListImgUrl(); */
+%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -367,14 +376,14 @@ html h2, body h2 {
   border: 1px solid white;
   overflow: scroll;
 }
-#book_img{
+ img{
   position: relative;
-  width: 300px;
-  height: 100%;
+  width: 280px;
+  height: 90%;
   border: 1px solid white;  
   background: white;
   float: left;
-  margin: 0px 20px 0px 0px;
+  margin: 0px 20px 10px 0px;
 }
 
 
@@ -424,10 +433,10 @@ table {
 		/* background-color: #2ea879; */
 	}
 	tbody tr:nth-child(2n-1) {
-	    transition: all 1s ease-in-out;
+	    transition: all 0.5s ease-in-out;
 	}
 	tbody tr:hover {
-	    background-color: rgba(50,98,149,.3);
+	    background-color: rgba(41, 144, 255, 0.3);
 	}
 	
 	td.rank {
@@ -462,10 +471,10 @@ table {
               <div id="arrow"><i class="fa fa-arrow-left"></i></div>
               <div id="info-box">
                 <div class="info">
-                  <h1>User ID</h1>
-                  <h2>User NickName</h2>
-                  <h2>저장 가능 서재 수량</h2>
-                  <h2><a href="<c:url value='myPoint.jsp'/>" id="popoz">포인트</a></h2>
+                  <h3> `${member.memberId}` </h1>
+                  <h3> `${member.memberNickname}` </h2>
+                  <h3> 0 </h2>
+                  <h2><a href="<c:url value='myPoint.jsp'/>" id="popoz">포인트 `${member.memberTotalPoint}`</a></h2>
                 </div>
               </div>
               <div id="social-bar">
@@ -502,16 +511,17 @@ table {
             	</form>
     			<div id="title_list">My Book List</div>
               	<div id="book_container">
-                <div id="book_img">
-                  img1
-                </div>
-                <div id="book_img">
-                  img2
-                </div>
-                <div id="book_img">
-                  img3
-                </div> 
-                  
+            		<%
+            			for(MyBookList mbl : list){
+            		%>
+            				<a href=<%= mbl.getMyBookListUrl() %>>
+            					<img src=<%= mbl.getMyBookListImgUrl() %>>
+            				</a>
+            		<%		
+            			}
+            		%>
+                	
+                
               </div>  
             </div>
         </div>

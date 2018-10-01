@@ -63,7 +63,7 @@ td{
 
     <h2>My List</h2>
     <hr>
- 
+ 	<form method="GET"  action='<c:url value="/jsp/delete.do" />'>
     <table>
         <tr>
             <th>번호</th>
@@ -85,16 +85,14 @@ td{
             <td><%= mbl.getMyBookListAuthor() %> </td>
             <td><%= mbl.getRegDate() %></td>
             <td>
-            	<form method="POST" action='<c:url value="/jsp/delete.do" />'>
-	            	<button>삭제</button>
-            	</form>
+	            <button name="no" value='<%= mbl.getMyBookListNo() %>'>삭제</button>        
             </td>
         </tr>
         <%
         	}
         %>
     </table>
-        
+     </form>
     </div>
     <div id="searchbox">
     	<input id="boardSearch" type="text">

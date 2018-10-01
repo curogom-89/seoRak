@@ -50,4 +50,5 @@
 		where member_id=#{memberId}
 		  and mylist_no=#{myBookListNo}
 	</delete>
+
 </mapper>
