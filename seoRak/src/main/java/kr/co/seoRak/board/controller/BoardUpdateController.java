@@ -1,4 +1,4 @@
-package kr.co.seoRak.controller;
+package kr.co.seoRak.board.controller;
 
 import java.io.IOException;
 
