@@ -3,9 +3,17 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.seoRak.repository.mapper.MyBookListMapper">
 
-	<!-- <resultMap id="memberMap" type="Member">
+	<resultMap id="myBookList" type="MyBookList">
 		<result column="member_id" property="memberId" />
-	</resultMap> -->
+		<result column="mylist_no" property="myBookListNo" />
+		<result column="mylist_url" property="myBookListUrl" />
+		<result column="mylist_img_url" property="myBookListImgUrl" />
+		<result column="isbn" property="isbn" />
+		<result column="mylist_title" property="myBookListTitle" />
+		<result column="mylist_publisher" property="myBookListPublisher" />
+		<result column="mylist_author" property="myBookListAuthor" />
+		<result column="reg_date" property="regDate" />
+	</resultMap>
 
 	<insert id="insertMyBookList" parameterType="MyBookList">
 		insert into seorak_myBookList(
@@ -19,7 +27,7 @@
 		mylist_author,
 		reg_date
 		) values (
-		'seorakbooks@gmail.com',
+		#{memberId},
 		s_mylist_no.nextval,
 		#{myBookListUrl},
 		#{myBookListImgUrl},
@@ -31,11 +39,15 @@
 		)
 	</insert>
 	
-	<!-- <select id="selectById" resultMap="">
+	<select id="selectById" parameterType="string" resultMap="myBookList">
 		select *
 		from seorak_myBookList
 		where member_id = #{memberId}
-	</select> -->
-		
+	</select>
 	
+	<delete id="deleteMyBookList" parameterType="MyBookList">
+		delete from seorak_myBookList
+		where member_id=#{memberId}
+		  and mylist_no=#{myBookListNo}
+	</delete>
 </mapper>

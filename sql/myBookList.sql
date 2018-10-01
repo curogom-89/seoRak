@@ -10,3 +10,9 @@ create table seorak_myBookList(
 
 drop table seorak_myBookList;
 drop sequence mylist_no;
+
+select *
+from seorak_mybooklist;
+
+select *
+from seorak_member;
