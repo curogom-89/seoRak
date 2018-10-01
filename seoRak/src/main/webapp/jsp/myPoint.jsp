@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -185,69 +187,69 @@ p{
 
 
 	<script>
-/* 메뉴 상단 바*/    
-var navigation = $('#nav-main').okayNav();
-
-/* my point */    
-$(function() {
-  //list of skills
-  var skills = {
-                "총 포인트":{work:250,personal:0},
-                "보낸 포인트":{work:70,personal:20},
-                "받은 포인트":{work:20,personal:10},
-                "게시글 포인트" :{work:45,personal:35},
-                "출석 포인트":{work:1,personal:90}
-               };
-  displayData(skills);
-  animate();
-  
-  //add new skill
-  $('input:button').click(function(){
-    var name = $('#txtSkill').val(),
-        perc = $('#txtPerc').val();
-    
-    if(name && perc){
-      skills[name] = {work:perc};
-      displayData(skills);
-      animate();
-
-      var newheight = $('.chart').outerHeight() + 50;
-      $('.chart').css('height',newheight);
-    }else{
-      animate();
-    }
-    $('input:text').val('');
-  });
-});
-
-
-
-//Functions
-//display data
-function displayData(skills){
-  $('.bars').html('');
-  $('.skills').html('');
-  for (var key in skills){
-    var personal = skills[key].personal,
-        work = skills[key].work;
-    
-    $('.skills').append("<li><span>"+key+"</span></li>");
-    $('.bars').append("<li><div data-percentage='"+skills[key].personal+"' class='bar'>"+personal+"</div><div data-percentage='"+skills[key].work+"' class='bar'>"+work+"</div></li>"); 
-    
-  };
-}
-
-
-//animate the data
-function animate(){
-  $('.bar').css('width','0px');
-  $(".bars .bar").delay(1000).each(function(i){
-    var percentage = $(this).data('percentage');
-    
-    $(this).delay(i+"00").animate({'width': percentage + 'px'}, 700);
-   
-  });
-}
+	/* 메뉴 상단 바*/    
+	var navigation = $('#nav-main').okayNav();
+	
+	/* my point */    
+	$(function() {
+	  //list of skills
+	  var skills = {
+	                "총 포인트":{work:`${point_no}`,personal:0},
+	                "보낸 포인트":{work:70,personal:20},
+	                "받은 포인트":{work:20,personal:10},
+	                "게시글 포인트" :{work:45,personal:35},
+	                "출석 포인트":{work:1,personal:90}
+	               };
+	  displayData(skills);
+	  animate();
+	  
+	  //add new skill
+	  $('input:button').click(function(){
+	    var name = $('#txtSkill').val(),
+	        perc = $('#txtPerc').val();
+	    
+	    if(name && perc){
+	      skills[name] = {work:perc};
+	      displayData(skills);
+	      animate();
+	
+	      var newheight = $('.chart').outerHeight() + 50;
+	      $('.chart').css('height',newheight);
+	    }else{
+	      animate();
+	    }
+	    $('input:text').val('');
+	  });
+	});
+	
+	
+	
+	//Functions
+	//display data
+	function displayData(skills){
+	  $('.bars').html('');
+	  $('.skills').html('');
+	  for (var key in skills){
+	    var personal = skills[key].personal,
+	        work = skills[key].work;
+	    
+	    $('.skills').append("<li><span>"+key+"</span></li>");
+	    $('.bars').append("<li><div data-percentage='"+skills[key].personal+"' class='bar'>"+personal+"</div><div data-percentage='"+skills[key].work+"' class='bar'>"+work+"</div></li>"); 
+	    
+	  };
+	}
+	
+	
+	//animate the data
+	function animate(){
+	  $('.bar').css('width','0px');
+	  $(".bars .bar").delay(1000).each(function(i){
+	    var percentage = $(this).data('percentage');
+	    
+	    $(this).delay(i+"00").animate({'width': percentage + 'px'}, 700);
+	   
+	  });
+	}
 </script>
 </body>
 </html>

@@ -1,4 +1,5 @@
 create sequence s_mylist_no increment by 1;
+create sequence s_point_no increment by 1;
 
 create table seorak_myBookList(
     mylist_no number not null,
@@ -16,3 +17,33 @@ from seorak_mybooklist;
 
 select *
 from seorak_member;
+
+create table seorak_point(
+    member_id varchar(50) not null references seorak_member(member_id),
+    point_no number not null,
+    point_updown number not null,
+    point_reg_date date not null,
+    point_reason number not null,
+    point_exchange_id varchar(50) not null
+);
+
+select *
+from seorak_point;
+
+insert into seorak_point(
+                    member_id,
+                    point_no,
+                    point_updown,
+                    point_reg_date,
+                    point_reason,
+                    point_exchange_id
+                    ) values (
+                    'dlopo123@gmail.com',
+                    s_point_no.nextval,
+                    300,
+                    sysdate,
+                    1,
+                    'dlopo123'
+                    )
+                    
+commit;

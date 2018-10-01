@@ -14,7 +14,9 @@ import javax.servlet.http.HttpSession;
 import kr.co.seoRak.common.db.MyAppSqlConfig;
 import kr.co.seoRak.repository.domain.Member;
 import kr.co.seoRak.repository.domain.MyBookList;
+import kr.co.seoRak.repository.domain.Point;
 import kr.co.seoRak.repository.mapper.MyBookListMapper;
+import kr.co.seoRak.repository.mapper.PointMapper;
 
 @WebServlet("/jsp/myInfo.do")
 public class MyInfoController extends HttpServlet {
@@ -26,9 +28,17 @@ public class MyInfoController extends HttpServlet {
 		Member member = (Member)session.getAttribute("user");
 		String memberId = member.getMemberId();
 		
-		MyBookListMapper mapper = MyAppSqlConfig.getSqlSessionInstance().getMapper(MyBookListMapper.class);
-		List<MyBookList> list = mapper.selectById(memberId);
-		request.setAttribute("list", list);
+		MyBookListMapper mapperMbl = MyAppSqlConfig.getSqlSessionInstance().getMapper(MyBookListMapper.class);
+		PointMapper mapperPoint = MyAppSqlConfig.getSqlSessionInstance().getMapper(PointMapper.class);
+		List<Point> listPoint = mapperPoint.selectPointById(memberId);
+		
+		for(Point p : listPoint) {
+			System.out.println(p.getPointUpDown());
+		}
+		
+		
+		List<MyBookList> listMbl = mapperMbl.selectById(memberId);
+		request.setAttribute("list", listMbl);
 		request.setAttribute("member", member);
 		
 		// http://localhost:8000/seoRak/jsp/myInfo2.jsp
