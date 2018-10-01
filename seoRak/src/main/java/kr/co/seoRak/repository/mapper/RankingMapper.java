@@ -1,7 +1,7 @@
-package kr.co.seoRak.Mapper;
+package kr.co.seoRak.repository.mapper;
 
-import co.kr.seorak.Domain.BestSellerList;
-import co.kr.seorak.Domain.seorakRankdomain;
+import kr.co.seoRak.repository.domain.BestSellerList;
+import kr.co.seoRak.repository.domain.seorakRankdomain;
 
 public interface RankingMapper {
 	void insertRanking(seorakRankdomain domain);

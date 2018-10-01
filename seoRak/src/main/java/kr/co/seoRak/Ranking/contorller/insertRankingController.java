@@ -1,4 +1,4 @@
-﻿package kr.co.seorak.contorller;
+﻿package kr.co.seoRak.Ranking.contorller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -18,14 +18,14 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import co.kr.seorak.Domain.BestSellerList;
-import co.kr.seorak.Domain.seorakRankdomain;
-import kr.co.sarak.Mapper.RankingMapper;
 import kr.co.seoRak.common.db.MyAppSqlConfig;
+import kr.co.seoRak.repository.domain.BestSellerList;
+import kr.co.seoRak.repository.domain.seorakRankdomain;
+import kr.co.seoRak.repository.mapper.RankingMapper;
 
 
-@WebServlet("/sarak/BestSellerranking.do")
-public class insertRanking extends HttpServlet{
+@WebServlet("/seorak/BestSellerranking.do")
+public class insertRankingController extends HttpServlet{
 	ArrayList Atitle = new ArrayList();
 	int k=0;
 	//	RankingMapper mapper = MyAppSqlConfig.getSqlSessionInstance().getMapper(RankingMapper.class);
