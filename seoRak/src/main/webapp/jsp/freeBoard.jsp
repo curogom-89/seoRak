@@ -5,17 +5,14 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
-<% 
-	BoardMapper mapper = MyAppSqlConfig.getSqlSessionInstance().getMapper(BoardMapper.class);
-	List<Board> list = mapper.selectAllBoard();
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
 <style type="text/css">
 #write {
 	margin-left: 68.5%;
@@ -124,7 +121,6 @@ body {
 }
 
 /*--------------------------------------------------top bar----------------------------------------------------------------------------*/
-
 </style>
 <script src="https://code.jquery.com/jquery-3.3.1.js"
 	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
@@ -132,7 +128,8 @@ body {
 
 </head>
 <body>
-<%@include file="topList.jsp" %>
+
+	<%@include file="topList.jsp"%>
 	<!-------------------------------------------------- top bar------------------------------------------------------------->
 	<br>
 	<h1>자유게시판</h1>
@@ -150,30 +147,28 @@ body {
 			<div class="cell">조회수</div>
 			<div class="cell">작성일</div>
 		</div>
-		
-		<%for (Board b : list) {%>
-		
+
+		<c:forEach var="b" items="${list}">
+
 		<div class="row">
-			<div class="cell" ><%=b.getBoardNo()%></div>
-			<div class="cell" ><%=b.getBoardCategory()%></div>
-			<div class="cell" ><%=b.getBoardTitle() %></div>
-			<div class="cell" ><%=b.getBoardWriter() %></div>
-			<div class="cell" >추천서적</div>
-			<div class="cell" >추천수</div>
-			<div class="cell" >조회수</div>
-			<%
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-			String boardDate = sdf.format(b.getBoardDate());
-			%>
-			<div class="cell" ><%=boardDate%></div>
-		</div>
+			<div class="cell">${b.boardNo}</div>
+			<div class="cell">${b.boardCategory}</div>
+			<div class="cell"><a href="detail.do?no=${b.boardNo}">${b.boardTitle}</a></div>
+<%-- 			<div class="cell"><a href="<c:url value='detail.do?no=${b.boardNo}'/>">${b.boardTitle}</a></div> --%>
+			<div class="cell">${b.boardWriter}</div>
+			<div class="cell">추천서적</div>
+			<div class="cell">추천수</div>
+			<div class="cell">조회수</div>
 			
-		<% } %>
-		
+			<div class="cell">${b.boardDate}</div>
+		</div>
+
+		</c:forEach>
+
 	</div>
 	<button type="button" id="write">글쓰기</button>
-	<button type="button" id="update">수정</button>
 	
+
 	<script type="text/javascript">
 		$("#write").click(function() {
 			window.location.replace("/seoRak/jsp/boardwrite.jsp");

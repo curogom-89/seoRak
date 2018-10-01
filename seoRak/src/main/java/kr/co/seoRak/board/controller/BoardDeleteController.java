@@ -1,8 +1,8 @@
 package kr.co.seoRak.controller;
 
 import java.io.IOException;
-import java.util.List;
 
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,19 +14,17 @@ import kr.co.seoRak.common.db.MyAppSqlConfig;
 import kr.co.seoRak.repository.domain.Board;
 import kr.co.seoRak.repository.mapper.BoardMapper;
 
-@WebServlet("/board/list.do")
-public class BoardListController extends HttpServlet {
+@WebServlet("/board/delete.do")
+public class BoardDeleteController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		BoardMapper mapper = MyAppSqlConfig.getSqlSessionInstance().getMapper(BoardMapper.class);
+		int no = Integer.parseInt(request.getParameter("no"));
+
+		 mapper.deleteBoard(no);
 		
-		List<Board> list = mapper.selectAllBoard();
 		
-		request.setAttribute("list", list);
+		response.sendRedirect(request.getContextPath() + "/board/list.do");
+	} 
 		
-		RequestDispatcher rd = request.getRequestDispatcher(
-					"/jsp/freeBoard.jsp"
-				);
-		rd.forward(request, response);
-	}
 }

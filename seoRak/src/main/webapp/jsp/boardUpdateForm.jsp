@@ -1,5 +1,10 @@
+<%@page import="kr.co.seoRak.repository.domain.Board"%>
+<%@page import="kr.co.seoRak.common.db.MyAppSqlConfig"%>
+<%@page import="kr.co.seoRak.repository.mapper.BoardMapper"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -28,15 +33,15 @@ table {
 	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
 	crossorigin="anonymous"></script>
 </head>
-
 <body>
-<%@include file="topList.jsp" %>
-	<h2>글쓰기</h2>
+	<%@include file="topList.jsp" %>
+	<h2>수정하기</h2>
 	<hr>
 	<div>
-		<form action="/seoRak/board/writer.do" method="post" id="writeForm">
+		<form action="/seoRak/board/update.do" id="updateForm" method="post">
 			<table>
 				<tr>
+					<input type='hidden' name="boardNo" value='${board.boardNo}' />
 					<td><select name="category" id="category">
 							<option value="0">선택</option>
 							<option value="추천">추천</option>
@@ -44,13 +49,13 @@ table {
 							<option value="자유">자유</option>
 					</select></td>
 					<td><input type="text" name="title" id="title" size="100"
-						placeholder="제목을 입력하세요"></td>
+						placeholder="${board.boardTitle }"></td>
 					<td rowspan="5">
 						<button type="button" name="search" id="search">도서검색</button>
 					</td>
 				</tr>
 				<tr>
-					<td rowspan="4" >책표지</td>
+					<td rowspan="4">책표지</td>
 				</tr>
 				<tr>
 					<td><input type="text" name="book" id="book" size="100"
@@ -62,14 +67,10 @@ table {
 				</tr>
 				<tr>
 					<td><input type="text" name="author" id="author" size="100"
-						placeholder="저자"></td>
+						placeholder="${board.boardWriter}"></td>
 				</tr>
 				<tr>
-					<td><input type="text" name="writer" id="writer"
-						size="100" placeholder="작성자"></td>
-				</tr>
-				<tr>
-					<td colspan="3"><textarea name="content" id="content" cols="110" rows="10"></textarea>
+					<td colspan="3"><textarea name="content" id="content" cols="110" rows="10">${board.boardContent}</textarea>
 					</td>
 				</tr>
 			</table>
@@ -77,17 +78,22 @@ table {
 			<input type="file" name="attach" id="file" />
 			<hr>
 			<!-- file : <input type="file" name="attach" /> -->
-			<button name="btn1" type="button" id="btn1"><a href="/seoRak/board/list.do">목록으로</a></button>
-			<button name="btn2" type="button" id="btn2"><a href="#">작성</a></button>
-			<button name="btn3" type="button" id="btn3">초기화</button>
+			<button name="btn1" type="button" id="btn1"><a href="list.do">목록으로</a></button>
+			<button name="btn2" type="submit" id="update">수정</button>
+			
 		</form>
 	</div>
 	
-	<script type="text/javascript">
-		$("#btn2").click(function () {
-			$("#writeForm").submit()
+	 <!--<script type="text/javascript">
+		$("#update").click(function () {
+			$("#update").submit()
+		})  
+	</script>-->
+	<!-- <script type="text/javascript">
+		$("#update").click(function () {
+			window.location.replace("/seoRak/board/list.do")
 		})
-	</script>
-
+	</script>-->
+	
 </body>
 </html>

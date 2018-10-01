@@ -1,7 +1,6 @@
 package kr.co.seoRak.controller;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,18 +13,17 @@ import kr.co.seoRak.common.db.MyAppSqlConfig;
 import kr.co.seoRak.repository.domain.Board;
 import kr.co.seoRak.repository.mapper.BoardMapper;
 
-@WebServlet("/board/list.do")
-public class BoardListController extends HttpServlet {
+@WebServlet("/board/detail.do")
+public class BoardDetailController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		BoardMapper mapper = MyAppSqlConfig.getSqlSessionInstance().getMapper(BoardMapper.class);
-		
-		List<Board> list = mapper.selectAllBoard();
-		
-		request.setAttribute("list", list);
+		int no = Integer.parseInt(request.getParameter("no"));
+		Board board = mapper.selectOneBoard(no);
+		request.setAttribute("board", board);
 		
 		RequestDispatcher rd = request.getRequestDispatcher(
-					"/jsp/freeBoard.jsp"
+					"/jsp/boardDetail.jsp"
 				);
 		rd.forward(request, response);
 	}

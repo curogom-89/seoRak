@@ -1,4 +1,4 @@
-package kr.co.seoRak.board.controller;
+package kr.co.seoRak.controller;
 
 import java.io.IOException;
 
@@ -12,14 +12,13 @@ import kr.co.seoRak.common.db.MyAppSqlConfig;
 import kr.co.seoRak.repository.domain.Board;
 import kr.co.seoRak.repository.mapper.BoardMapper;
 
-@WebServlet ("/board/writer.do")
+@WebServlet("/board/writer.do")
 public class BoardWriterController extends HttpServlet {
-
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		
-		BoardMapper boardMapper = MyAppSqlConfig.getSqlSessionInstance().getMapper(BoardMapper.class);
+		BoardMapper mapper = MyAppSqlConfig.getSqlSessionInstance().getMapper(BoardMapper.class);
 		
 		String title = request.getParameter("title");
 		String writer = request.getParameter("writer");
@@ -28,16 +27,13 @@ public class BoardWriterController extends HttpServlet {
 		
 		Board board = new Board();
 		
-		System.out.printf("%s, %s, %s, %s", title, writer, content, category);
-				
 		board.setBoardTitle(title);
 		board.setBoardWriter(writer);
 		board.setBoardContent(content);
 		board.setBoardCategory(category);
 		
-		boardMapper.insertBoard(board);
+		mapper.insertBoard(board);
 		
 		response.sendRedirect(request.getContextPath() + "/board/list.do");
 	}
-	
 }
