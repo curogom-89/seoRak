@@ -1,35 +1,54 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.co.serRak.repository.mapper.MyBookListMapper">
+<mapper namespace="kr.co.seoRak.repository.mapper.MyBookListMapper">
 
-	<!-- <resultMap id="memberMap" type="Member">
+	<resultMap id="myBookList" type="MyBookList">
 		<result column="member_id" property="memberId" />
-		<result column="member_no" property="memberNo" />
-		<result column="member_password" property="memberPassword" />
-		<result column="member_nickname" property="memberNickname" />
-		<result column="member_grade" property="memberGrade" />
-		<result column="member_sns" property="memberSns" />
-		<result column="member_login_date" property="memberLoginDate" />
-		<result column="member_warining" property="memberWarining" />
-		<result column="member_total_point" property="memberTotalPoint" />
-	</resultMap> -->
+		<result column="mylist_no" property="myBookListNo" />
+		<result column="mylist_url" property="myBookListUrl" />
+		<result column="mylist_img_url" property="myBookListImgUrl" />
+		<result column="isbn" property="isbn" />
+		<result column="mylist_title" property="myBookListTitle" />
+		<result column="mylist_publisher" property="myBookListPublisher" />
+		<result column="mylist_author" property="myBookListAuthor" />
+		<result column="reg_date" property="regDate" />
+	</resultMap>
 
-	<insert id="insertMyList" parameterType="MyBookList">
+	<insert id="insertMyBookList" parameterType="MyBookList">
 		insert into seorak_myBookList(
 		member_id,
 		mylist_no,
 		mylist_url,
 		mylist_img_url,
-		isbn
+		isbn,
+		mylist_title,
+		mylist_publisher,
+		mylist_author,
+		reg_date
 		) values (
 		#{memberId},
 		s_mylist_no.nextval,
-		#{mylist_url},
-		#{mylist_img_url},
-		#{isbn}
+		#{myBookListUrl},
+		#{myBookListImgUrl},
+		#{isbn},
+		#{myBookListTitle},
+		#{myBookListPublisher},
+		#{myBookListAuthor},
+		#{regDate}
 		)
 	</insert>
-		
 	
+	<select id="selectById" parameterType="string" resultMap="myBookList">
+		select *
+		from seorak_myBookList
+		where member_id = #{memberId}
+	</select>
+	
+	<delete id="deleteMyBookList" parameterType="MyBookList">
+		delete from seorak_myBookList
+		where member_id=#{memberId}
+		  and mylist_no=#{myBookListNo}
+	</delete>
+
 </mapper>
