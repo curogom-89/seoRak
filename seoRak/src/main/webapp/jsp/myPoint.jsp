@@ -194,7 +194,13 @@ p{
 	$(function() {
 	  //list of skills
 	  var skills = {
-	                "총 포인트":{work:`${point_no}`,personal:0},
+			  		/*
+		                "보낸 포인트" 	---------- 1
+		                "받은 포인트" 	---------- 2
+		                "게시글 포인트"	---------- 3
+		                "출석 포인트"	---------- 4
+			  		*/
+	                "총 포인트":{work:`${totalPoint}`,personal:0},
 	                "보낸 포인트":{work:70,personal:20},
 	                "받은 포인트":{work:20,personal:10},
 	                "게시글 포인트" :{work:45,personal:35},

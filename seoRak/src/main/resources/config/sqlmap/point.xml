@@ -2,14 +2,34 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.seoRak.repository.mapper.PointMapper">
+	
 	<resultMap id="point" type="Point">
-		<result property="" column="" />
+		<result column="member_id" property="memberId" />
+		<result column="point_no" property="pointNo" />
+		<result column="point_updown" property="pointUpDown" />
+		<result column="point_reg_date" property="regDate"  />
+		<result column="point_reason" property="pointReason" />
+		<result column="point_exchange_id" property="pointExchangeId" />
 	</resultMap>
 
-	<select id="selectPointById" resultMap="point" parameterType="String">
+	<select id="selectPointById" resultMap="point" parameterType="string">
+		select sum(*)
+		from seorak_point
+		where member_id=#{memberId}
+	</select>
+	
+	<select id="selectSendPointById" resultMap="point" parameterType="string">
 		select *
 		from seorak_point
 		where member_id=#{memberId}
+		  and point_reason='1'
+	</select>
+	
+	<select id="selectReceivePointById" resultMap="point" parameterType="string">
+		select sum(*)
+		from seorak_point
+		where member_id=#{memberId}
+		  and point_reason='2'
 	</select>
 	
 </mapper>

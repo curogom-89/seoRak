@@ -471,7 +471,7 @@ table {
                 <div class="info">
                   <h3> `${member.memberId}` </h1>
                   <h3> `${member.memberNickname}` </h2>
-                  <h3> 0 </h2>
+                  <h3> `${totalPoint}` </h2>
                   <h2><a href="<c:url value='myPoint.do'/>" id="popoz">포인트 `${member.memberTotalPoint}`</a></h2>
                 </div>
               </div>
