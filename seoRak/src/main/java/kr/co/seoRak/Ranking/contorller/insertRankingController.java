@@ -48,7 +48,7 @@ public class insertRankingController extends HttpServlet{
 
 
 		try {
-			if(cal.get(cal.DAY_OF_WEEK)!=cal.TUESDAY) {
+			if(cal.get(cal.DAY_OF_WEEK)!=cal.WEDNESDAY) {
 
 
 				Document doc = Jsoup.connect
@@ -104,7 +104,7 @@ public class insertRankingController extends HttpServlet{
 						if(result.contains("|ISBN ")==true) {
 							result ="kk";
 							int isbn1=result.indexOf("|ISBN");
-							String result2 = result.substring(isbn1+5,isbn1+18);//9788934982975
+							String result2 = result.substring(isbn1+5,isbn1+19);//9788934982975
 							//							System.out.println("isbn:"+result2);
 							//							rank.setIsbn(isbn1);
 							//							Aisbn.add(result2);
@@ -383,7 +383,7 @@ public class insertRankingController extends HttpServlet{
 										}else {
 											
 											
-											
+											if(mapper.selectIsbnbyTitle(alaTitle))
 											best.setKyoboRank(k);
 											
 										

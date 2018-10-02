@@ -15,6 +15,8 @@
 		<typeAlias alias="MyBookList" type="kr.co.seoRak.repository.domain.MyBookList"/>
 		<typeAlias alias="Point" type="kr.co.seoRak.repository.domain.Point"/>
 		<typeAlias alias="Message" type="kr.co.seoRak.repository.domain.Message"/>
+		<typeAlias alias="RankingInfo" type="kr.co.seoRak.repository.domain.RankingRankingInfo"/>
+		<typeAlias alias="RankingBookInfo" type="kr.co.seoRak.repository.domain.RankingBookInfo"/>
 	</typeAliases>
 	
 	<environments default="development">
@@ -39,5 +41,6 @@
 		<mapper resource="config/sqlmap/myBookList.xml"/>
 		<mapper resource="config/sqlmap/point.xml"/>  
 		<mapper resource="config/sqlmap/message.xml"/>
+		<mapper resource="config/sqlmap/bestseller.xml"/>
 	</mappers>
 </configuration>
