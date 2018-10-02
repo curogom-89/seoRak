@@ -1,3 +1,9 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="kr.co.seoRak.repository.domain.Message"%>
+<%@page import="java.util.List"%>
+<%@page import="kr.co.seoRak.common.db.MyAppSqlConfig"%>
+<%@page import="kr.co.seoRak.repository.mapper.MessageMapper"%>
+<%@page import="kr.co.seoRak.repository.domain.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -121,6 +127,16 @@ h2 {
 	}
 }
 </style>
+<script src="https://code.jquery.com/jquery-3.3.1.js"
+	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+	crossorigin="anonymous"></script>
+	
+<% 
+	HttpSession see = request.getSession();
+	Member member = (Member) see.getAttribute("user");
+	MessageMapper mapper = MyAppSqlConfig.getSqlSessionInstance().getMapper(MessageMapper.class);
+	List<Message> list = mapper.sendList(member.getMemberNickname());
+%>
 </head>
 <body>
 <%@include file="topList.jsp" %>
@@ -129,106 +145,51 @@ h2 {
 	<div>
 		<table id="me">
 			<tr id="m1">
-				<td>보낸 쪽지함 목록조회 :</td>
-				<td id="m2">보낸 날짜 : <input type="date" id="udate" name="udate"
-					value=""></td>
-
-				<td><select name="area" id="s1">
-						<option value="1">쪽지제목</option>
-						<option value="2">쪽지내용</option>
-						<option value="3">받는사람</option>
-						<option value="4">닉네임</option>
-						<option value="5" selected>--선택하세요--</option>
-				</select> <input type="text" name="sn" id="t1">
-					<button type="button">조회</button></td>
-
+				<td><a href="receivebox.jsp"><button type="button">받은 쪽지함</button></a></td>
+				
 			</tr>
 		</table>
 	</div>
 	<hr>
+	<form action="/seoRak/message/sendDelete.do">
 	<div class="wrapper">
 
 		<div class="table">
 
 			<div class="row header">
 				<div class="cell">받는사람</div>
-				<div class="cell">내용</div>
+				<div class="cell">제목</div>
 				<div class="cell">보낸시간</div>
+				<div class="cell">받은시간</div>				
 				<div class="cell">삭제</div>
 			</div>
 
-			<div class="row">
-				<div class="cell" data-title="Name">John</div>
-				<div class="cell" data-title="Age">탈주</div>
-				<div class="cell" data-title="Occupation">2018-09-15</div>
-				<div class="cell" data-title="Location">
-					<input id="f1" type="checkbox" name="del" value="1" checked /> <label
-						for="f1">삭제</label>
-				</div>
+		<%for (Message message : list){
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			String recvTime = "읽지 않음";
+			try {
+				recvTime = sdf.format(message.getReadDate());
+			} catch (Exception e) {
+				;;
+			}
+			String sendTime = sdf.format(message.getSendDate());
+		%>
+			
+		<div class="row">
+			<div class="cell" data-title="Product"><%=message.getRecvId() %></div>
+			<div class="cell" data-title="Unit Price"><a href='<c:url value="/message/read.do"/>?no=<%=message.getMessageNo()%>'/><%=message.getMessageTitle() %></a></div>
+			<div class="cell" data-title="Quantity"><%=sendTime %></div>
+			<div class="cell" data-title="Date Sold"><%=recvTime %></div>
+			<div class="cell" data-title="Status">
+				<input id="f1" type="checkbox" name="delCheck" value="<%=message.getMessageNo() %>" /> 삭제
 			</div>
-
-			<div class="row">
-				<div class="cell" data-title="Name">신득수</div>
-				<div class="cell" data-title="Age">도주</div>
-				<div class="cell" data-title="Occupation">2018-09-15</div>
-				<div class="cell" data-title="Location">
-					<input id="f1" type="checkbox" name="del" value="1" checked /> <label
-						for="f1">삭제</label>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="cell" data-title="Name">방진웅</div>
-				<div class="cell" data-title="Age">???</div>
-				<div class="cell" data-title="Occupation">2018-09-15</div>
-				<div class="cell" data-title="Location">
-					<input id="f1" type="checkbox" name="del" value="1" checked /> <label
-						for="f1">삭제</label>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="cell" data-title="Name">최창유</div>
-				<div class="cell" data-title="Age">zzz</div>
-				<div class="cell" data-title="Occupation">2018-09-15</div>
-				<div class="cell" data-title="Location">
-					<input id="f1" type="checkbox" name="del" value="1" checked /> <label
-						for="f1">삭제</label>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="cell" data-title="Name">유병욱</div>
-				<div class="cell" data-title="Age">탈주</div>
-				<div class="cell" data-title="Occupation">2018-09-15</div>
-				<div class="cell" data-title="Location">
-					<input id="f1" type="checkbox" name="del" value="1" checked /> <label
-						for="f1">삭제</label>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="cell" data-title="Name">jun</div>
-				<div class="cell" data-title="Age">광고</div>
-				<div class="cell" data-title="Occupation">2018-09-15</div>
-				<div class="cell" data-title="Location">
-					<input id="f1" type="checkbox" name="del" value="1" checked /> <label
-						for="f1">삭제</label>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="cell" data-title="Name">park</div>
-				<div class="cell" data-title="Age">홍보</div>
-				<div class="cell" data-title="Occupation">2018-09-15</div>
-				<div class="cell" data-title="Location">
-					<input id="f1" type="checkbox" name="del" value="1" checked /> <label
-						for="f1">삭제</label>
-				</div>
-			</div>
-
 		</div>
-		<button type="button" id="del">삭제</button>
-		<button type="button" id="sav">보관</button>
+		<% }%>
+	
+			
+		</div>
+	<button id="del">삭제</button>
+	<a href="message.jsp"><button type="button" id="writer">쪽지 쓰기</button></a>
+</form>
 </body>
 </html>

@@ -13,7 +13,7 @@
 			</c:when>
 			<c:otherwise>
 				<li><a href="<c:url value='myPoint.jsp'/>">포인트</a></li>
-				<li><a href="<c:url value='message.jsp'/>">쪽지함</a></li>
+				<li><a href="<c:url value='receivebox.jsp'/>">쪽지함</a></li>
 				<li><a href="<c:url value='myInfo.jsp'/>">${user.memberNickname }</a></li>	
 				<li><a href="<c:url value='loginForm.jsp'/>">로그아웃</a></li>
 				<c:if test="${user.memberGrade=='admin'}">

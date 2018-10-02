@@ -1,5 +1,8 @@
+<%@page import="kr.co.seoRak.common.db.MyAppSqlConfig"%>
+<%@page import="kr.co.seoRak.repository.mapper.MessageMapper"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -43,7 +46,7 @@ input:first-of-type
 {
   margin-top:35px;
 }
-#meo1, textarea {
+#meo1, #title, textarea {
   font-size: 1em;
   padding: 15px 10px 10px;
   font-family: 'Source Sans Pro',arial,sans-serif;
@@ -62,7 +65,28 @@ input:first-of-type
   width: 80%;
   max-width: 600px;
 }
-::-webkit-input-placeholder {
+
+#meo2 {
+  font-size: 1em;
+  padding: 15px 10px 10px;
+  font-family: 'Source Sans Pro',arial,sans-serif;
+  border: 1px solid #cecece;
+  background: #d7d7d7;
+  color:#FAFAFA;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 60%;
+  max-width: 600px;
+}
+
+::-webkit-input-placeholder{
    color: #FAFAFA;
 }
 :-moz-placeholder {
@@ -74,7 +98,7 @@ input:first-of-type
 :-ms-input-placeholder {  
    color: #FAFAFA;  
 }
-button {
+.submit-button  {
   margin-top:15px;
   margin-bottom:25px;
   background-color:#2ABCA7;
@@ -90,7 +114,7 @@ button {
   width:30%;
   color:#fff;
 }
-button:hover, .button:hover {
+.submit-button:hover, .confim-button:hover {
   background:#19a08c;
 }
 label.error {
@@ -112,7 +136,7 @@ label.error {
   label.error {
     width: 90%;
   }
-  input, textarea {
+input, textarea{
     width: 50%;
   }
   button {
@@ -141,54 +165,105 @@ label.error {
     margin-bottom: 30px;
 }
 
+.confim-button {
+  background-color:#2ABCA7;
+  padding: 15px 10px 10px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #2ABCA7;
+  -webkit-transition: .5s;
+  transition: .5s;
+  display: inline-block;
+  cursor: pointer;
+  width:19%;
+  color:#fff;
+}
 
+#receiver-comfim {
+  font-size: 1em;
+  padding: 15px 10px 10px;
+  font-family: 'Source Sans Pro',arial,sans-serif;
+  border: 1px solid #cecece;
+  background: #d7d7d7;
+  color:#FAFAFA;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 80%;
+  max-width: 600px;
+  margin: auto;
+  margin-bottom:10px;
+
+}
 </style>
+
+<script src="https://code.jquery.com/jquery-3.3.1.js"
+	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+	crossorigin="anonymous"></script>
+
 </head>
 <body>
-<form id="contact">
+<form id="contact" action="<c:url value='/message/send.do'/>" method="post" onsubmit="return submitcheck()">
     <div class="container">
       <div class="head">
         <h2>쪽지쓰기</h2>
       </div>
       
-      <input type="text" name="name" id="meo1" placeholder="보낸사람" /><br />
-      <input  type="email" name="email"  id="meo1" placeholder="받는사람" /><br />
-      <input  type="email" name="email" id="meo1" placeholder="제목" /><br />
-      <textarea type="text" name="message" placeholder="내용"></textarea><br />
+      <input type="text" name="sender" id="meo1" placeholder="보낸사람" value='${user.memberNickname}' readonly="readonly"/><br />
+      <input  type="text" name="receiver"  id="meo2" placeholder="받는사람" />
+      <button type="button" class="confim-button" id="check">확인</button><br />
+      <div id="receiver-comfim"></div>
+      <input  type="text" name="title" id="title" placeholder="제목" /><br />
+      <textarea type="text" name="content" id="content" placeholder="내용"></textarea><br />
       <div class="message">Message Sent</div>
-      <button id="submit" type="submit">보내기</button>
-      <button id="submit" type="submit">삭제</button>
+      <button class="submit-button" id="submit" type="submit">보내기</button>
+      <button class="submit-button" id="cancel" type="button">취소</button>
     </div>
   </form>
   <script>
-  
-  // When the browser is ready...
-  $(function() {
-    // validate
-    $("#contact").validate({
-        // Set the validation rules
-        rules: {
-            name: "required",
-            email: {
-                required: true,
-                email: true
-            },
-            message: "required",
-        },
-        // Specify the validation error messages
-        messages: {
-            name: "Please enter your name",
-            email: "Please enter a valid email address",
-            message: "Please enter a message",
-        },
-        // submit handler
-        submitHandler: function(form) {
-          //form.submit();
-           $(".message").show();
-           $(".message").fadeOut(4500);
-        }
-    });
-  });
+ 	var findReceiver = false;
+ 	$("#check").click (function() {
+		$.ajax({
+			url: "/seoRak/message/receiver.do",
+			data : "nickname="+$("#meo2").val(),
+			success: function(data) {
+					if (data == 1) {
+						$("#receiver-comfim").html("수신자를 찾았습니다.")
+						findReceiver = true;
+						$("#meo2").attr("readonly", true);
+					} else {
+						$("#receiver-comfim").html("해당하는 회원이 존재하지 않습니다.")
+					}
+				}
+			})
+	  	})
+	  	
+	function submitcheck() {
+ 		if(!$("#title").val()) {
+ 			alert("제목이 입력되지 않았습니다.")
+ 			return false;
+ 		}
+ 		
+ 		if(!$("#content").val()) {
+ 			alert("내용이 입력되지 않았습니다.")
+ 			return false;
+ 		}
+ 		
+ 		if (!findReceiver) {
+ 			alert("받는 사람이 확인 되지 않았습니다.")
+ 			return false;
+ 		} 
+ 		
+ 		return true;
+ 	}
+  </script>
 
 </body>
 </html>
