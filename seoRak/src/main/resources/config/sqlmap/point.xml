@@ -13,23 +13,23 @@
 	</resultMap>
 
 	<select id="selectPointById" resultMap="point" parameterType="string">
-		select sum(*)
+		select *
 		from seorak_point
 		where member_id=#{memberId}
 	</select>
 	
-	<select id="selectSendPointById" resultMap="point" parameterType="string">
+	<!-- <select id="selectSendPointById" resultMap="point" parameterType="string">
 		select *
 		from seorak_point
 		where member_id=#{memberId}
 		  and point_reason='1'
-	</select>
+	</select> -->
 	
-	<select id="selectReceivePointById" resultMap="point" parameterType="string">
+	<!-- <select id="selectReceivePointById" resultMap="point" parameterType="string">
 		select sum(*)
 		from seorak_point
 		where member_id=#{memberId}
 		  and point_reason='2'
-	</select>
+	</select> -->
 	
 </mapper>
