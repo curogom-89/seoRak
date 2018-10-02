@@ -13,7 +13,7 @@ import kr.co.seoRak.common.db.MyAppSqlConfig;
 import kr.co.seoRak.repository.domain.Board;
 import kr.co.seoRak.repository.mapper.BoardMapper;
 
-@WebServlet("/board/update.do")
+@WebServlet("/jsp/boardupdate.do")
 public class BoardUpdateController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -34,7 +34,7 @@ public class BoardUpdateController extends HttpServlet {
 		board.setBoardContent(request.getParameter("content"));
 		mapper.updateBoard(board);
 //		System.out.println("3");
-		response.sendRedirect("list.do");
+		response.sendRedirect("/seoRak/jsp/boardlist.do");
 		
 		
 		

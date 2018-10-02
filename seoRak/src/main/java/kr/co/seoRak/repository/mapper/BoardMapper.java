@@ -10,4 +10,5 @@ public interface BoardMapper {
 	void insertBoard(Board board);
 	int deleteBoard(int no);
 	int updateBoard(Board board);
+	int updateView(int no);
 }

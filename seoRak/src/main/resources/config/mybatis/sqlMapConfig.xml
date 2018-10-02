@@ -12,9 +12,11 @@
 	<typeAliases>
 		<typeAlias alias="Member" type="kr.co.seoRak.repository.domain.Member" />
 		<typeAlias alias="Board" type="kr.co.seoRak.repository.domain.Board"/>
+		<typeAlias alias="Comment" type="kr.co.seoRak.repository.domain.Comment"/>
 		<typeAlias alias="MyBookList" type="kr.co.seoRak.repository.domain.MyBookList"/>
-		<typeAlias alias="Point" type="kr.co.seoRak.repository.domain.Point"/>
-		<typeAlias alias="Message" type="kr.co.seoRak.repository.domain.Message"/>
+		<typeAlias alias="BoardBook" type="kr.co.seoRak.repository.domain.BoardBook"/>
+		<typeAlias type="kr.co.seoRak.repository.domain.Point" alias="Point"/>
+		<typeAlias type="kr.co.seoRak.repository.domain.Message" alias="Message"/>
 	</typeAliases>
 	
 	<environments default="development">
@@ -37,7 +39,9 @@
 		<mapper resource="config/sqlmap/admin.xml"/>
 		<mapper resource="config/sqlmap/board.xml"/>
 		<mapper resource="config/sqlmap/myBookList.xml"/>
-		<mapper resource="config/sqlmap/point.xml"/>  
+		<mapper resource="config/sqlmap/comment.xml"/>
+		<mapper resource="config/sqlmap/boardBook.xml"/>
+		<mapper resource="config/sqlmap/point.xml"/>
 		<mapper resource="config/sqlmap/message.xml"/>
 	</mappers>
 </configuration>

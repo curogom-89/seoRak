@@ -13,14 +13,16 @@ import javax.servlet.http.HttpSession;
 
 import kr.co.seoRak.common.db.MyAppSqlConfig;
 import kr.co.seoRak.repository.domain.Board;
+import kr.co.seoRak.repository.domain.Member;
 import kr.co.seoRak.repository.mapper.BoardMapper;
 
-@WebServlet("/board/list.do")
+@WebServlet("/jsp/boardlist.do")
 public class BoardListController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		BoardMapper mapper = MyAppSqlConfig.getSqlSessionInstance().getMapper(BoardMapper.class);
-		
+		HttpSession session = request.getSession();
+		Member loginMember = (Member) session.getAttribute("user");
 		
 		List<Board> list = mapper.selectAllBoard();
 		

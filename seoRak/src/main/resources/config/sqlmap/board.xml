@@ -28,8 +28,9 @@
 	
 	<insert id="insertBoard" parameterType="Board">
 		insert into SEORAK_BOARD
-		(BOARD_NO, BOARD_Title, BOARD_CONTENT, BOARD_CATEGORY, Board_writer) values 
+		(BOARD_NO, BOARD_Title, BOARD_CONTENT, BOARD_CATEGORY, BOARD_WRITER) values 
 		(S_SEORAK_BOARD_NO.nextval, #{boardTitle}, #{boardContent}, #{boardCategory}, #{boardWriter})
+		
 	
 	</insert>
 	
@@ -44,6 +45,12 @@
 			board_content = #{boardContent},
 			board_category = #{boardCategory}
 		where board_no = #{boardNo}
+	</update>
+	
+	<update id="updateView" parameterType="int">
+		update seorak_board
+		set view_cnt = view_cnt + 1
+		where no = #{boardNo}
 	</update>
 	
 </mapper>

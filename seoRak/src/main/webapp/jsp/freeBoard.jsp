@@ -153,12 +153,12 @@ body {
 		<div class="row">
 			<div class="cell">${b.boardNo}</div>
 			<div class="cell">${b.boardCategory}</div>
-			<div class="cell"><a href="detail.do?no=${b.boardNo}">${b.boardTitle}</a></div>
+			<div class="cell"><a href="boardDetail.do?no=${b.boardNo}">${b.boardTitle}</a></div>
 <%-- 			<div class="cell"><a href="<c:url value='detail.do?no=${b.boardNo}'/>">${b.boardTitle}</a></div> --%>
 			<div class="cell">${b.boardWriter}</div>
 			<div class="cell">추천서적</div>
 			<div class="cell">추천수</div>
-			<div class="cell">조회수</div>
+			<div class="cell">${b.boardView}</div>
 			
 			<div class="cell">${b.boardDate}</div>
 		</div>

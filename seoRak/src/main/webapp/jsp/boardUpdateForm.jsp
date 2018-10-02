@@ -11,10 +11,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-table {
+table,td,tr {
 	border: 1px solid black;
 	border-collapse: collapse;
 	margin: auto;
+	border : 1px solid black;
 }
 
 #search {
@@ -38,7 +39,7 @@ table {
 	<h2>수정하기</h2>
 	<hr>
 	<div>
-		<form action="/seoRak/board/update.do" id="updateForm" method="post">
+		<form action="/seoRak/jsp/boardupdate.do" id="boardupdateForm" method="post">
 			<table>
 				<tr>
 					<input type='hidden' name="boardNo" value='${board.boardNo}' />
@@ -67,7 +68,7 @@ table {
 				</tr>
 				<tr>
 					<td><input type="text" name="author" id="author" size="100"
-						placeholder="${board.boardWriter}"></td>
+						placeholder="작성자"></td>
 				</tr>
 				<tr>
 					<td colspan="3"><textarea name="content" id="content" cols="110" rows="10">${board.boardContent}</textarea>
@@ -78,7 +79,7 @@ table {
 			<input type="file" name="attach" id="file" />
 			<hr>
 			<!-- file : <input type="file" name="attach" /> -->
-			<button name="btn1" type="button" id="btn1"><a href="list.do">목록으로</a></button>
+			<button name="btn1" type="button" id="btn1"><a href="boardlist.do">목록으로</a></button>
 			<button name="btn2" type="submit" id="update">수정</button>
 			
 		</form>

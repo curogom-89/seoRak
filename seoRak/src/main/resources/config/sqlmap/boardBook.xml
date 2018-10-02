@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.seoRak.repository.mapper.BoardBookMapper">
+	<resultMap type="BoardBook" id="boardBook">
+		<result column="board_no" property="boardNo"/>
+		<result column="member_id" property="memberId"/>
+		<result column="board_book_title" property="boardBookTitle"/>
+		<result column="board_book_publisher" property="boardBookPublisher"/>
+		<result column="board_book_author" property="boardBookAuthor"/>
+		<result column="board_book_cover" property="boardBookCover"/>
+		<result column="isbn" property="isbn"/>
+	</resultMap>
+	
+	<insert id="insertBoardBook" parameterType="BoardBook">
+		insert into seorak_boardbook (
+		board_no, 
+		member_id, 
+		board_book_title,
+		board_book_publisher,
+		board_book_author,
+		board_book_cover,
+		isbn
+		) values (
+		s_boardbook_no.nextval,
+		#{memberId},
+		#{boardBookTitle},
+		#{boardBookPublisher},
+		#{boardBookAuthor},
+		#{boardBookCover},
+		#{isbn}
+		)
+	</insert>
+	
+</mapper>

@@ -18,6 +18,8 @@ public class Board {
 	public void setBoardNo(int boardNo) {
 		this.boardNo = boardNo;
 	}
+	
+	
 	public String getBoardWriter() {
 		return boardWriter;
 	}

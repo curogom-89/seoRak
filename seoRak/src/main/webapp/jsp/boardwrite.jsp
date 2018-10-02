@@ -1,3 +1,4 @@
+<%@page import="kr.co.seoRak.repository.domain.BoardBook"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -6,10 +7,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-table {
+table,td,tr {
 	border: 1px solid black;
 	border-collapse: collapse;
 	margin: auto;
+	border : 1px solid black;
 }
 
 #search {
@@ -32,9 +34,10 @@ table {
 <body>
 <%@include file="topList.jsp" %>
 	<h2>글쓰기</h2>
+	
 	<hr>
 	<div>
-		<form action="/seoRak/board/writer.do" method="post" id="writeForm">
+		<form action="/seoRak/jsp/boardwriter.do?cover=" method="post" id="writeForm">
 			<table>
 				<tr>
 					<td><select name="category" id="category">
@@ -45,28 +48,28 @@ table {
 					</select></td>
 					<td><input type="text" name="title" id="title" size="100"
 						placeholder="제목을 입력하세요"></td>
-					<td rowspan="5">
-						<button type="button" name="search" id="search">도서검색</button>
+					<td rowspan="6">
+						<button type="button" name="search" id="search"><a href='<c:url value="boardBookSearch.jsp"/>'>도서검색</a></button>
 					</td>
 				</tr>
 				<tr>
-					<td rowspan="4" >책표지</td>
+					<td rowspan="5" >
+						<img src="">
+					</td>
 				</tr>
 				<tr>
 					<td><input type="text" name="book" id="book" size="100"
-						placeholder="책 제목"></td>
+						placeholder="책 제목" value=""></td>
 				</tr>
 				<tr>
 					<td><input type="text" name="publisher" id="publisher"
-						size="100" placeholder="출판사"></td>
+						size="100" placeholder="출판사" value=""></td>
 				</tr>
 				<tr>
 					<td><input type="text" name="author" id="author" size="100"
-						placeholder="저자"></td>
+						placeholder="저자" value=""></td>
 				</tr>
 				<tr>
-					<td><input type="text" name="writer" id="writer"
-						size="100" placeholder="작성자"></td>
 				</tr>
 				<tr>
 					<td colspan="3"><textarea name="content" id="content" cols="110" rows="10"></textarea>
@@ -77,7 +80,7 @@ table {
 			<input type="file" name="attach" id="file" />
 			<hr>
 			<!-- file : <input type="file" name="attach" /> -->
-			<button name="btn1" type="button" id="btn1"><a href="/seoRak/board/list.do">목록으로</a></button>
+			<button name="btn1" type="button" id="btn1"><a href="/seoRak/jsp/boardlist.do">목록으로</a></button>
 			<button name="btn2" type="button" id="btn2"><a href="#">작성</a></button>
 			<button name="btn3" type="button" id="btn3">초기화</button>
 		</form>

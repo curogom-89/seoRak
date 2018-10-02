@@ -2,8 +2,6 @@ package kr.co.seoRak.board.controller;
 
 import java.io.IOException;
 
-import javax.security.auth.message.callback.PrivateKeyCallback.Request;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,20 +9,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.co.seoRak.common.db.MyAppSqlConfig;
-import kr.co.seoRak.repository.domain.Board;
-import kr.co.seoRak.repository.mapper.BoardMapper;
+import kr.co.seoRak.repository.mapper.CommentMapper;
 
-@WebServlet("/jsp/boarddelete.do")
-public class BoardDeleteController extends HttpServlet {
+@WebServlet("/jsp/comment-delete.do")
+public class BoardDeleteCommentController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		BoardMapper mapper = MyAppSqlConfig.getSqlSessionInstance().getMapper(BoardMapper.class);
+		CommentMapper mapper = MyAppSqlConfig.getSqlSessionInstance().getMapper(CommentMapper.class);
+		
 		int no = Integer.parseInt(request.getParameter("no"));
-
-		 mapper.deleteBoard(no);
+		int commentNo = Integer.parseInt(request.getParameter("commentNo"));
 		
+		mapper.deleteComment(commentNo);
 		
-		response.sendRedirect(request.getContextPath() + "/jsp/boardlist.do");
-	} 
+		response.sendRedirect(request.getContextPath() + "/jsp/boardDetail.do?no=" + no);
 		
+	}
 }
