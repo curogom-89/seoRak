@@ -2,7 +2,7 @@ package kr.co.seoRak.repository.domain;
 
 import java.util.Date;
 
-public class BestSellerList {
+public class RankingRankingInfo {
 	private Date bestsellerWeek;
 	private int kyoboRank;
 	private int yes24Rank;

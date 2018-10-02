@@ -3,7 +3,7 @@ package kr.co.seoRak.repository.domain;
 import java.util.Calendar;
 import java.util.Date;
 
-public class seorakRankdomain {
+public class RankingBookInfo {
 	private String isbn;//1
 	private String bookTitle;//2
 	private String bookAuthor;//3
