@@ -13,7 +13,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.3.1.js"
        	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
@@ -36,7 +35,7 @@
 		  color: #5a6674;
 		  font-size: 13px;
 		  font-family: 'Roboto', sans-serif;
-		  overflow: scroll;
+		  overflow: hidden;
 		} 
 		
 		/*-------------------- App --------------------*/
@@ -199,9 +198,9 @@
                  	  <tr>
                  	  	<td> <%= no+1 %> </td>
                         <td><img src="<%= img %>"/></td>
-                        <td id="title">
+                        <td class="title">
                         <!-- http://localhost:8000/seoRak/jsp/myListWrite.jsp -->
-                        	<a href="/seoRak/jsp/myListWrite.jsp?title=<%= b.getTitle() %>&publisher=<%= b.getPublisher() %>&author=<%= b.getAuthor() %>&img=<%= b.getImage() %>&link=<%= b.getLink() %>&isbn=<%= b.getIsbn() %> ">
+                        	<a href="#1" data-param="<%= b.getTitle() %>^<%= b.getPublisher() %>^<%= b.getAuthor() %>^<%= b.getImage() %>^<%= b.getLink() %>^<%= b.getIsbn() %>">
                         		<%= b.getTitle() %>
                         	</a>
                         </td>
@@ -215,15 +214,40 @@
 	         	</tbody>
 	         </table>
          </center>
+         <form name="sForm" action="/seoRak/jsp/myListWrite.jsp">
+         	<input type="hidden" name="title" />
+         	<input type="hidden" name="publisher" />
+         	<input type="hidden" name="author" />
+         	<input type="hidden" name="img" />
+         	<input type="hidden" name="link" />
+         	<input type="hidden" name="isbn" />
+         </form>
          <script>
-         	/* $("#title").click(function(){
-         		$.ajax({
-         			type : "POST",
-         			url : "/jsp/myList/Write.do",
-         			data : ""
-         		})
+         
+         	
+         
+         	$(".title > a").click(function(e){
+         		console.dir($(this).data("param").split("^"))
          		
-         	}) */
+         		var arr = $(this).data("param").split("^");
+         		e.preventDefault();
+				var f = document.sForm;
+				var index = 0
+				f.title.value = arr[index++]
+				f.publisher.value = arr[index++]
+				f.author.value = arr[index++]
+				f.img.value = arr[index++]
+				f.link.value = arr[index++]
+				f.isbn.value = arr[index++]
+         		f.submit();
+//          		$.ajax({
+//          			type : "POST",
+//          			url : "/jsp/myList/Write.do",
+//          			data : ""
+//          		})
+				
+         		
+         	})
          </script>
 </body>
 </html>

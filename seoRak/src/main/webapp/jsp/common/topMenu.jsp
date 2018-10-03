@@ -13,7 +13,7 @@
 			</c:when>
 			<c:otherwise>
 				<li><a href="<c:url value='myPoint.jsp'/>">포인트</a></li>
-				<li><a href="<c:url value='receivebox.jsp'/>">쪽지함</a></li>
+				<li><a href="<c:url value='message.jsp'/>">쪽지함</a></li>
 				<li><a href="<c:url value='myInfo.jsp'/>">${user.memberNickname }</a></li>	
 				<li><a href="<c:url value='loginForm.jsp'/>">로그아웃</a></li>
 				<c:if test="${user.memberGrade=='admin'}">
@@ -27,17 +27,29 @@
 
 	<main> </main>
 
-
+<form class="totobar" name="mForm" action='<c:url value="/jsp/search/topsearch.do"/>'>
 	<ul class="menu">
 		<li><a href="#" class="active">Home</a></li>
 		<li><a href="<c:url value='myInfo.do'/>">마이페이지</a></li>
 		<li><a href="<c:url value='freeBoard.jsp'/>">게시판</a></li>
 		<li><a href="<c:url value='BestSeller.jsp'/>">랭킹</a></li>
-		<li><a href="#"><img src="<c:url value='/img/searchIcon.png'/>" onclick="javascript:location.href='search.jsp'" id="searchIcon"><input id="searchBar" type="text" placeholder="도서검색"/></a></li>
+		<li>
+			<a href="#">
+				<!-- <img src="<c:url value='/img/searchIcon.png'/>" onclick="javascript:location.href='<c:url value="/jsp/myList/Search2.do?"/>'" id="searchIcon">  -->
+				<img src="<c:url value='/img/searchIcon.png'/>" onclick="doSearch()" id="searchIcon">
+				<input id="searchBar" name="content" type="text" placeholder="도서검색"/>
+			</a>
+		</li>
 		<li class="slider"></li>
 	</ul>
+</form>
 
 	
 	<script>
     var navigation = $('#nav-main').okayNav();
+    function doSearch(){
+    	var f = document.mForm 
+    	f.submit()
+    }
+    
 	</script>
