@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="kr.co.seoRak.repository.domain.Member" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+	HttpSession sessionMember = request.getSession();
+	Member member = (Member)sessionMember.getAttribute("user");
+	String memberId = member.getMemberId();
+	int memberPoint = member.getMemberTotalPoint();
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,7 +18,8 @@
   padding: 60px 0;
   background-color: rgba(178,209,229,0.7);
   margin: 0 auto;	
-  width: 600px;
+  width: 100%;
+  height : 100%;
 }
 .body-text {
   padding: 0 20px 15px 10px;
@@ -62,7 +71,7 @@ input[name="content"]{
   width: 97%;
   border: none;
 }
-input[type="submit"]{
+button[type="submit"]{
   display: block;
   height: 50px;
   width: 50%;
@@ -76,7 +85,7 @@ input[type="submit"]{
   font-weight: bold;
   cursor: pointer;
 }
-input[type="submit"]:hover{
+button[type="submit"]:hover{
   background-color: #6FB7E9;
   transition: 0.3s ease;
 }
@@ -110,10 +119,10 @@ input[type="submit"]:hover{
   #sendTitle {
     font-size: 4em;
   }
-  input {
+  button {
     margin: 2px 0;
   }
-  input[type="submit"]{
+  button[type="submit"]{
     height: 50px;
   }
   #column-left {
@@ -129,22 +138,23 @@ input[type="submit"]:hover{
 }
 
 </style>
+
 </head>
 <body>
-<%@include file="topList.jsp" %>
 <div id="pointBody">
 <div class="body-text">My Point</div>
         <hr>
-        <form>
+        <!--  -->
+        <form method="GET" name="sendPoint"  action='<c:url value="/jsp/sendPoint.do"/>' onsubmit="doSend()">
           <div class="form-container">
             <div class="personal-information">
               <span id="sendTitle">포인트 보내기</span>
             </div> <!-- end of personal-information -->
                  
-                <input id="column-left" type="text" name="writer" placeholder="보내는 사람"/>
-                <input id="column-right" type="text" name="book" placeholder="받는 사람"/>
-                <input id="column-left" type="text" name="writer" placeholder="현재 보유 포인트                           600P"/>
-                <input id="column-right" type="text" name="book" placeholder="보낼 포인트""/>
+                <input id="column-left" type="text" name="sender" placeholder="보내는 사람" value="<%=memberId %>" />
+                <input id="column-right" type="text" name="receiver" placeholder="받는 사람"/>
+                <input id="column-left" type="text" name="currentPoint" placeholder="현재 보유 포인트" value="<%=memberPoint %>" />
+                <input id="column-right" type="text" name="sendPoint" placeholder="보낼 포인트""/>
               
                 <div class="card-wrapper"></div>
             
@@ -153,8 +163,8 @@ input[type="submit"]:hover{
                 <input id="column-right" type="text" name="zipcode" required="required" autocomplete="on" pattern="[0-9]*" maxlength="5" placeholder="ZIP code"/>
                 <input id="input-field" type="email" name="email" required="required" autocomplete="on" maxlength="40" placeholder="Email"/> -->
                 <hr>
-                <input id="column-left" type="submit" value="Submit"/>
-                <input id="column-right" type="submit" value="Cancle"/>
+                <button id="column-left" type="submit" value="Submit">Submit</button>
+                <button id="column-right" type="submit" value="Cancle">Cancle</button>
                 <!-- <input id="input-button" type="submit" value="Cancle"/> -->
               
           </form>
@@ -170,6 +180,11 @@ input[type="submit"]:hover{
                     nameInput: 'input[name="first-name"], input[name="last-name"]'
                 }
             });
+        
+        	function doSend(){
+        		alert("포인트 전송 완료");
+				/* self.close(); */
+        	}
         </script>
 </body>
 </html>
