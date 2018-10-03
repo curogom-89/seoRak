@@ -9,7 +9,7 @@
 	Member member = (Member)sessionMember.getAttribute("user");
 	String memberId = member.getMemberId();
 	int memberPoint = member.getMemberTotalPoint();
-
+	LoginMapper mapper = MyAppSqlConfig.getSqlSessionInstance().getMapper(LoginMapper.class);
 %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -91,6 +91,7 @@ button[type="submit"]{
 button[type="submit"]:hover{
   background-color: #6FB7E9;
   transition: 0.3s ease;
+  
 }
 #column-left {
   width: 46.8%;
@@ -175,25 +176,44 @@ button[type="submit"]:hover{
           </form>
         </div>      
 </div>
-        <script>
-        	var cancle = document.querySelector("button[name=Cancle]");
-       		
-        	cancle.onclick = function doCancle(){
-           		alert("취소");
-           		self.close();
-           	}
-        	
-        	function doAction(flag){
-        		var s = document.sForm
-       			if(s.currentPoint_hidden.value < s.sendPoint.value || s.sendPoint.value <= 0){
-        			alert("포인트 전송 실패");
-        			s.sendPoint.focus();
-        			return false;
-        		}else{
-	        		alert("포인트 전송 완료");
-	        		return true;
-        		}
-        	}
-        </script>
+
+	<c:choose>
+		<c:when test="${check=='before'}">
+	        <script>   	
+	        	var cancle = document.querySelector("button[name=Cancle]");
+	       		
+	        	cancle.onclick = function doCancle(){
+	           		alert("취소");
+	           		self.close();
+	           	}
+	        	
+	        	function doAction(){
+	        		var s = document.sForm
+	        		var sender = s.sender.value
+	
+	       			if(s.currentPoint_hidden.value < s.sendPoint.value || s.sendPoint.value <= 0){
+	        			alert("포인트 전송 실패");
+	        			s.sendPoint.focus();
+	        			return false;
+	        		}else{
+		        		return true;
+	        		}
+	        	}
+	        </script>
+		</c:when>
+		<c:when test="${check =='unmatch'}">
+			<script type="text/javascript">
+				alert("보내는사람 혹은 받는사람 아이디가 일치하지 않습니다.");
+			</script>
+		</c:when>
+		<c:when test="${check =='success'}">
+			<script type="text/javascript">
+				alert("포인트 전송 완료");
+				self.close();
+			</script>
+		</c:when>
+	</c:choose>
+
+
 </body>
 </html>

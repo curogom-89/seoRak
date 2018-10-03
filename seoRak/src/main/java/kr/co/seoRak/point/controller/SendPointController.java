@@ -40,12 +40,12 @@ public class SendPointController extends HttpServlet{
 		pointReceive.setPointReason(2);
 		
 		LoginMapper mapperLogin = MyAppSqlConfig.getSqlSessionInstance().getMapper(LoginMapper.class);
-		String memberSend = mapperLogin.idCheck(sender);
-		String memberReceive = mapperLogin.idCheck(receiver);
+		Member memberSend = mapperLogin.idCheck(sender);
+		Member memberReceive = mapperLogin.idCheck(receiver);
 
 		if(memberSend == null || memberReceive== null) {
-			RequestDispatcher rd = request.getRequestDispatcher("/jsp/myPoint.do");
-			request.setAttribute("unmatch", true);
+			RequestDispatcher rd = request.getRequestDispatcher("/jsp/sendPoint.jsp");
+			request.setAttribute("check", "unmatch");
 			rd.forward(request, response);
 		} else {
 			PointMapper mapper = MyAppSqlConfig.getSqlSessionInstance().getMapper(PointMapper.class);
@@ -64,7 +64,11 @@ public class SendPointController extends HttpServlet{
 			mapper.insertPoint(pointReceive);
 			mapper.updateMemberPoint(memberSender);
 			mapper.updateMemberPoint(memberReceiver);
-			response.sendRedirect("/seoRak/jsp/myPoint.do");
+			
+			RequestDispatcher rd = request.getRequestDispatcher("/jsp/sendPoint.jsp");
+			request.setAttribute("check", "success");
+			rd.forward(request, response);
+//			response.sendRedirect("/seoRak/jsp/myPoint.do");
 		}
 	}
 	

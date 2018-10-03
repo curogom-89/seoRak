@@ -185,7 +185,7 @@ p{
 		<form>
 			<input type='button' value='Refresh' />
 			<input type='button' onclick="openSendPop()" value='포인트 보내기' />
-			<input type='button' onclick="checkSendPoint()" value='받은 포인트 확인하기' />
+			<input type='button' value='받은 포인트 확인하기' />
 			<input type='button' value='포인트 랭킹' />
 		</form>
 	</p>
@@ -197,14 +197,15 @@ p{
 
 
 	<script>
+	var 
 	/* 포인트 보내기 */
 	function openSendPop(){
 		window.open(
 			/* http://localhost:8000/seoRak/jsp/sendPoint.jsp */
-			"/seoRak/jsp/sendPoint.jsp", "포인트 보내기", "width=700px,height=500px"	
+			"/seoRak/jsp/sendPointForm.do", "포인트 보내기", "width=700px,height=500px"	
 		)
 	}
-	function checkSendPoint(){
+	= function checkSendPoint(){
 		window.location.href("/seoRak/jsp/sendPointBox.do");
 	}
 	
