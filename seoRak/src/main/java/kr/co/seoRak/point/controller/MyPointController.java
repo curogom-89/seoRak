@@ -14,11 +14,12 @@ import javax.servlet.http.HttpSession;
 import kr.co.seoRak.common.db.MyAppSqlConfig;
 import kr.co.seoRak.repository.domain.Member;
 import kr.co.seoRak.repository.domain.Point;
+import kr.co.seoRak.repository.mapper.LoginMapper;
 import kr.co.seoRak.repository.mapper.PointMapper;
 
 @WebServlet("/jsp/myPoint.do")
 public class MyPointController extends HttpServlet {
-	int totalPoint;
+
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
@@ -26,16 +27,15 @@ public class MyPointController extends HttpServlet {
 		Member member = (Member)session.getAttribute("user");
 		
 		PointMapper mapper = MyAppSqlConfig.getSqlSessionInstance().getMapper(PointMapper.class);
+		
 		List<Point> list = mapper.selectPointById(member.getMemberId());
 		
 		int totalPoint = mapper.selectPointTotalById(member.getMemberId());
-		int sendPoint = mapper.selectSendPointById(member.getMemberId());
+		int sendPoint = Math.abs(mapper.selectSendPointById(member.getMemberId()));
 		int receivePoint = mapper.selectReceivePointById(member.getMemberId());
 		int boardPoint = mapper.selectBoardPointById(member.getMemberId());
 		int attendPoint = mapper.selectAttendPointById(member.getMemberId());
-		
-		System.out.println(member.getMemberId());
-		
+
 		request.setAttribute("list", list);
 		request.setAttribute("totalPoint", totalPoint);
 		request.setAttribute("sendPoint", sendPoint);

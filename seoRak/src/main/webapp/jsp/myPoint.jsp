@@ -169,6 +169,13 @@ p{
 </style>
 </head>
 <body>
+	<script>
+		function unMatch(){
+			if(`${unmatch}`){
+				alert("보내는사람 또는 받는사람 id가 일치하지 않습니다.")		
+			}
+		}
+	</script>
 	<%@include file="topList.jsp" %>
 	<div>
 		<h1>My Point</h1>
@@ -178,7 +185,7 @@ p{
 		<form>
 			<input type='button' value='Refresh' />
 			<input type='button' onclick="openSendPop()" value='포인트 보내기' />
-			<input type='button' value='받은 포인트 확인하기' />
+			<input type='button' onclick="checkSendPoint()" value='받은 포인트 확인하기' />
 			<input type='button' value='포인트 랭킹' />
 		</form>
 	</p>
@@ -196,6 +203,9 @@ p{
 			/* http://localhost:8000/seoRak/jsp/sendPoint.jsp */
 			"/seoRak/jsp/sendPoint.jsp", "포인트 보내기", "width=700px,height=500px"	
 		)
+	}
+	function checkSendPoint(){
+		window.location.href("/seoRak/jsp/sendPointBox.do");
 	}
 	
 	/* 받은 포인트함 */

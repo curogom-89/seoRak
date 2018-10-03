@@ -10,6 +10,7 @@ create table seorak_myBookList(
 );
 
 drop table seorak_myBookList;
+drop table seorak_point;
 drop sequence mylist_no;
 
 select *
@@ -18,13 +19,20 @@ from seorak_mybooklist;
 select *
 from seorak_member;
 
+update seorak_member
+set member_total_point = 500
+where member_id='seorakbooks@gmail.com';
+
+
+delete from seorak_point;
+
 create table seorak_point(
     member_id varchar(50) not null references seorak_member(member_id),
     point_no number not null,
     point_updown number not null,
     point_reg_date date not null,
     point_reason number not null,
-    point_exchange_id varchar(50) not null
+    point_exchange_id varchar(50)
 );
 
 select *
@@ -45,10 +53,26 @@ insert into seorak_point(
                     ) values (
                     'dlopo123@gmail.com',
                     s_point_no.nextval,
-                    '-200',
+                    '500',
                     sysdate,
-                    1,
-                    'dlopo123'
+                    4,
+                    'dlopo123@naver.com'
+                    );
+                    
+insert into seorak_point(
+                    member_id,
+                    point_no,
+                    point_updown,
+                    point_reg_date,
+                    point_reason
+    ) values (
+                    'dlopo123@gmail.com',
+                    s_point_no.nextval,
+                    '500',
+                    sysdate,
+                    4
                     );
                     
 commit;
+
+

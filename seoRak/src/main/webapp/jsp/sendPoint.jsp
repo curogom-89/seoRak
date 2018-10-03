@@ -1,13 +1,16 @@
+<%@page import="kr.co.seoRak.common.db.MyAppSqlConfig"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="kr.co.seoRak.repository.domain.Member" %>
+<%@ page import="kr.co.seoRak.repository.mapper.LoginMapper" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	HttpSession sessionMember = request.getSession();
 	Member member = (Member)sessionMember.getAttribute("user");
 	String memberId = member.getMemberId();
 	int memberPoint = member.getMemberTotalPoint();
-%>
+
+%> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -144,8 +147,8 @@ button[type="submit"]:hover{
 <div id="pointBody">
 <div class="body-text">My Point</div>
         <hr>
-        <!--  -->
-        <form method="GET" name="sendPoint"  action='<c:url value="/jsp/sendPoint.do"/>' onsubmit="doSend()">
+     
+        <form method="GET" name="sForm"  action='<c:url value="/jsp/sendPoint.do"/>' onsubmit="return doAction()">
           <div class="form-container">
             <div class="personal-information">
               <span id="sendTitle">포인트 보내기</span>
@@ -153,9 +156,11 @@ button[type="submit"]:hover{
                  
                 <input id="column-left" type="text" name="sender" placeholder="보내는 사람" value="<%=memberId %>" />
                 <input id="column-right" type="text" name="receiver" placeholder="받는 사람"/>
-                <input id="column-left" type="text" name="currentPoint" placeholder="현재 보유 포인트" value="<%=memberPoint %>" />
-                <input id="column-right" type="text" name="sendPoint" placeholder="보낼 포인트""/>
-              
+                <input id="column-left" type="text" name="currentPoint" placeholder="현재 보유 포인트                                        <%=memberPoint %>" />
+                <input id="column-right" type="text" name="sendPoint" placeholder="보낼 포인트"/>
+              	
+                <input id="column-left" type="hidden" name="currentPoint_hidden" value="<%=memberPoint %>" />
+
                 <div class="card-wrapper"></div>
             
                 <!-- <input id="input-field" type="text" name="streetaddress" required="required" autocomplete="on" maxlength="45" placeholder="Streed Address"/>
@@ -163,27 +168,31 @@ button[type="submit"]:hover{
                 <input id="column-right" type="text" name="zipcode" required="required" autocomplete="on" pattern="[0-9]*" maxlength="5" placeholder="ZIP code"/>
                 <input id="input-field" type="email" name="email" required="required" autocomplete="on" maxlength="40" placeholder="Email"/> -->
                 <hr>
-                <button id="column-left" type="submit" value="Submit">Submit</button>
-                <button id="column-right" type="submit" value="Cancle">Cancle</button>
-                <!-- <input id="input-button" type="submit" value="Cancle"/> -->
-              
+                <button id="column-left" name="Success" type="submit" value="Success">Submit</button>
+                <button id="column-right" name="Cancle" type="submit" value="Cancle">Cancle</button>
+
+                <!-- <input id="input-button" type="submit" value="Cancle"/> -->   
           </form>
         </div>      
 </div>
         <script>
-            /* Card.js plugin by Jesse Pollak. https://github.com/jessepollak/card */
-            $('form').card({
-                container: '.card-wrapper',
-                width: 280,
-
-                formSelectors: {
-                    nameInput: 'input[name="first-name"], input[name="last-name"]'
-                }
-            });
-        
-        	function doSend(){
-        		alert("포인트 전송 완료");
-				/* self.close(); */
+        	var cancle = document.querySelector("button[name=Cancle]");
+       		
+        	cancle.onclick = function doCancle(){
+           		alert("취소");
+           		self.close();
+           	}
+        	
+        	function doAction(flag){
+        		var s = document.sForm
+       			if(s.currentPoint_hidden.value < s.sendPoint.value || s.sendPoint.value <= 0){
+        			alert("포인트 전송 실패");
+        			s.sendPoint.focus();
+        			return false;
+        		}else{
+	        		alert("포인트 전송 완료");
+	        		return true;
+        		}
         	}
         </script>
 </body>

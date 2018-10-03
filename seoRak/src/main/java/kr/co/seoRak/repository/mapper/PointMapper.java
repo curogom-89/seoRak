@@ -2,6 +2,7 @@ package kr.co.seoRak.repository.mapper;
 
 import java.util.List;
 
+import kr.co.seoRak.repository.domain.Member;
 import kr.co.seoRak.repository.domain.Point;
 
 public interface PointMapper {
@@ -23,5 +24,9 @@ public interface PointMapper {
 	int selectAttendPointById(String memberId);
 	
 	void insertPoint(Point point);
+	
+	void updateMemberPoint(Member member);
+	
+	
 	
 }

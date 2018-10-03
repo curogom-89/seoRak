@@ -33,6 +33,22 @@
 		where member_id=#{memberId}
 	</select>
 	
+	<!--  전체 포인트 멤버 업데이트
+	<update id="updateMemberPoint" parameterType="string">
+		update seorak_member
+		   set member_total_point = (select nvl( sum(point_updown), 0 )
+										from seorak_point
+										where member_id=#{memberId})			
+		 where member_id = #{memberId};
+	</update> -->
+	
+	<!-- 전체 포인트 멤버 업데이트 -->
+	<update id="updateMemberPoint" parameterType="Member">
+		update seorak_member
+		   set member_total_point = #{memberTotalPoint}		
+		 where member_id = #{memberId}
+	</update>
+
 	<!-- 보낸 포인트  -->
 	<select id="selectSendPointById" resultType="int" parameterType="string">
 		select nvl(sum(point_updown),0)
