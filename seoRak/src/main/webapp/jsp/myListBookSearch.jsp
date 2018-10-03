@@ -36,7 +36,7 @@
 		  color: #5a6674;
 		  font-size: 13px;
 		  font-family: 'Roboto', sans-serif;
-		  overflow: hidden;
+		  overflow: scroll;
 		} 
 		
 		/*-------------------- App --------------------*/

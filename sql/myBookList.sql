@@ -30,6 +30,11 @@ create table seorak_point(
 select *
 from seorak_point;
 
+select nvl( sum(point_updown), 0 )
+from seorak_point
+where member_id='dlopo123@gmail.com'
+and point_reason=2;
+
 insert into seorak_point(
                     member_id,
                     point_no,
@@ -40,10 +45,10 @@ insert into seorak_point(
                     ) values (
                     'dlopo123@gmail.com',
                     s_point_no.nextval,
-                    300,
+                    '-200',
                     sysdate,
                     1,
                     'dlopo123'
-                    )
+                    );
                     
 commit;

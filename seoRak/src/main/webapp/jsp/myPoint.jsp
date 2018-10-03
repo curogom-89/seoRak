@@ -59,9 +59,10 @@ h1{
   padding: 0;
   margin: 0;
   height:100%;
+  overflow:hidden;
 }
 .chart .bars .bar{
-  width:0px;
+  width: 0px;
   background:#47EAD4;
   padding:10px 0px;
   float:left;
@@ -174,10 +175,12 @@ p{
 		<hr>
 	</div>
 	<p id="button">
-		<input type='button' value='Refresh' />
-		<input type='button' value='포인트 보내기' />
-		<input type='button' value='받은 포인트 확인하기' />
-		<input type='button' value='포인트 랭킹' />
+		<form>
+			<input type='button' value='Refresh' />
+			<input type='button' onclick="openSendPop()" value='포인트 보내기' />
+			<input type='button' value='받은 포인트 확인하기' />
+			<input type='button' value='포인트 랭킹' />
+		</form>
 	</p>
 	<div class="chart">
 		<div class="skills"></div>
@@ -187,9 +190,20 @@ p{
 
 
 	<script>
+	/* 포인트 보내기 */
+	function openSendPop(){
+		window.open(
+			/* http://localhost:8000/seoRak/jsp/sendPoint.jsp */
+			"/seoRak/jsp/sendPoint.jsp", "포인트 보내기", "width=700px,height=500px"	
+		)
+	}
+	
+	/* 받은 포인트함 */
+	
+	
 	/* 메뉴 상단 바*/    
 	var navigation = $('#nav-main').okayNav();
-	
+
 	/* my point */    
 	$(function() {
 	  //list of skills
@@ -201,10 +215,10 @@ p{
 		                "출석 포인트"	---------- 4
 			  		*/
 	                "총 포인트":{work:`${totalPoint}`,personal:0},
-	                "보낸 포인트":{work:70,personal:20},
-	                "받은 포인트":{work:20,personal:10},
-	                "게시글 포인트" :{work:45,personal:35},
-	                "출석 포인트":{work:1,personal:90}
+	                "보낸 포인트":{work:`${sendPoint}`,personal:0},
+	                "받은 포인트":{work:`${receivePoint}`,personal:0},
+	                "게시글 포인트" :{work:`${boardPoint}`,personal:0},
+	                "출석 포인트":{work:`${attendPoint}`,personal:0}
 	               };
 	  displayData(skills);
 	  animate();
@@ -228,8 +242,6 @@ p{
 	  });
 	});
 	
-	
-	
 	//Functions
 	//display data
 	function displayData(skills){
@@ -241,7 +253,6 @@ p{
 	    
 	    $('.skills').append("<li><span>"+key+"</span></li>");
 	    $('.bars').append("<li><div data-percentage='"+skills[key].personal+"' class='bar'>"+personal+"</div><div data-percentage='"+skills[key].work+"' class='bar'>"+work+"</div></li>"); 
-	    
 	  };
 	}
 	

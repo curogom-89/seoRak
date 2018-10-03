@@ -3,9 +3,12 @@
 <%@ page import="java.util.*" %>
 <%@ page import="kr.co.seoRak.repository.domain.MyBookList" %>
 <%@ page import="kr.co.seoRak.repository.domain.Member" %>
+<%@ page import="kr.co.seoRak.repository.domain.Point" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <% 
-	List<MyBookList> list = (List<MyBookList>)request.getAttribute("list");
+	List<MyBookList> listMbl = (List<MyBookList>)request.getAttribute("listMbl");
+	Member member = (Member)request.getAttribute("member");
+
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -471,8 +474,8 @@ table {
                 <div class="info">
                   <h3> `${member.memberId}` </h1>
                   <h3> `${member.memberNickname}` </h2>
-                  <h3> `${totalPoint}` </h2>
-                  <h2><a href="<c:url value='myPoint.do'/>" id="popoz">포인트 `${member.memberTotalPoint}`</a></h2>
+                  <h3> `${memberPoint}` </h2>
+                  <h2><a href="<c:url value='myPoint.do'/>" id="popoz">포인트 `${memberPoint}`</a></h2>
                 </div>
               </div>
               <div id="social-bar">
@@ -510,7 +513,7 @@ table {
     			<div id="title_list">My Book List</div>
               	<div id="book_container">
             		<%
-            			for(MyBookList mbl : list){
+            			for(MyBookList mbl : listMbl){
             		%>
             				<a href=<%= mbl.getMyBookListUrl() %>>
             					<img src=<%= mbl.getMyBookListImgUrl() %>>

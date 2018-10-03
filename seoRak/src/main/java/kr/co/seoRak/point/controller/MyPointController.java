@@ -21,22 +21,27 @@ public class MyPointController extends HttpServlet {
 	int totalPoint;
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("1-----------------------");
+	
 		HttpSession session = request.getSession();
 		Member member = (Member)session.getAttribute("user");
-		System.out.println("2-----------------------");
+		
 		PointMapper mapper = MyAppSqlConfig.getSqlSessionInstance().getMapper(PointMapper.class);
 		List<Point> list = mapper.selectPointById(member.getMemberId());
+		
+		int totalPoint = mapper.selectPointTotalById(member.getMemberId());
+		int sendPoint = mapper.selectSendPointById(member.getMemberId());
+		int receivePoint = mapper.selectReceivePointById(member.getMemberId());
+		int boardPoint = mapper.selectBoardPointById(member.getMemberId());
+		int attendPoint = mapper.selectAttendPointById(member.getMemberId());
+		
 		System.out.println(member.getMemberId());
-		System.out.println("3-----------------------");
-		totalPoint = 0;
-		for(Point p : list) {
-			totalPoint += p.getPointUpDown();		
-		}
-		System.out.println(totalPoint);
-		System.out.println("4-----------------------");
+		
 		request.setAttribute("list", list);
 		request.setAttribute("totalPoint", totalPoint);
+		request.setAttribute("sendPoint", sendPoint);
+		request.setAttribute("receivePoint", receivePoint);
+		request.setAttribute("boardPoint", boardPoint);
+		request.setAttribute("attendPoint", attendPoint);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/jsp/myPoint.jsp");
 		rd.forward(request, response);

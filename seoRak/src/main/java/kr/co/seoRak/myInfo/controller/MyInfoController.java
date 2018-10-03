@@ -30,16 +30,12 @@ public class MyInfoController extends HttpServlet {
 		
 		MyBookListMapper mapperMbl = MyAppSqlConfig.getSqlSessionInstance().getMapper(MyBookListMapper.class);
 		PointMapper mapperPoint = MyAppSqlConfig.getSqlSessionInstance().getMapper(PointMapper.class);
-		List<Point> listPoint = mapperPoint.selectPointById(memberId);
-		
-		for(Point p : listPoint) {
-			System.out.println(p.getPointUpDown());
-		}
-		
+		int memberPoint = mapperPoint.selectPointTotalById(memberId);
 		
 		List<MyBookList> listMbl = mapperMbl.selectById(memberId);
-		request.setAttribute("list", listMbl);
+		request.setAttribute("listMbl", listMbl);
 		request.setAttribute("member", member);
+		request.setAttribute("memberPoint", memberPoint);
 		
 		// http://localhost:8000/seoRak/jsp/myInfo2.jsp
 		System.out.println(request.getContextPath());
