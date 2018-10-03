@@ -85,20 +85,23 @@ p{
 
   <!-- 포인트 랭킹  -->
  <div class="container">
-        <h1>보낸 포인트 함</h1>
+        <h1>보낸 포인트함</h1>
         <hr>
-        <p id="button">
-            <input type = 'button' value='Refresh'/>
-            <input type = 'button' value='포인트 보내기'/>
-            <input type = 'button' value='받은 포인트 확인하기'/>
-            <input type = 'button' value='포인트 랭킹'/>
-        </p>
+        <center>
+			<p id="button">
+				<form id="sForm">
+					<input name="refresh" type='button' value='Refresh' />
+					<input name="checkSendPoint" type='button' value='보낸 포인트 확인하기' />
+					<input name="pointRanking" type='button' value='포인트 랭킹' />
+				</form>
+			</p>
+		</center>
         <div class="wrapper">
             <table>
                 <thead>
                     <tr>
                         <th>번호</th>
-                        <th>받은 사람</th>
+                        <th>보낸 포인트 함</th>
                         <th>Points</th>
                         <th>날짜</th>
                     </tr>
@@ -121,7 +124,25 @@ p{
             </table>
         </div>
     </div>
+<script>
+	/* 받은 포인트함 가기 */
+	var checkSendPoint = document.querySelector("input[name=checkSendPoint]");
+	checkSendPoint.onclick = function checkPoint(){
+		location.replace("/seoRak/jsp/sendPointBox.do");
+	}
+	/* 포인트 보내기 */
+	function openSendPop(){
+		window.open(
+			/* http://localhost:8000/seoRak/jsp/sendPoint.jsp */
+			"/seoRak/jsp/sendPointForm.do", "포인트 보내기", "width=700px,height=500px"	
+		)
+	}
 
-
+	/* 포인트 랭킹 */
+	var pointRanking = document.querySelector("input[name=pointRanking]");
+	pointRanking.onclick = function pointRank(){
+		location.replace("/seoRak/jsp/pointRank.do");
+	}
+</script>
 </body>
 </html>

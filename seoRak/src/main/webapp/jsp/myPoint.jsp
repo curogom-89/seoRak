@@ -181,23 +181,28 @@ p{
 		<h1>My Point</h1>
 		<hr>
 	</div>
-	<p id="button">
-		<form>
-			<input type='button' value='Refresh' />
-			<input type='button' onclick="openSendPop()" value='포인트 보내기' />
-			<input type='button' value='받은 포인트 확인하기' />
-			<input type='button' value='포인트 랭킹' />
-		</form>
-	</p>
+	<center>
+		<p id="button">
+			<form id="sForm">
+				<input name="refresh" type='button' value='Refresh' />
+				<input type='button' onclick="openSendPop()" value='포인트 보내기' />
+				<input name="checkSendPoint" type='button' value='보낸 포인트 확인하기' />
+				<input name="pointRanking" type='button' value='포인트 랭킹' />
+			</form>
+		</p>
+	</center>
 	<div class="chart">
 		<div class="skills"></div>
 		<div class="bars"></div>
 		<div class='footer'>Point (p)</div>
 	</div>
 
-
 	<script>
-	var 
+	/* 받은 포인트함 가기 */
+	var checkSendPoint = document.querySelector("input[name=checkSendPoint]");
+	checkSendPoint.onclick = function checkPoint(){
+		location.replace("/seoRak/jsp/sendPointBox.do");
+	}
 	/* 포인트 보내기 */
 	function openSendPop(){
 		window.open(
@@ -205,12 +210,12 @@ p{
 			"/seoRak/jsp/sendPointForm.do", "포인트 보내기", "width=700px,height=500px"	
 		)
 	}
-	= function checkSendPoint(){
-		window.location.href("/seoRak/jsp/sendPointBox.do");
+
+	/* 포인트 랭킹 */
+	var pointRanking = document.querySelector("input[name=pointRanking]");
+	pointRanking.onclick = function pointRank(){
+		location.replace("/seoRak/jsp/pointRank.do");
 	}
-	
-	/* 받은 포인트함 */
-	
 	
 	/* 메뉴 상단 바*/    
 	var navigation = $('#nav-main').okayNav();
@@ -235,7 +240,7 @@ p{
 	  animate();
 	  
 	  //add new skill
-	  $('input:button').click(function(){
+	   /* $('input:button').click(function(){
 	    var name = $('#txtSkill').val(),
 	        perc = $('#txtPerc').val();
 	    
@@ -250,7 +255,7 @@ p{
 	      animate();
 	    }
 	    $('input:text').val('');
-	  });
+	  }); */
 	});
 	
 	//Functions

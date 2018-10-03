@@ -27,6 +27,10 @@ public interface PointMapper {
 	
 	void updateMemberPoint(Member member);
 	
+	List<Member> selectPointRank();
+	
+	List<Point> selectSendPointRecordById(String memberId);
+	
 	
 	
 }

@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="kr.co.seoRak.repository.domain.*" %>
+<%@ page import="java.util.*" %>
+<%
+	List<Member> list = (List<Member>)request.getAttribute("list");
+%>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -76,16 +81,19 @@ p{
 <body>
 <%@include file="topList.jsp" %>
 
-  <!-- 포인트 랭킹  -->
- <div class="container">
+  	<!-- 포인트 랭킹  -->
+ 	<div class="container">
         <h1>SEORAK POINT RANKING TOP 20</h1>
         <hr>
-        <p id="button">
-            <input type = 'button' value='Refresh'/>
-            <input type = 'button' value='포인트 보내기'/>
-            <input type = 'button' value='받은 포인트 확인하기'/>
-            <input type = 'button' value='포인트 랭킹'/>
-        </p>
+        <center>
+			<p id="button">
+				<form id="sForm">
+					<input name="refresh" type='button' value='Refresh' />
+					<input name="checkSendPoint" type='button' value='보낸 포인트 확인하기' />
+					<input name="pointRanking" type='button' value='포인트 랭킹' />
+				</form>
+			</p>
+		</center>
         <div class="wrapper">
             <table>
                 <thead>
@@ -97,77 +105,51 @@ p{
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-            <td class="rank">1</td>
-            <td class="team">Spain</td>
-            <td class="points">1460</td>
-            <td class="up-down">+3</td>
-          </tr>
-                  <tr>
-            <td class="rank">2</td>
-            <td class="team">Germany</td>
-            <td class="points">1340</td>
-            <td class="up-down">+3</td>
-          </tr>
-            <tr>
-            <td class="rank">3</td>
-            <td class="team">Portugal</td>
-            <td class="points">1245</td>
-            <td class="up-down">+3</td>
-          </tr>
-            <tr>
-            <td class="rank">4</td>
-            <td class="team">Brazil</td>
-            <td class="points">1210</td>
-            <td class="up-down">+3</td>
-          </tr>
-            <tr>
-            <td class="rank">5</td>
-            <td class="team">Colombia</td>
-            <td class="points">1186</td>
-            <td class="up-down">+3</td>
-          </tr>
-          <tr>
-            <td class="rank">6</td>
-            <td class="team">Uruguay</td>
-            <td class="points">1181</td>
-            <td class="up-down">+3</td>
-          </tr>
-          <tr>
-            <td class="rank">7</td>
-            <td class="team">Uruguay</td>
-            <td class="points">1181</td>
-            <td class="up-down">+3</td>
-          </tr>
-          <tr>
-            <td class="rank">8</td>
-            <td class="team">Uruguay</td>
-            <td class="points">1181</td>
-            <td class="up-down">+3</td>
-          </tr>
-          <tr>
-            <td class="rank">9</td>
-            <td class="team">Uruguay</td>
-            <td class="points">1181</td>
-            <td class="up-down">+3</td>
-          </tr>
-          <tr>
-            <td class="rank">10</td>
-            <td class="team">Uruguay</td>
-            <td class="points">1181</td>
-            <td class="up-down">+3</td>
-          </tr>  
-      </tbody>
-    </table>
-    <hr>
-    <center>
-	    <div>
-	    	◀ ▶
+                	<%
+                		int index=0;
+                		for(Member m : list){
+                			index++;
+                	%>
+	                    <tr>
+				            <td class="rank"><%= index %></td>
+				            <td class="team"><%= m.getMemberId() %></td>
+				            <td class="points"><%= m.getMemberTotalPoint() %></td>
+				            <td class="up-down"><%= m.getMemberGrade() %></td>
+	          			</tr>
+                	<%	
+                			
+                		}
+                	%>
+      			</tbody>
+    		</table>
+    		<hr>
+    		<center>
+			    <div>
+			    	◀ ▶
+			    </div>
+    		</center>
 	    </div>
-    </center>
-    </div>
-</div>
-
+	</div>
+	<script>
+		/* 받은 포인트함 가기 */
+		var checkSendPoint = document.querySelector("input[name=checkSendPoint]");
+		checkSendPoint.onclick = function checkPoint(){
+			location.replace("/seoRak/jsp/sendPointBox.do");
+		}
+		/* 포인트 보내기 */
+		function openSendPop(){
+			window.open(
+				/* http://localhost:8000/seoRak/jsp/sendPoint.jsp */
+				"/seoRak/jsp/sendPointForm.do", "포인트 보내기", "width=700px,height=500px"	
+			)
+		}
+	
+		/* 포인트 랭킹 */
+		var pointRanking = document.querySelector("input[name=pointRanking]");
+		pointRanking.onclick = function pointRank(){
+			location.replace("/seoRak/jsp/pointRank.do");
+		}
+	</script>
 
 </body>
 </html>
