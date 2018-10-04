@@ -22,12 +22,14 @@ public class SendPointBoxController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		HttpSession session = request.getSession();
+		/*HttpSession session = request.getSession();
 		Member member = (Member)session.getAttribute("user");
-		String memberId = member.getMemberId();
-
+		String memberId = member.getMemberId();*/
+		
+		String memberId = "dlopo123@gmail.com";
+		
 		PointMapper mapper = MyAppSqlConfig.getSqlSessionInstance().getMapper(PointMapper.class);
-		List<Point> list = mapper.selectSendPointRecordById(memberId);
+		List<Point> list = mapper.selectPointById(memberId);
 		request.setAttribute("list", list);
 		
 		//http://localhost:8000/seoRak/jsp/sendPointBox.jsp

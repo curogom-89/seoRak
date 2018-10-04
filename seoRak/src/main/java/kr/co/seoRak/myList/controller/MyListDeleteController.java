@@ -37,7 +37,7 @@ public class MyListDeleteController extends HttpServlet{
 		MyBookListMapper mapper = MyAppSqlConfig.getSqlSessionInstance().getMapper(MyBookListMapper.class);
 		mapper.deleteMyBookList(mbl);
 		
-		response.sendRedirect("/seoRak/jsp/list.do");
+		response.sendRedirect("/seoRak/list.do");
 	}
 
 	

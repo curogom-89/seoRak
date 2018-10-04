@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.seoRak.repository.mapper.CommentMapper">
+	<resultMap id="commentMap" type="Comment" >
+		<result column="comment_no" property="commentNo"/>
+		<result column="board_no" property="boardNo"/>
+		<result column="comment_writer" property="commentWriter"/>
+		<result column="comment_content" property="commentContent"/>
+		<result column="comment_date" property="commentDate"/>
+	</resultMap>
+	
+	<select id="selectComment" parameterType="int" resultMap="commentMap">
+		select * 
+		from seorak_comment
+		where board_no = #{boardNo}
+	</select>
+	
+	<select id="selectOneComment" parameterType="int" resultMap="commentMap">
+		select *
+		from seorak_comment
+		where comment_no = #{commentNo}
+	</select>
+	
+	<insert id="insertComment" parameterType="Comment">
+		insert into seorak_comment (comment_no, board_no, comment_writer, comment_content)
+		values (s_seorak_comment_no.nextval, #{boardNo}, #{commentWriter}, #{commentContent})
+	</insert>
+	
+	<update id="updateComment" parameterType="Comment">
+		update seorak_comment
+			set comment_content = #{commentContent},
+				comment_date = sysdate
+				where comment_no = #{commentNo}
+	</update>
+	
+	<delete id="deleteComment" parameterType="int">
+		delete seorak_comment
+		where comment_no = #{commentNo}
+	</delete>
+	
+</mapper>

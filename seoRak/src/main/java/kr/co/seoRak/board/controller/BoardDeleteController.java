@@ -14,7 +14,7 @@ import kr.co.seoRak.common.db.MyAppSqlConfig;
 import kr.co.seoRak.repository.domain.Board;
 import kr.co.seoRak.repository.mapper.BoardMapper;
 
-@WebServlet("/board/delete.do")
+@WebServlet("/boarddelete.do")
 public class BoardDeleteController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -24,7 +24,7 @@ public class BoardDeleteController extends HttpServlet {
 		 mapper.deleteBoard(no);
 		
 		
-		response.sendRedirect(request.getContextPath() + "/board/list.do");
+		response.sendRedirect(request.getContextPath() + "/boardlist.do");
 	} 
 		
 }

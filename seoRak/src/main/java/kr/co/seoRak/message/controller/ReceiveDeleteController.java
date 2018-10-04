@@ -2,6 +2,7 @@ package kr.co.seoRak.message.controller;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import kr.co.seoRak.common.db.MyAppSqlConfig;
 import kr.co.seoRak.repository.mapper.MessageMapper;
 
-@WebServlet("/message/receiveDelete.do")
+@WebServlet("/receiveDelete.do")
 public class ReceiveDeleteController extends HttpServlet {
 
 	@Override
@@ -24,6 +25,10 @@ public class ReceiveDeleteController extends HttpServlet {
 			mapper.receiveMoveTrash(no);
 		}
 		
+		RequestDispatcher rd = request.getRequestDispatcher(
+				"/jsp/massage/receivebox.jsp"
+			);
+	rd.forward(request, response);	
 	}
 
 }

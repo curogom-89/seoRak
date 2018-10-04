@@ -30,7 +30,7 @@ public class SendMessageController extends HttpServlet{
 		
 		mapper.sendMessage(message);
 		
-		response.sendRedirect("/seoRak/jsp/receivebox.jsp");
+		response.sendRedirect("/seoRak/jsp/massage/receivebox.jsp");
 		
 	}	
 

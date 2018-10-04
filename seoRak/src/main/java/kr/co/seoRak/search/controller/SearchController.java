@@ -20,7 +20,7 @@ import com.google.gson.Gson;
 import kr.co.seoRak.repository.domain.Book;
 import kr.co.seoRak.repository.domain.Items;
 
-@WebServlet("/jsp/search/topsearch.do")
+@WebServlet("/topsearch.do")
 public class SearchController extends HttpServlet{
 	
 	@Override
@@ -32,7 +32,7 @@ public class SearchController extends HttpServlet{
 
 		request.setAttribute("list", list);
 		// http://localhost:8000/seoRak/jsp/myListBookSearch.jsp
-		RequestDispatcher rd = request.getRequestDispatcher("/jsp/search.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/jsp/search/search.jsp");
 		rd.forward(request, response);
 	}
 	

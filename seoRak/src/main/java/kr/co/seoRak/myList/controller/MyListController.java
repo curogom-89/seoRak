@@ -16,7 +16,7 @@ import kr.co.seoRak.repository.domain.Member;
 import kr.co.seoRak.repository.domain.MyBookList;
 import kr.co.seoRak.repository.mapper.MyBookListMapper;
 
-@WebServlet("/jsp/list.do")
+@WebServlet("/list.do")
 public class MyListController extends HttpServlet {
 
 	@Override
@@ -35,7 +35,7 @@ public class MyListController extends HttpServlet {
 		System.out.println("2----------------");
 		request.setAttribute("list", list);
 //		http://localhost:8000/seoRak/jsp/myList.jsp
-		RequestDispatcher rd = request.getRequestDispatcher("/jsp/myList.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/jsp/mylist/myList.jsp");
 		System.out.println("3----------------");
 		rd.forward(request, response);
 	}

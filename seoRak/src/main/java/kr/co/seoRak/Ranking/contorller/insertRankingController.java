@@ -5,7 +5,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,9 +18,7 @@ import org.jsoup.select.Elements;
 
 import kr.co.seoRak.common.db.MyAppSqlConfig;
 import kr.co.seoRak.repository.domain.RankingBookInfo;
-import kr.co.seoRak.repository.domain.RankingPointInfo;
 import kr.co.seoRak.repository.domain.RankingRankingInfo;
-import kr.co.seoRak.repository.mapper.LoginMapper;
 import kr.co.seoRak.repository.mapper.RankingMapper;
 
 @WebServlet("/seorak/BestSellerRanking.do")

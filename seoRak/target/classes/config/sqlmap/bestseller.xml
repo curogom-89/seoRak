@@ -1,164 +1,298 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.co.seoRak.repository.mapper.RankingMapper" >
-
+<mapper namespace="kr.co.seoRak.repository.mapper.RankingMapper">
 	<resultMap id="rankMap" type="RankingBookInfo">
 		<result column="isbn" property="isbn" />
 		<result column="book_title" property="bookTitle" />
 		<result column="book_author" property="bookAuthor" />
 		<result column="book_publisher" property="bookPublisher" />
-		<result column="book_pubDate"   property="bookPubDate"/>
+		<result column="book_pubDate" property="bookPubDate" />
 		<result column="book_img" property="bookImg" />
-		
-		
-		
+	</resultMap>
+	
+	<resultMap id="RankingPointInfo111" type="RankingPointInfo">
+		<result column="Member_id" property="id" />
+		<result column="isbn" property="isbn" />
+		<result column="Board_notice_StarPoint" property="starpoint" />
+		<result column="Board_noticeCnt" property="notice" />
+		<result column="totalpoint" property="totalpoint" />
+		<result column="rankingWeek" property="rankingWeek" />
 	</resultMap>
 	<resultMap id="bestSellerMap" type="RankingInfo">
-		<result column="book_title" property="bookTitle"/>
-		<result column="bestseller_week" property="bestsellerWeek"/>
-		<result column="kyobo_rank" property="kyoboRank"/>
-		<result column="aladdin_rank" property="aladdinRank"/>
-		<result column="bookpark_rank" property="bookparkRank"/>
-		<result column="bandi_rank" property="bandiRank"/>
-		<result column="ypbooks_rank" property="ypbooksRank"/>
-		<result column="morning24_rank" property="morning24Rank"/>
-		<result column="isbn" property="isbn"/>
-		<result column="yes24_rank" property="yes24Rank"/>
+		<result column="book_title" property="bookTitle" />
+		<result column="bestseller_week" property="bestsellerWeek" />
+		<result column="kyobo_rank" property="kyoboRank" />
+		<result column="aladdin_rank" property="aladdinRank" />
+		<result column="bookpark_rank" property="bookparkRank" />
+		<result column="bandi_rank" property="bandiRank" />
+		<result column="ypbooks_rank" property="ypbooksRank" />
+		<result column="morning24_rank" property="morning24Rank" />
+		<result column="isbn" property="isbn" />
+		<result column="yes24_rank" property="yes24Rank" />
 	</resultMap>
 	<insert id="insertRanking" parameterType="RankingBookInfo">
-	insert into SEORAK_RANKING_BOOKINFO(
-							isbn,
-							book_title,
-							book_author,
-							book_publisher,
-							book_img,
-							book_pubDate
-							
-							) 
-				values(
-					#{isbn},
-					 #{bookTitle},
-					 #{bookAuthor},
-					 #{bookPublisher},
-					 #{bookImg},					
-					 #{bookPubDate}					 
-					   )
-					 
+		insert into SEORAK_RANKING_BOOKINFO(
+		isbn,
+		book_title,
+		book_author,
+		book_publisher,
+		book_img,
+		book_pubDate
+		)
+		values(
+		#{isbn},
+		#{bookTitle},
+		#{bookAuthor},
+		#{bookPublisher},
+		#{bookImg},
+		#{bookPubDate}
+		)
 	</insert>
-	
+
 	<select id="selectIsbn" parameterType="string" resultType="string">
 		select isbn
 		from SEORAK_RANKING_BOOKINFO
 		where isbn = #{isbn}
 	</select>
-	
-	<insert id="insertTotalBestRankyes24" parameterType="RankingInfo">
-		insert into SEORAK_RANKING_RANKING(book_title,yes24_rank,isbn,bestseller_week)
-				values(#{bookTitle},#{yes24Rank} ,(select isbn from SEORAK_RANKING_BOOKINFO where book_title =#{bookTitle})
-				,#{bestsellerWeek})
-	
-	</insert>
-	
-	<select id="selectIsbnbyTitle" parameterType="string" resultType="string">
-	select isbn
-	from SEORAK_RANKING_BOOKINFO
-	where book_title = #{bookTitle}
-	</select>
-	<select id="selectTitle" parameterType="string" resultType="string" >
-	select book_title
-	from SEORAK_RANKING_BOOKINFO
-	where book_title = #{bookTitle}
-	</select>
-	
-	<update id="updateBookRankingkyobo" parameterType="RankingInfo">
-	update SEORAK_RANKING_RANKING 
-		set kyobo_rank=#{kyboRank}
-		
-	</update>
-	<select id="checkWeekDate" parameterType="date" resultType="date">
-	select bestseller_week
-	from SEORAK_RANKING_RANKING
-	where bestseller_week=#{bestsellerWeek} 
-	</select>
-	
-	
-	<select id="seorakRankingtitlecheck" parameterType="string" resultType="string">
-	select book_title
-	from SEORAK_RANKING_RANKING
-	where book_title = #{bookTitle}
-	</select>
-	
-	<update id="updateBookRankingaladdin" parameterType="RankingInfo">
-	update SEORAK_RANKING_RANKING 
-		set aladdin_rank=#{aladdinRank}
-		
-	</update>
-	
-	<update id="updateBookRankingbandi" parameterType="RankingInfo">
-	update SEORAK_RANKING_RANKING 
-		set bandi_rank=#{bandiRank}
+
+	<select id="selectIsbnbyTitle" parameterType="string"
+		resultType="string">
+		select isbn
+		from SEORAK_RANKING_BOOKINFO
 		where book_title = #{bookTitle}
-	</update>
-	<update id="updateBookRankingbookpark" parameterType="RankingInfo">
-	update choi.SEORAK_RANKING_RANKING 
-		set bookpark_rank=#{bookparkRank}
-	
-	</update>
-	<update id="updateBookRankingypbooksRank" parameterType="RankingInfo">
-	update SEORAK_RANKING_RANKING 
-		set ypbooks_rank=#{ypbooksRank}
-		
-	</update>
-	<update id="updateBookRankingmorning24Rank" parameterType="RankingInfo">
-	update SEORAK_RANKING_RANKING 
+	</select>
+	<select id="selectTitle" parameterType="string" resultType="string">
+		select book_title
+		from SEORAK_RANKING_BOOKINFO
+		where book_title = #{bookTitle}
+	</select>
+	<select id="titleByIsbn" parameterType="string" resultType="string">
+		select book_title
+		from SEORAK_RANKING_BOOKINFO
+		where isbn=#{isbn}
+	</select>
+
+	<!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+
+	<insert id="Yes24insertRaninkingInfo" parameterType="RankingInfo">
+		insert into
+		seorak_ranking_ranking(isbn,bestseller_week,yes24_rank,book_title)
+		values(#{isbn},#{bestsellerWeek},#{yes24Rank},#{bookTitle})
+	</insert>
+
+	<select id="rankingInfoIsBnNullCherck" parameterType="RankingInfo"
+		resultType="RankingInfo">
+		select *
+		from seorak_ranking_ranking
+		where isbn=#{isbn}
+	</select>
+	<update id="morning24UpdateRanking" parameterType="RankingInfo">
+		update seorak_ranking_ranking
 		set morning24_rank=#{morning24Rank}
-		
+		where bestseller_week=#{bestsellerWeek} and isbn=#{isbn}
 	</update>
-	
-	<insert id="insertKyoboRanking"  parameterType="RankingInfo">
-	insert into SEORAK_RANKING_RANKING(book_title,kyobo_rank,isbn,bestseller_week)
-				values(#{bookTitle},#{kyoboRank} ,(select isbn from SEORAK_RANKING_BOOKINFO where book_title =#{bookTitle})
-				,#{bestsellerWeek})
-	
+	<select id="DateCheckwhereRankingInfo" parameterType="RankingInfo"
+		resultType="RankingInfo">
+		select bestseller_week
+		from seorak_ranking_ranking
+		where bestseller_week=#{bestsellerWeek}
+	</select>
+	<select id="titleNullcheck" parameterType="RankingInfo"
+		resultType="string">
+		select book_title
+		from seorak_ranking_ranking
+		where book_title=#{bookTitle}
+	</select>
+
+
+
+
+	<select id="WeekChecking" resultType="date">
+		select MAX(bestseller_week)
+		from seorak_ranking_ranking
+	</select>
+
+
+
+
+
+
+	<update id="kyoboUpdateRanking" parameterType="RankingInfo">
+		update seorak_ranking_ranking
+		set kyobo_rank=#{kyoboRank}
+		where bestseller_week=#{bestsellerWeek} and isbn=#{isbn} and
+		book_book_title=#{bookTitle}
+	</update>
+	<update id="aladdinupdateRanking" parameterType="RankingInfo">
+		update seorak_ranking_ranking
+		set ypbooks_rank=#{aladdinRank}
+		where bestseller_week=#{bestsellerWeek} and isbn=#{isbn} and
+		book_book_title=#{bookTitle}
+	</update>
+
+	<update id="bookparkRanking" parameterType="RankingInfo">
+		update seorak_ranking_ranking
+		set bookpark_rank=#{bookparkRank}
+		where bestseller_week=#{bestsellerWeek} and isbn=#{isbn} and
+		book_title=#{bookTitle}
+	</update>
+	<update id="bandiRanking" parameterType="RankingInfo">
+		update seorak_ranking_ranking
+		set bandi_rank=#{bandiRank}
+		where bestseller_week=#{bestsellerWeek} and isbn=#{isbn} and
+		book_book_title=#{bookTitle}
+	</update>
+
+	<insert id="morning24Insert" parameterType="RankingInfo">
+		insert into
+		seorak_ranking_ranking(isbn,bestseller_week,morning24_rank,book_title)
+		values(#{isbn},#{bestsellerWeek},#{morning24Rank},#{bookTitle})
 	</insert>
-	<insert id="insertAladdinRanking"  parameterType="RankingInfo">
-	insert into SEORAK_RANKING_RANKING(book_title,aladdin_rank,isbn,bestseller_week)
-				values(#{bookTitle},#{aladdinRank} ,(select isbn from SEORAK_RANKING_BOOKINFO where book_title =#{bookTitle})
-				,#{bestsellerWeek})
-	
+	<insert id="kyoboInsert" parameterType="RankingInfo">
+		insert into
+		seorak_ranking_ranking(isbn,bestseller_week,kyobo_rank,book_title)
+		values(#{isbn},#{bestsellerWeek},#{kyoboRank},#{bookTitle})
 	</insert>
-	
-	<insert id="insertBookparkRanking"  parameterType="RankingInfo">
-	insert into SEORAK_RANKING_RANKING(book_title,bookpark_rank,isbn,bestseller_week)
-				values(#{bookTitle},#{bookparkRank} ,(select isbn from SEORAK_RANKING_BOOKINFO where book_title =#{bookTitle})
-				,#{bestsellerWeek})
-	
+	<insert id="aladdinInsert" parameterType="RankingInfo">
+		insert into
+		seorak_ranking_ranking(isbn,bestseller_week,aladdin_rank,book_title)
+		values(#{isbn},#{bestsellerWeek},#{aladdinRank},#{bookTitle})
 	</insert>
-	
-	<insert id="insertBandikRanking"  parameterType="RankingInfo">
-	insert into SEORAK_RANKING_RANKING(book_title,bandi_rank,isbn,bestseller_week)
-				values(#{bookTitle},#{bandiRank} ,(select isbn from SEORAK_RANKING_BOOKINFO where book_title =#{bookTitle})
-				,#{bestsellerWeek})
-	
+
+	<insert id="bookparkInsert" parameterType="RankingInfo">
+		insert into
+		seorak_ranking_ranking(isbn,bestseller_week,bookpark_rank,book_title)
+		values(#{isbn},#{bestsellerWeek},#{bookparkRank},#{bookTitle})
 	</insert>
-	
-	<insert id="insertYPRanking"  parameterType="RankingInfo">
-	insert into SEORAK_RANKING_RANKING(book_title,ypbooks_rank,isbn,bestseller_week)
-				values(#{bookTitle},#{ypbooksRank} ,(select isbn from SEORAK_RANKING_BOOKINFO where book_title =#{bookTitle})
-				,#{bestsellerWeek})
-	
+
+	<insert id="bandiInsert" parameterType="RankingInfo">
+		insert into
+		seorak_ranking_ranking(isbn,bestseller_week,bandi_rank,book_title)
+		values(#{isbn},#{bestsellerWeek},#{bandiRank},#{bookTitle})
 	</insert>
-	
-	<insert id="insertMorining24Ranking"  parameterType="RankingInfo">
-	insert into SEORAK_RANKING_RANKING(book_title,morning24_rank,isbn,bestseller_week)
-				values(#{bookTitle},#{morning24Rank} ,(select isbn from SEORAK_RANKING_BOOKINFO where book_title =#{bookTitle})
-				,#{bestsellerWeek})
-	
+
+	<insert id="ypInsert" parameterType="RankingInfo">
+		insert into
+		seorak_ranking_ranking(isbn,bestseller_week,ypbooks_rank,book_title)
+		values(#{isbn},#{bestsellerWeek},#{ypbooksRank},#{bookTitle})
 	</insert>
-	<select id="RankingTitleCheck" parameterType="RankingInfo" resultType="string">
+
+	<update id="ypUpdateRanking" parameterType="RankingInfo">
+		update seorak_ranking_ranking
+		set ypbooks_rank=#{ypbooksRank}
+		where bestseller_week=#{bestsellerWeek} and isbn=#{isbn} and
+		book_book_title=#{bookTitle}
+	</update>
+
+	<select id="bookidSelectByIsbn" parameterType="string"
+		resultType="string">
+		select book_title
+		from SEORAK_RANKING_BOOKINFO
+		where isbn=#{isbn}
+	</select>
+
+
+
+
+
+
+
+
+	<insert id="pointInsert" parameterType="RankingInfo">
+		insert into seorak_rankingpoint(isbn,totalpoint,rankingWeek)
+		values(#{isbn},#{totalpoint},{rankingWeek})
+	</insert>
+
+	
+
+
+	<select id="IsbnaladdinRank" parameterType="int" resultType="string">
+		select isbn
+		from seorak_ranking_ranking
+		where aladdin_rank is not null and aladdin_rank=#{aladdinRank}
+		order by aladdin_rank desc
+	</select>
+	<select id="IsbnkyoboRank" parameterType="int" resultType="string">
+		select isbn
+		from seorak_ranking_ranking
+		where aladdin_rank is not null and kyobo_rank=#{kyoboRank}
+		order by aladdin_rank desc
+	</select>
+	<select id="IsbnbandiRank" parameterType="int" resultType="string">
+		select isbn
+		from seorak_ranking_ranking
+		where aladdin_rank is not null and bandi_rank=#{bandiRank}
+		order by aladdin_rank desc
+	</select>
+	<select id="Isbnyes24Rank" parameterType="int" resultType="string">
+		select isbn
+		from seorak_ranking_ranking
+		where aladdin_rank is not null and yes24_rank=#{yes24Rank}
+		order by aladdin_rank desc
+	</select>
+
+	<select id="nullcheck" parameterType="string" resultType="RankingPointInfo">
+		select isbn
+		from seorak_rankingpoint
+		where isbn=#{isbn}
+	</select>
+	
+	<select id="RankingselectByIsbn" parameterType="int" resultType="int">
+	select bandi_rank
+	from seorak_ranking_ranking
+	where bandi_rank=#{bandiRank}
+	</select>
+	
+	<select id="IsbnselectByranking" parameterType="int" resultType="string">
+	select isbn
+	 from seorak_ranking_ranking
+	where bandi_rank=#{bandiRank}	
+	</select>
+	<select id="authorByisbn" parameterType="string" resultType="string">
+	select book_author
+	from RankingBookInfo
+	where isbn=#{isbn}
+	</select>
+	
+	
+	<select id="selectByRankingAuthor" parameterType="int" resultType="string">
+	select isbn
+	from seorak_ranking_ranking
+	where bandi_rank=#{bandiRank}
+	</select>
+	
+	
+	<select id="Author" parameterType="string" resultType="string">
+	select book_author
+	from SEORAK_RANKING_BOOKINFO
+	where isbn=#{isbn}
+	</select>
+	
+	<select id="selectTitle1" parameterType="string" resultType="string">
 	select book_title
-	from SEORAK_RANKING_RANKING
-	where book_title = #{bookTitle}
+		from SEORAK_RANKING_BOOKINFO
+	where isbn=#{isbn}
+	</select>
+	
+	
+	<select id="selecPublisher" parameterType="string" resultType="string">		
+	select book_publisher
+		from SEORAK_RANKING_BOOKINFO
+	where isbn=#{isbn}
+	</select>
+	
+	
+	<select id="selecbookimg" parameterType="string" resultType="string">
+	select book_img
+		from SEORAK_RANKING_BOOKINFO
+	where isbn=#{isbn}
+	</select>
+	
+	
+	<select id="selecpubdate" parameterType="string" resultType="string">
+	select book_pubDate
+		from SEORAK_RANKING_BOOKINFO
+	where isbn=#{isbn}
 	</select>
 </mapper>

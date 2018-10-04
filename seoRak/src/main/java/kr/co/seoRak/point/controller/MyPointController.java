@@ -17,7 +17,7 @@ import kr.co.seoRak.repository.domain.Point;
 import kr.co.seoRak.repository.mapper.LoginMapper;
 import kr.co.seoRak.repository.mapper.PointMapper;
 
-@WebServlet("/jsp/myPoint.do")
+@WebServlet("/myPoint.do")
 public class MyPointController extends HttpServlet {
 
 	@Override
@@ -43,7 +43,7 @@ public class MyPointController extends HttpServlet {
 		request.setAttribute("boardPoint", boardPoint);
 		request.setAttribute("attendPoint", attendPoint);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/jsp/myPoint.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/jsp/mypoint/myPoint.jsp");
 		rd.forward(request, response);
 	}
 

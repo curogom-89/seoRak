@@ -3,7 +3,7 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.seoRak.repository.mapper.PointMapper">
 	
-	<resultMap id="pointMap" type="Point">
+	<resultMap id="point" type="Point">
 		<result column="member_id" property="memberId" />
 		<result column="point_no" property="pointNo" />
 		<result column="point_updown" property="pointUpDown" />
@@ -11,123 +11,25 @@
 		<result column="point_reason" property="pointReason" />
 		<result column="point_exchange_id" property="pointExchangeId" />
 	</resultMap>
-	
-	<resultMap id="memberMap" type="Member">
-		<result column="member_id" property="memberId" />
-		<result column="member_no" property="memberNo" />
-		<result column="member_password" property="memberPassword" />
-		<result column="member_nickname" property="memberNickname" />
-		<result column="member_grade" property="memberGrade" />
-		<result column="member_sns" property="memberSns" />
-		<result column="member_login_date" property="memberLoginDate" />
-		<result column="member_warining" property="memberWarining" />
-		<result column="member_total_point" property="memberTotalPoint" />
-	</resultMap>
-	
-<!--  
-		"전체 포인트" 0
-   		"보낸 포인트" 1
-	      "받은 포인트" 	2
-	      "게시글 포인트"	3
-	      "출석 포인트"	 4
--->
 
-	<!-- 전체 포인트 데이터 베이스 -->
-	<select id="selectPointById" resultMap="pointMap" parameterType="string">
+	<select id="selectPointById" resultMap="point" parameterType="string">
 		select *
 		from seorak_point
 		where member_id=#{memberId}
 	</select>
 	
-	<!-- 전체 포인트  -->
-	<select id="selectPointTotalById" resultType="int" parameterType="string">
-		select nvl( sum(point_updown), 0 )
-		from seorak_point
-		where member_id=#{memberId}
-	</select>
-	
-	<!--  전체 포인트 멤버 업데이트
-	<update id="updateMemberPoint" parameterType="string">
-		update seorak_member
-		   set member_total_point = (select nvl( sum(point_updown), 0 )
-										from seorak_point
-										where member_id=#{memberId})			
-		 where member_id = #{memberId};
-	</update> -->
-	
-	<!-- 전체 포인트 멤버 업데이트 -->
-	<update id="updateMemberPoint" parameterType="Member">
-		update seorak_member
-		   set member_total_point = #{memberTotalPoint}		
-		 where member_id = #{memberId}
-	</update>
-	
-	<!-- 포인트 랭킹 -->
-	<select id="selectPointRank" resultMap="memberMap">
-		select *
-		from seorak_member
-		order by member_total_point desc	
-	</select>
-
-	<!-- 보낸 포인트  -->
-	<select id="selectSendPointById" resultType="int" parameterType="string">
-		select nvl(sum(point_updown),0)
-		from seorak_point
-		where member_id=#{memberId}
-		  and point_reason='1'
-	</select>
-	
-	<!-- 보낸 포인트 기록  -->
-	<select id="selectSendPointRecordById" resultMap="pointMap" parameterType="string">
+	<!-- <select id="selectSendPointById" resultMap="point" parameterType="string">
 		select *
 		from seorak_point
 		where member_id=#{memberId}
 		  and point_reason='1'
-	</select>
+	</select> -->
 	
-	<!-- 받은 포인트  -->
-	<select id="selectReceivePointById" resultType="int" parameterType="string">
-		select nvl(sum(point_updown),0)
+	<!-- <select id="selectReceivePointById" resultMap="point" parameterType="string">
+		select sum(*)
 		from seorak_point
 		where member_id=#{memberId}
 		  and point_reason='2'
-	</select>
-	
-	<!-- 게시글 포인트  -->
-	<select id="selectBoardPointById" resultType="int" parameterType="string">
-		select nvl(sum(point_updown),0)
-		from seorak_point
-		where member_id=#{memberId}
-		  and point_reason='3'
-	</select>
-	
-	<!-- 출석 포인트  -->
-	<select id="selectAttendPointById" resultType="int" parameterType="string">
-		select nvl(sum(point_updown),0)
-		from seorak_point
-		where member_id=#{memberId}
-		  and point_reason='4'
-	</select> 
-	
-	<!-- 포인트  증감 -->
-	<insert id="insertPoint" parameterType="Point">
-		insert into seorak_point(
-                    member_id,
-                    point_no,
-                    point_updown,
-                    point_reg_date,
-                    point_reason,
-                    point_exchange_id
-        ) values (
-                    #{memberId},
-                    s_point_no.nextval,
-                    #{pointUpDown},
-                    sysdate,
-                    #{pointReason},
-                    #{pointExchangeId}
-                    )
-	</insert>
-	
-	
+	</select> -->
 	
 </mapper>

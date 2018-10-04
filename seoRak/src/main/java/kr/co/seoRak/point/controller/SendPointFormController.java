@@ -9,14 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/jsp/sendPointForm.do")
+@WebServlet("/sendPointForm.do")
 public class SendPointFormController extends HttpServlet {
 
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setAttribute("check", "before");
-		RequestDispatcher rd = request.getRequestDispatcher("/jsp/sendPoint.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/jsp/mypoint/sendPoint.jsp");
 		rd.forward(request, response);
 	}
 	

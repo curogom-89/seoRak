@@ -11,9 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.co.seoRak.common.db.MyAppSqlConfig;
 import kr.co.seoRak.repository.domain.Board;
+import kr.co.seoRak.repository.domain.BoardBook;
+import kr.co.seoRak.repository.mapper.BoardBookMapper;
 import kr.co.seoRak.repository.mapper.BoardMapper;
 
-@WebServlet("/board/update.do")
+@WebServlet("/boardupdate.do")
 public class BoardUpdateController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -21,6 +23,7 @@ public class BoardUpdateController extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		
 		BoardMapper mapper = MyAppSqlConfig.getSqlSessionInstance().getMapper(BoardMapper.class);
+		BoardBookMapper bookmapper = MyAppSqlConfig.getSqlSessionInstance().getMapper(BoardBookMapper.class);
 		
 		Board board = new Board();
 //		System.out.println("2");
@@ -32,11 +35,29 @@ public class BoardUpdateController extends HttpServlet {
 		board.setBoardTitle(request.getParameter("title"));
 		board.setBoardCategory(request.getParameter("category"));
 		board.setBoardContent(request.getParameter("content"));
-		mapper.updateBoard(board);
 //		System.out.println("3");
-		response.sendRedirect("list.do");
+		String bookcover = request.getParameter("bookcover");
+		String booktitle = request.getParameter("booktitle");
+		String bookpublisher = request.getParameter("bookpublisher");
+		String bookauthor = request.getParameter("bookauthor");
+
+		
+		BoardBook book = new BoardBook();
+		System.out.println("2");
+		book.setBoardBookTitle(booktitle);
+		book.setBoardBookPublisher(bookpublisher);
+		book.setBoardBookAuthor(bookauthor);
+		book.setBoardBookCover(bookcover);
+		System.out.println("5");
+		System.out.println(booktitle);
+		System.out.println(bookpublisher);
+		System.out.println(bookauthor);
+		System.out.println(bookcover);
 		
 		
+		mapper.updateBoard(board);
+		bookmapper.insertBoardBook(book);
 		
+		response.sendRedirect(request.getContextPath() +"/boardlist.do");
 	}
 }

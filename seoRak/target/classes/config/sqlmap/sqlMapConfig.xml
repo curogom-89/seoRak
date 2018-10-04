@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+	
+<!-- 루트 태그 : 하나만 존재해야함  -->
+<configuration>
+
+	<!-- 설정파일에서 사용할 프로퍼티의 파일의 경로 지정: classpath -->
+	<properties resource="config/mybatis/db.properties"/>
+	
+	<!-- SQL의 결과를 담을 VO 객체들의 별칭을 설정하여 사용의 편의를 도모  -->
+	<typeAliases>
+		<typeAlias alias="Member" type="kr.co.seoRak.repository.domain.Member" />
+		<typeAlias alias="Board" type="kr.co.seoRak.repository.domain.Board"/>
+		<typeAlias alias="Comment" type="kr.co.seoRak.repository.domain.Comment"/>
+		<typeAlias alias="MyBookList" type="kr.co.seoRak.repository.domain.MyBookList"/>
+
+		<typeAlias alias="Point" type="kr.co.seoRak.repository.domain.Point"/>
+		<typeAlias alias="Message" type="kr.co.seoRak.repository.domain.Message"/>
+		<typeAlias alias="RankingInfo" type="kr.co.seoRak.repository.domain.RankingRankingInfo"/>
+		<typeAlias alias="RankingBookInfo" type="kr.co.seoRak.repository.domain.RankingBookInfo"/>
+		<typeAlias alias="RankingPointInfo" type="kr.co.seoRak.repository.domain.RankingPointInfo"/>
+		
+		<typeAlias alias="BoardBook" type="kr.co.seoRak.repository.domain.BoardBook"/>
+		<typeAlias type="kr.co.seoRak.repository.domain.Point" alias="Point"/>
+		<typeAlias type="kr.co.seoRak.repository.domain.Message" alias="Message"/>
+
+	</typeAliases>
+	
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"/>
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+
+	<!--  
+		사용자가 직접 작성한 SQL 문장들이 들어있는 xml 파일의 위치를 알려준다.
+	 -->
+	<mappers>
+		<mapper resource="config/sqlmap/login.xml"/>
+		<mapper resource="config/sqlmap/admin.xml"/>
+		<mapper resource="config/sqlmap/board.xml"/>
+		<mapper resource="config/sqlmap/myBookList.xml"/>
+		<mapper resource="config/sqlmap/comment.xml"/>
+		<mapper resource="config/sqlmap/boardBook.xml"/>
+		<mapper resource="config/sqlmap/point.xml"/>
+		<mapper resource="config/sqlmap/message.xml"/>
+		<mapper resource="config/sqlmap/bestseller.xml"/>
+	</mappers>
+</configuration>

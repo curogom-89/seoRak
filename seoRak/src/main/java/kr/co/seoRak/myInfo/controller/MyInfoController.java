@@ -14,11 +14,10 @@ import javax.servlet.http.HttpSession;
 import kr.co.seoRak.common.db.MyAppSqlConfig;
 import kr.co.seoRak.repository.domain.Member;
 import kr.co.seoRak.repository.domain.MyBookList;
-import kr.co.seoRak.repository.domain.Point;
 import kr.co.seoRak.repository.mapper.MyBookListMapper;
 import kr.co.seoRak.repository.mapper.PointMapper;
 
-@WebServlet("/jsp/myInfo.do")
+@WebServlet("/myInfo.do")
 public class MyInfoController extends HttpServlet {
 
 	@Override
@@ -39,7 +38,7 @@ public class MyInfoController extends HttpServlet {
 		
 		// http://localhost:8000/seoRak/jsp/myInfo2.jsp
 		System.out.println(request.getContextPath());
-		RequestDispatcher rd = request.getRequestDispatcher("/jsp/myInfo.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/jsp/mylist/myInfo.jsp");
 		rd.forward(request, response);
 
 	}

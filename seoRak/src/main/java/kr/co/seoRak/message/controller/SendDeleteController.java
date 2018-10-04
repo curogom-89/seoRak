@@ -2,6 +2,7 @@ package kr.co.seoRak.message.controller;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import kr.co.seoRak.common.db.MyAppSqlConfig;
 import kr.co.seoRak.repository.mapper.MessageMapper;
 
-@WebServlet("/message/sendDelete.do")
+@WebServlet("/sendDelete.do")
 public class SendDeleteController extends HttpServlet {
 
 	@Override
@@ -23,6 +24,11 @@ public class SendDeleteController extends HttpServlet {
 			int no = Integer.parseInt(delNo);
 			mapper.sendMoveTrash(no);
 		}
+		
+		RequestDispatcher rd = request.getRequestDispatcher(
+				"/jsp/massage/sendBox.jsp"
+			);
+	rd.forward(request, response);	
 		
 	}
 

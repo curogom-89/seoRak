@@ -15,7 +15,7 @@ import kr.co.seoRak.repository.domain.Member;
 import kr.co.seoRak.repository.domain.MyBookList;
 import kr.co.seoRak.repository.mapper.MyBookListMapper;
 
-@WebServlet("/jsp/myList/Write.do")
+@WebServlet("/Write.do")
 public class MyListWriteController extends HttpServlet {
 
 	@Override
@@ -55,7 +55,7 @@ public class MyListWriteController extends HttpServlet {
 		System.out.println("------------1");
 		mapper.insertMyBookList(mbl);
 		System.out.println(request.getContextPath());
-		response.sendRedirect(request.getContextPath() + "/jsp/list.do");
+		response.sendRedirect(request.getContextPath() + "/list.do");
 		//http://localhost:8000/seoRak/jsp/myList.do
 //		http://localhost:8000/seoRak/jsp/list.do
 
