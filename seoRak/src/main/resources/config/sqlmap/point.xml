@@ -78,7 +78,7 @@
 	</select>
 	
 	<!-- 보낸 포인트 기록  -->
-	<select id="selectSendPointRecordById" resultType="pointMap" parameterType="string">
+	<select id="selectSendPointRecordById" resultMap="pointMap" parameterType="string">
 		select *
 		from seorak_point
 		where member_id=#{memberId}
