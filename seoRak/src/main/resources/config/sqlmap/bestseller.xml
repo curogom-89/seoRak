@@ -23,11 +23,9 @@
 		<result column="book_title" property="bookTitle" />
 		<result column="bestseller_week" property="bestsellerWeek" />
 		<result column="kyobo_rank" property="kyoboRank" />
-		<result column="aladdin_rank" property="aladdinRank" />
-		<result column="bookpark_rank" property="bookparkRank" />
+		<result column="aladdin_rank" property="aladdinRank" />		
 		<result column="bandi_rank" property="bandiRank" />
-		<result column="ypbooks_rank" property="ypbooksRank" />
-		<result column="morning24_rank" property="morning24Rank" />
+		
 		<result column="isbn" property="isbn" />
 		<result column="yes24_rank" property="yes24Rank" />
 	</resultMap>
@@ -87,11 +85,7 @@
 		from seorak_ranking_ranking
 		where isbn=#{isbn}
 	</select>
-	<update id="morning24UpdateRanking" parameterType="RankingInfo">
-		update seorak_ranking_ranking
-		set morning24_rank=#{morning24Rank}
-		where bestseller_week=#{bestsellerWeek} and isbn=#{isbn}
-	</update>
+
 	<select id="DateCheckwhereRankingInfo" parameterType="RankingInfo"
 		resultType="RankingInfo">
 		select bestseller_week
