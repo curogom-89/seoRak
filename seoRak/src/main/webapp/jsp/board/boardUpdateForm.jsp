@@ -1,4 +1,4 @@
-<%@page import="kr.co.seoRak.repository.domain.Board"%>
+﻿<%@page import="kr.co.seoRak.repository.domain.Board"%>
 <%@page import="kr.co.seoRak.common.db.MyAppSqlConfig"%>
 <%@page import="kr.co.seoRak.repository.mapper.BoardMapper"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -47,7 +47,7 @@ table, td, tr {
 	crossorigin="anonymous"></script>
 </head>
 <body>
-	<%@include file="../includeBar/topList.jsp" %>
+	<%@include file="../includeBar/topList.jsp"   %>
 	<h1>수정하기</h1>
 	<hr>
 	<div>
@@ -67,7 +67,7 @@ table, td, tr {
 						placeholder="${board.boardTitle }"></td>
 					<td rowspan="5">
 						<button type="button" name="search" id="search">
-							<a href='<c:url value="http://localhost:8000/seoRak/jsp/board/boardBookSearchUpdate.jsp"/>'>도서검색</a>
+							<a href='<c:url value="boardBookSearchUpdate.jsp"/>'>도서검색</a>
 						</button>
 					</td>
 				</tr>

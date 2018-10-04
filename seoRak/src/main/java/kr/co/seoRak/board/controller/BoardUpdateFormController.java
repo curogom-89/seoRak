@@ -22,8 +22,9 @@ public class BoardUpdateFormController extends HttpServlet{
 		request.setAttribute("board", board);
 		
 		RequestDispatcher rd = request.getRequestDispatcher(
-				"/jsp/board/boardUpdateForm.jsp"
+				"/jsp/boardUpdateForm.jsp"
 				);
 		rd.forward(request, response);
 	}
 }
+

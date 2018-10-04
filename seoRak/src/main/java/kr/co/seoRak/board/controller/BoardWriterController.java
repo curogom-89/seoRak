@@ -1,4 +1,4 @@
-package kr.co.seoRak.board.controller;
+﻿package kr.co.seoRak.board.controller;
 
 import java.io.IOException;
 
@@ -29,11 +29,14 @@ public class BoardWriterController extends HttpServlet {
 		String content = request.getParameter("content");
 		String category = request.getParameter("category");
 		String writer = request.getParameter("writer");
+		
+		
 		String cover = request.getParameter("cover");
-		String booktitle = request.getParameter("booktitle");
+//		String booktitle = request.getParameter("booktitle");
 		String bookpublisher = request.getParameter("bookpublisher");
 		String bookauthor = request.getParameter("bookauthor");
 		String bookisbn = request.getParameter("isbn");
+		String booktitle = request.getParameter("booktitle");
 		 
 		HttpSession session = request.getSession();
 		Member member = (Member)session.getAttribute("user");
@@ -60,6 +63,7 @@ public class BoardWriterController extends HttpServlet {
 		book.setBoardBookAuthor(bookauthor);
 		book.setBoardBookCover(cover);
 		book.setIsbn(bookisbn);
+		book.setBookTitle(booktitle);
 		book.setMemberId(memberNickname);
 		System.out.println("5");
 		System.out.println(memberNickname);
@@ -73,6 +77,6 @@ public class BoardWriterController extends HttpServlet {
 		mapper.insertBoard(board);
 		bookmapper.insertBoardBook(book);
 		
-		response.sendRedirect(request.getContextPath() + "/boardlist.do");
+		response.sendRedirect(request.getContextPath() + "/jsp/boardlist.do");
 	}
 }

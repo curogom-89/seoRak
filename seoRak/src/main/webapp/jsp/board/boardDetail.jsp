@@ -1,3 +1,5 @@
+﻿<%@page import="kr.co.seoRak.repository.domain.BoardBook"%>
+<%@page import="kr.co.seoRak.repository.mapper.BoardBookMapper"%>
 <%@page import="kr.co.seoRak.repository.domain.Board"%>
 <%@page import="kr.co.seoRak.repository.mapper.BoardMapper"%>
 <%@page import="java.text.SimpleDateFormat"%>
@@ -6,19 +8,22 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%  Board board = (Board) request.getAttribute("board");
-	request.setAttribute("boardNo", board.getBoardNo());
-	String title = request.getParameter("title"); 
+<%
+	BoardBookMapper bookmapper = MyAppSqlConfig.getSqlSessionInstance().getMapper(BoardBookMapper.class);
+	Board board = (Board) request.getAttribute("board");
+	BoardBook book = (BoardBook) request.getAttribute("book");
+	/* String title = request.getParameter("title");
+	request.setAttribute("boardNo",board.getBoardNo());
+	String link = request.getParameter("link");
+	String img = request.getParameter("img");
+	String isbn = request.getParameter("isbn");
 	String publisher = request.getParameter("publisher");
 	String author = request.getParameter("author");
-	String img = request.getParameter("img");
-	String link = request.getParameter("link");
-	String isbn = request.getParameter("isbn");
 	String memberId = request.getParameter("memberId");
 	String cover = request.getParameter("cover");
 	String booktitle = request.getParameter("booktitle");
 	String bookpublisher = request.getParameter("bookpublisher");
-	String bookauthor = request.getParameter("bookauthor");
+	String bookauthor = request.getParameter("bookauthor"); */
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -86,12 +91,14 @@ ul {
 </head>
 <body>
 
-	<%@include file="../includeBar/topList.jsp" %>
+	<%@include file="../includeBar/topList.jsp"   %>
 
 	<h1>상세보기</h1>
 	<hr>
 	<div>
-		<form action="/seoRak/jsp/boardDetail.do<%= img %>&link=<%= link %>&isbn=<%= isbn %>" method="post">
+		<form
+			action="/seoRak/jsp/boardDetail.do<%=book.getBoardBookCover()%>&isbn=<%=book.getIsbn()%>"
+			method="post">
 			<table>
 				<tr>
 					<td><input type="hidden" size="0" value="${board.boardNo}">
@@ -104,28 +111,27 @@ ul {
 					</td>
 				</tr>
 				<tr>
-					<td rowspan="5">
-						<img name="cover" id="cover" src="<%= img%>"></td>
+					<td rowspan="5"><img name="cover" id="cover" src="<%=book.getBoardBookCover()%>"></td>
 				</tr>
 				<tr>
 					<td><input type="text" name="booktitle" id="book" size="100"
-						placeholder="책 제목" value="<%= title%>"></td>
+						placeholder="책 제목" value="<%=book.getBookTitle() %>"></td>
 				</tr>
 				<tr>
 					<td><input type="text" name="bookpublisher" id="publisher"
-						size="100" placeholder="출판사" value="<%= publisher %>"></td>
+						size="100" placeholder="출판사" value="<%=book.getBoardBookPublisher()%>"></td>
 				</tr>
 				<tr>
-					<td><input type="text" name="bookauthor" id="author" size="100"
-						placeholder="저자" value="<%= author%>"></td>
+					<td><input type="text" name="bookauthor" id="author"
+						size="100" placeholder="저자" value="<%=book.getBoardBookAuthor()%>"></td>
 				</tr>
 				<tr>
 					<td><input type="text" name="memberId" id="author" size="100"
 						placeholder="${user.memberNickname}"></td>
 				</tr>
 				<tr>
-					<td colspan="3"><textarea name="content" id="content" cols="110" rows="10"><%=board.getBoardContent()%></textarea>
-					</td>
+					<td colspan="3"><textarea name="content" id="content"
+							cols="110" rows="10"><%=board.getBoardContent()%></textarea></td>
 				</tr>
 			</table>
 
@@ -138,7 +144,7 @@ ul {
 				<a href="<c:url value='boardlist.do'/>">목록으로 
 			</button>
 			<button name="btn2" type="button" id="update">
-				<a href="http://localhost:8000/seoRak/boardupdateForm.do?no=${board.boardNo}">수정</a>
+				<a href="boardupdateForm.do?no=${board.boardNo}">수정</a>
 			</button>
 			<button name="btn3" type="button" id="delete">
 				<a href="boarddelete.do?no=${board.boardNo}">삭제</a>
@@ -175,68 +181,63 @@ ul {
 	</script>-->
 	<div>
 		<hr>
-		<h3>댓글</h3>
+		<%-- <h3>댓글</h3>
 		<div id="comment">
-		
-		<form method="post" action="http://localhost:8000/seoRak/comment-write.do">
-			<input type="hidden" name="no" value="${board.boardNo}" />	
-			<table width="70%">
-			<tr id="commin">
-				<td><input type="text" name="writer" /></td>
-				<td><input type="text" name="content" /></td>
-				<td><input type="submit" value="등록" /></td>
-			</tr>	
-			</table>
-		</form>
+			<form method="post" action="comment-write.do">
+				<input type="hidden" name="no" value="${board.boardNo}" />
+				<table width="70%">
+					<tr id="commin">
+						<td><input type="text" name="writer" /></td>
+						<td><input type="text" name="content" /></td>
+						<td><input type="submit" value="등록" /></td>
+					</tr>
+				</table>
+			</form>
 		</div>
 	</div>
-	
-	<form action="http://localhost:8000/seoRak/comment-update.do" method="post">
-		<input type="hidden" name="no" value="${board.boardNo}" />
-		<input type="hidden" name="commentNo" value="${commentNo}" />
-	<div id="commentList">
-		
-	  <table width='80%' border='1'>
-	  <tr>
-		<c:forEach var="comment" items="${commentList}">
-		<c:choose>
-	  		<c:when test="${commentNo eq comment.commentNo}">	
+
+	<form action="comment-update.do" method="post">
+		<input type="hidden" name="no" value="${board.boardNo}" /> <input
+			type="hidden" name="commentNo" value="${commentNo}" />
+		<div id="commentList">
+
+			<table width='80%' border='1'>
 				<tr>
-				  <td><c:out value="${comment.commentWriter}" /></td>
-				  <td>
-				  	<input type="text" name="content" /><c:out value="${comment.commentContent}" />
-				  </td>
-				  <td colspan="2">
-				  	  <input type="submit" value="수정" />	
-				  	  <a href="boardDetail.do?no=${board.boardNo}">취소</a>	
-				  </td>
-				 </tr>
-		 	</c:when>
-		 	<c:otherwise>
-				<tr>
-				  <td><c:out value="${comment.commentWriter}" /></td>
-				  <td>
-				  		<c:out value="${comment.commentContent}" /></td>
-				  <td><fmt:formatDate var="regDate" value="${comment.commentDate}" 
-				                      pattern="yyyy-MM-dd HH:mm:ss" />
-				      <c:out value="${commentDate}" />
-				  </td>
-				  <td>
-				  	  <a href="http://localhost:8000/seoRak/comment-delete.do?commentNo=${comment.commentNo}&no=${comment.boardNo}">삭제</a>	
-				  	  <a href="http://localhost:8000/seoRak/boardDetail.do?commentNo=${comment.commentNo}&no=${comment.boardNo}">수정</a>	
-				  </td>
-				 </tr>
-		 	</c:otherwise>
-		 </c:choose>	
-		 </c:forEach>
-		 <c:if test="${empty commentList}">
-		 <tr>
-		    <td colspan='4'>댓글이 존재하지 않습니다.</td>
-		 </tr>
-	 	</c:if>
-	 </table>
-	</div>
-	</form>	
+					<c:forEach var="comment" items="${commentList}">
+						<c:choose>
+							<c:when test="${commentNo eq comment.commentNo}">
+								<tr>
+									<td><c:out value="${comment.commentWriter}" /></td>
+									<td><input type="text" name="content" />
+									<c:out value="${comment.commentContent}" /></td>
+									<td colspan="2"><input type="submit" value="수정" /> <a
+										href="boardDetail.do?no=${board.boardNo}">취소</a></td>
+								</tr>
+							</c:when>
+							<c:otherwise>
+								<tr>
+									<td><c:out value="${comment.commentWriter}" /></td>
+									<td><c:out value="${comment.commentContent}" /></td>
+									<td><fmt:formatDate var="regDate"
+											value="${comment.commentDate}" pattern="yyyy-MM-dd HH:mm:ss" />
+										<c:out value="${commentDate}" /></td>
+									<td><a
+										href="comment-delete.do?commentNo=${comment.commentNo}&no=${comment.boardNo}">삭제</a>
+										<a
+										href="boardDetail.do?commentNo=${comment.commentNo}&no=${comment.boardNo}">수정</a>
+									</td>
+								</tr>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+					<c:if test="${empty commentList}">
+						<tr>
+							<td colspan='4'>댓글이 존재하지 않습니다.</td>
+						</tr>
+					</c:if>
+			</table>
+		</div>
+	</form> --%>
 
 </body>
 </html>

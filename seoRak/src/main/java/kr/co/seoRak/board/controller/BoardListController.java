@@ -29,7 +29,7 @@ public class BoardListController extends HttpServlet {
 		request.setAttribute("list", list);
 		
 		RequestDispatcher rd = request.getRequestDispatcher(
-					"/jsp/board/freeBoard.jsp"
+					"/jsp/freeBoard.jsp"
 				);
 		rd.forward(request, response);
 	}

@@ -1,4 +1,4 @@
-<%@page import="java.text.SimpleDateFormat"%>
+﻿<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="kr.co.seoRak.repository.domain.Board"%>
 <%@page import="kr.co.seoRak.common.db.MyAppSqlConfig"%>
 <%@page import="kr.co.seoRak.repository.mapper.BoardMapper"%>
@@ -129,7 +129,7 @@ body {
 </head>
 <body>
 
-	<%@include file="../includeBar/topList.jsp" %>
+	<%@include file="../includeBar/topList.jsp"   %>
 	<!-------------------------------------------------- top bar------------------------------------------------------------->
 	<br>
 	<h1>자유게시판</h1>
@@ -171,7 +171,7 @@ body {
 
 	<script type="text/javascript">
 		$("#write").click(function() {
-			window.location.replace("http://localhost:8000/seoRak/jsp/board/boardwrite.jsp");
+			window.location.replace("/seoRak/jsp/boardwrite.jsp");
 			
 		})
 	</script>

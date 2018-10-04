@@ -24,7 +24,7 @@ public class BoardDeleteController extends HttpServlet {
 		 mapper.deleteBoard(no);
 		
 		
-		response.sendRedirect(request.getContextPath() + "/boardlist.do");
+		response.sendRedirect(request.getContextPath() + "/jsp/boardlist.do");
 	} 
 		
 }

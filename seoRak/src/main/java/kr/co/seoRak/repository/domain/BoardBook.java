@@ -8,6 +8,14 @@ public class BoardBook {
 	private String boardBookAuthor;
 	private String boardBookCover;
 	private String isbn;
+	private String bookTitle;
+	
+	public String getBookTitle() {
+		return bookTitle;
+	}
+	public void setBookTitle(String bookTitle) {
+		this.bookTitle = bookTitle;
+	}
 	public int getBoardNo() {
 		return boardNo;
 	}

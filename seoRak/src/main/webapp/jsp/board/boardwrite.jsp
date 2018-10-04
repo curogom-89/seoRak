@@ -1,4 +1,4 @@
-<%@page import="kr.co.seoRak.repository.domain.Book"%>
+﻿<%@page import="kr.co.seoRak.repository.domain.Book"%>
 <%@page import="kr.co.seoRak.repository.domain.BoardBook"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -47,13 +47,13 @@ table, td, tr {
 </head>
 
 <body>
-	<%@include file="../includeBar/topList.jsp" %>
+	<%@include file="../includeBar/topList.jsp"   %>
 	<h1>글쓰기</h1>
 
 	<hr>
 	<div>
 		<form
-			action="/seoRak/boardwriter.do?cover=<%=img%>&link=<%=link%>&isbn=<%=isbn%>"
+			action="/seoRak/jsp/boardwriter.do?cover=<%=img%>&link=<%=link%>&isbn=<%=isbn%>"
 			method="post" id="writeForm">
 			<table>
 				<tr>
@@ -101,7 +101,7 @@ table, td, tr {
 			<hr>
 			<!-- file : <input type="file" name="attach" /> -->
 			<button name="btn1" type="button" id="btn1">
-				<a href="http://localhost:8000/seoRak/boardlist.do">목록으로</a>
+				<a href="/seoRak/jsp/boardlist.do">목록으로</a>
 			</button>
 			<button name="btn2" type="button" id="btn2">
 				<a href="#">작성</a>

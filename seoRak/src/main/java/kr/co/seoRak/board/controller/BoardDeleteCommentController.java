@@ -22,7 +22,7 @@ public class BoardDeleteCommentController extends HttpServlet {
 		
 		mapper.deleteComment(commentNo);
 		
-		response.sendRedirect(request.getContextPath() + "/boardDetail.do?no=" + no);
+		response.sendRedirect(request.getContextPath() + "/jsp/boardDetail.do?no=" + no);
 		
 	}
 }
