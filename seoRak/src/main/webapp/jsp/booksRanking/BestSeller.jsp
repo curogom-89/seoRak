@@ -166,7 +166,7 @@ tr, td {
 				</tr>
 			</thead>
 			<tbody>
-				<%for(int i =1 ; i<=5 ; i++){ %>
+				<%for(int i =1 ; i<=10 ; i++){ %>
 				<tr>
 					<td><%= mapper.RankingselectByIsbn(i) %></td>
 					<td><img src="<%=mapper.selecbookimg(mapper.IsbnselectByranking(i))%>"/></td>
@@ -178,7 +178,6 @@ tr, td {
 				<%}%>
 			</tbody>
 		</table>
-	</div>
 
 	
 
