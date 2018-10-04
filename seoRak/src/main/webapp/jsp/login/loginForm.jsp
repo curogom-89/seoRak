@@ -207,6 +207,7 @@ div.right a.facebook:hover {
   -webkit-animation: square 25s infinite;
   animation: square 25s infinite;
   transition-timing-function: linear;
+  
 }
 .bg-bubbles li:nth-child(1) {
   left: 10%;
@@ -301,7 +302,9 @@ div.right a.facebook:hover {
 	a
 }
 
-
+.bubble {
+	opacity: 0.6;
+}
 
 </style>
 <script src="https://code.jquery.com/jquery-3.3.1.js"
@@ -345,16 +348,12 @@ div.right a.facebook:hover {
   </form>  
   <dir id="bubble">
       <ul class="bg-bubbles" style="z-index: 1">
-        <li><img src="<c:url value='/img/myBookList_a1.PNG'/>"></li>
-        <li><img src="<c:url value='/img/11.jpg'/>"></li>
-        <li><img src="<c:url value='/img/22.JPG'/>"></li>
-        <li><img src="<c:url value='/img/33.JPG'/>"></li>
-        <li><img src="<c:url value='/img/44.jpg'/>"></li>
-        <li><img src="<c:url value='/img/pasbook.JPG'/>"></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+        <li><img class="bubble" src="<c:url value='/img/myBookList_a1.PNG'/>"></li>
+        <li><img class="bubble" src="<c:url value='/img/11.jpg'/>"></li>
+        <li><img class="bubble" src="<c:url value='/img/22.JPG'/>"></li>
+        <li><img class="bubble" src="<c:url value='/img/33.JPG'/>"></li>
+        <li><img class="bubble" src="<c:url value='/img/44.jpg'/>"></li>
+        <li><img class="bubble" src="<c:url value='/img/pasbook.JPG'/>"></li>
       </ul>
      </dir>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
