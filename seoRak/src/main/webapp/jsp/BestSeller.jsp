@@ -152,7 +152,7 @@ tr, td {
 	<br>
 	<br>
 
-	
+	<table>
 			<thead>
 				<tr>
 					<th>순위</th>
