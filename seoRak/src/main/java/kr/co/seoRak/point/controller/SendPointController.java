@@ -15,7 +15,7 @@ import kr.co.seoRak.repository.domain.Point;
 import kr.co.seoRak.repository.mapper.LoginMapper;
 import kr.co.seoRak.repository.mapper.PointMapper;
 
-@WebServlet("/jsp/sendPoint.do")
+@WebServlet("/sendPoint.do")
 public class SendPointController extends HttpServlet{
 
 	@Override
@@ -44,7 +44,7 @@ public class SendPointController extends HttpServlet{
 		Member memberReceive = mapperLogin.idCheck(receiver);
 
 		if(memberSend == null || memberReceive== null) {
-			RequestDispatcher rd = request.getRequestDispatcher("/jsp/myPoint.do");
+			RequestDispatcher rd = request.getRequestDispatcher("/sendPoint.jsp");
 			request.setAttribute("unmatch", true);
 			rd.forward(request, response);
 		} else {
@@ -64,7 +64,29 @@ public class SendPointController extends HttpServlet{
 			mapper.insertPoint(pointReceive);
 			mapper.updateMemberPoint(memberSender);
 			mapper.updateMemberPoint(memberReceiver);
-			response.sendRedirect("/seoRak/jsp/myPoint.do");
+			request.setAttribute("check", "success");
+			System.out.println("1==============================");
+			RequestDispatcher rd = request.getRequestDispatcher("/jsp/mypoint/sendPoint.jsp");
+			rd.forward(request, response);
+			System.out.println("2==============================");
+			
+//			PointMapper mapper = MyAppSqlConfig.getSqlSessionInstance().getMapper(PointMapper.class);
+//			int senderPoint = mapper.selectPointTotalById(sender);
+//			int receiverPoint = mapper.selectPointTotalById(receiver);
+//			
+//			Member memberSender = new Member();
+//			memberSender.setMemberId(sender);
+//			memberSender.setMemberTotalPoint(senderPoint);
+//			
+//			Member memberReceiver = new Member();
+//			memberReceiver.setMemberId(receiver);
+//			memberReceiver.setMemberTotalPoint(receiverPoint);
+//			
+//			mapper.insertPoint(pointSend);
+//			mapper.insertPoint(pointReceive);
+//			mapper.updateMemberPoint(memberSender);
+//			mapper.updateMemberPoint(memberReceiver);
+//			response.sendRedirect("/seoRak/myPoint.do");
 		}
 	}
 	

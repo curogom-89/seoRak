@@ -179,7 +179,7 @@ tr, td {
 			</tbody>
 		</table>
 
-	
+		<%@include file="../includeBar/bottom.jsp"%>
 
 </body>
 </html>

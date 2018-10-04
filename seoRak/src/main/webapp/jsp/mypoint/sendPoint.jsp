@@ -1,15 +1,13 @@
-<%@page import="kr.co.seoRak.common.db.MyAppSqlConfig"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="kr.co.seoRak.repository.domain.Member" %>
 <%@ page import="kr.co.seoRak.repository.mapper.LoginMapper" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
-	HttpSession sessionMember = request.getSession();
-	Member member = (Member)sessionMember.getAttribute("user");
-	String memberId = member.getMemberId();
-	int memberPoint = member.getMemberTotalPoint();
-	LoginMapper mapper = MyAppSqlConfig.getSqlSessionInstance().getMapper(LoginMapper.class);
+	Member member = (Member)request.getAttribute("member");
+	System.out.println("3-----------------------------");
+/* 	String id = member.getMemberId();	
+	int memberPoint = member.getMemberTotalPoint(); */
 %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -149,18 +147,18 @@ button[type="submit"]:hover{
 <div class="body-text">My Point</div>
         <hr>
      
-        <form method="GET" name="sForm"  action='<c:url value="/jsp/sendPoint.do"/>' onsubmit="return doAction()">
+        <form method="GET" name="sForm"  action='<c:url value="/sendPoint.do"/>' onsubmit="return doAction()">
           <div class="form-container">
             <div class="personal-information">
               <span id="sendTitle">포인트 보내기</span>
             </div> <!-- end of personal-information -->
                  
-                <input id="column-left" type="text" name="sender" placeholder="보내는 사람" value="<%=memberId %>" />
+                <input id="column-left" type="text" name="sender" placeholder="보내는 사람" value="<%=member.getMemberId() %>" />
                 <input id="column-right" type="text" name="receiver" placeholder="받는 사람"/>
-                <input id="column-left" type="text" name="currentPoint" placeholder="현재 보유 포인트                                        <%=memberPoint %>" />
+                <input id="column-left" type="text" name="currentPoint" placeholder="현재 보유 포인트                                        <%=member.getMemberTotalPoint() %>" />
                 <input id="column-right" type="text" name="sendPoint" placeholder="보낼 포인트"/>
               	
-                <input id="column-left" type="hidden" name="currentPoint_hidden" value="<%=memberPoint %>" />
+                <input id="column-left" type="hidden" name="currentPoint_hidden" value="<%=member.getMemberTotalPoint() %>" />
 
                 <div class="card-wrapper"></div>
             
@@ -180,6 +178,7 @@ button[type="submit"]:hover{
 	<c:choose>
 		<c:when test="${check=='before'}">
 	        <script>   	
+	        	alert(${check});
 	        	var cancle = document.querySelector("button[name=Cancle]");
 	       		
 	        	cancle.onclick = function doCancle(){
@@ -203,17 +202,20 @@ button[type="submit"]:hover{
 		</c:when>
 		<c:when test="${check =='unmatch'}">
 			<script type="text/javascript">
+	        alert(${check});
+
 				alert("보내는사람 혹은 받는사람 아이디가 일치하지 않습니다.");
 			</script>
 		</c:when>
 		<c:when test="${check =='success'}">
 			<script type="text/javascript">
+	        alert(${check});
+
 				alert("포인트 전송 완료");
 				self.close();
 			</script>
 		</c:when>
 	</c:choose>
-
 
 </body>
 </html>

@@ -207,7 +207,7 @@ p{
 	function openSendPop(){
 		window.open(
 			/* http://localhost:8000/seoRak/jsp/sendPoint.jsp */
-			"http://localhost:8000/seoRak/sendPointForm.do", "포인트 보내기", "width=700px,height=500px"	
+			"/seoRak/sendPointForm.do", "포인트 보내기", "width=700px,height=500px"	
 		)
 	}
 
