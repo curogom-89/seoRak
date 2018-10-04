@@ -152,10 +152,7 @@ tr, td {
 	<br>
 	<br>
 
-	<div id="BestSeller">
-		<span id="title" style="font-size: 15px; float: center">월간베스트셀러</span>
-		<span id="timeMonth" style="float: right;">2018년 9월</span>
-		<table id="table1">
+	
 			<thead>
 				<tr>
 					<th>순위</th>
@@ -183,137 +180,7 @@ tr, td {
 		</table>
 	</div>
 
-	<div id="weeksBestSeller">
-		<span id="weekTitle">주간베스트셀러</span> <span id="timeDetail"
-			style="float: right;">2018년 9월 3째주</span>
-		<table style="margin: auto;">
-			<thead>
-				<tr>
-					<th>순위</th>
-					<th>그림</th>
-					<th>책이름</th>
-					<th>출판사</th>
-					<th>발간일</th>
-					<th>그림</th>
-					<th>순위변동</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>1</td>
-					<td><img
-						src="<c:url value='https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914'/>" /></td>
-					<td>돌이킬 수 없는 약속</td>
-					<td>출판사</td>
-					<td>야쿠마루 가쿠 저</td>
-					<td>2017.02.02</td>
-					<td>3계단 상승</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td><img
-						src="<c:url value='https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914'/>" /></td>
-					<td>돌이킬 수 없는 약속</td>
-					<td>출판사</td>
-					<td>야쿠마루 가쿠 저</td>
-					<td>2017.02.02</td>
-					<td>new</td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td><img
-						src="<c:url value='https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914'/>" /></td>
-					<td>돌이킬 수 없는 약속</td>
-					<td>출판사</td>
-					<td>야쿠마루 가쿠 저</td>
-					<td>2017.02.02</td>
-					<td>new</td>
-				</tr>
-				<tr>
-					<td>4</td>
-					<td><img
-						src="<c:url value='https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914'/>" /></td>
-					<td>돌이킬 수 없는 약속</td>
-					<td>출판사</td>
-					<td>야쿠마루 가쿠 저</td>
-					<td>2017.02.02</td>
-					<td>new</td>
-				</tr>
-				<tr>
-					<td>5</td>
-					<td><img
-						src="<c:url value='https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914'/>" /></td>
-					<td>돌이킬 수 없는 약속</td>
-					<td>출판사</td>
-					<td>야쿠마루 가쿠 저</td>
-					<td>2017.02.02</td>
-					<td>3계단 하락</td>
-				</tr>
-				<tr>
-					<td>6</td>
-					<td><img
-						src="<c:url value='https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914'/>" /></td>
-					<td>돌이킬 수 없는 약속</td>
-					<td>출판사</td>
-					<td>야쿠마루 가쿠 저</td>
-					<td>2017.02.02</td>
-					<td>new</td>
-				</tr>
-				<tr>
-					<td>6</td>
-					<td><img
-						src="<c:url value='https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914'/>" /></td>
-					<td>돌이킬 수 없는 약속</td>
-					<td>출판사</td>
-					<td>야쿠마루 가쿠 저</td>
-					<td>2017.02.02</td>
-					<td>new</td>
-				</tr>
-				<tr>
-					<td>7</td>
-					<td><img
-						src="<c:url value='https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914'/>" /></td>
-					<td>돌이킬 수 없는 약속</td>
-					<td>출판사</td>
-					<td>야쿠마루 가쿠 저</td>
-					<td>2017.02.02</td>
-					<td>new</td>
-				</tr>
-				<tr>
-					<td>8</td>
-					<td><img
-						src="<c:url value='https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914'/>" /></td>
-					<td>돌이킬 수 없는 약속</td>
-					<td>출판사</td>
-					<td>야쿠마루 가쿠 저</td>
-					<td>2017.02.02</td>
-					<td>new</td>
-				</tr>
-				<tr>
-					<td>9</td>
-					<td><img
-						src="<c:url value='https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914'/>" /></td>
-					<td>돌이킬 수 없는 약속</td>
-					<td>출판사</td>
-					<td>야쿠마루 가쿠 저</td>
-					<td>2017.02.02</td>
-					<td>new</td>
-				</tr>
-				<tr>
-					<td>10</td>
-					<td><img
-						src="<c:url value='https://bookthumb-phinf.pstatic.net/cover/116/111/11611116.jpg?type=m1&udate=20180914'/>" /></td>
-					<td>돌이킬 수 없는 약속</td>
-					<td>출판사</td>
-					<td>야쿠마루 가쿠 저</td>
-					<td>2017.02.02</td>
-					<td>new</td>
-				</tr>
-			</tbody>
-		</table>
-
-	</div>
-
+	
 
 </body>
 </html>
