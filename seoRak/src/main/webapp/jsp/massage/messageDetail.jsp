@@ -6,23 +6,21 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-table {
+table, td {
 	border: 1px solid black;
 	border-collapse: collapse;
 	margin: auto;
+	border: 1px solid black
 }
 
-#search {
-	height: 100px;
+.title {
+	width: 100px;
 }
 
-#btn1 {
-	margin-left: 65%;
+tb {
+	text-align: left;
 }
 
-#file {
-	margin-left: 65%;
-}
 </style>
 <script src="https://code.jquery.com/jquery-3.3.1.js"
 	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
@@ -30,7 +28,7 @@ table {
 </head>
 
 <body>
-<%@include file="../includeBar/topList.jsp" %>
+<%@include file="topList.jsp" %>
 	<h2>글쓰기</h2>
 	<hr>
 	<div>
@@ -38,21 +36,24 @@ table {
 			<table>
 				<tr>
 				
-					<td>보낸 사람 : <input type="text" name="title" id="title" size="30px;"
-						placeholder="보낸 사람"></td>
+					<td class="title">보낸 사람 : </td>
+					<td>${sender }</td>
 				</tr>
 
 				<tr>
-					<td>보낸 시간 : <input type="text" name="book" id="book" size="30px;"
-						placeholder="보낸 시간"></td>
+					<td class="title">보낸 시간 : </td>
+					<td>${sendtime }</td>
 				</tr>
 				<tr>
-					<td>받은 시간 : <input type="text" name="publisher" id="publisher"
-						size="30px;" placeholder="받은 시간"></td>
+					<td class="title">받은 시간 : </td>
+					<td>${readtime }</td>
 				</tr>
 				<tr>
-					<td colspan="3"><textarea name="content" id="content" cols="80" rows="5"></textarea>
-					</td>
+					<td class="title">쪽지 제목 : </td>
+					<td>${title }</td>
+				</tr>
+				<tr>
+					<td colspan="2">${content }</td>
 				</tr>
 			</table>
 		
