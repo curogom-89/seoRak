@@ -30,7 +30,7 @@ public class BoardUpdateCommentController extends HttpServlet{
 		
 		mapper.updateComment(comment);
 		
-		response.sendRedirect("/seoRak/boardDetail.do?no=" + no);
+		response.sendRedirect("http://localhost:8000/seoRak/boardDetail.do?no=" + no);
 		
 	}
 }

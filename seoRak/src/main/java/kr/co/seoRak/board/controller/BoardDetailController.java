@@ -31,27 +31,33 @@ public class BoardDetailController extends HttpServlet {
 		Board board = mapper.selectOneBoard(no);
 		request.setAttribute("board", board);
 		
+		// 좀있다 다시하기
+//		BoardBook book = bookmapper.selectOneBoardBook(boardBook);
+//		(BoardBook) request.getAttribute("boardbook");
+//		request.setAttribute("memberId", memberId);
+		
 		List<Comment> commentList = commentMapper.selectComment(no);
 		request.setAttribute("commentList", commentList);
 		
 		
-		HttpSession session = request.getSession();
-		Member member = (Member)session.getAttribute("user");
-		System.out.println("1");
-		String memberId = member.getMemberId();
-		String bookcover = request.getParameter("bookcover");
-		String booktitle = request.getParameter("booktitle");
-		String bookpublisher = request.getParameter("bookpublisher");
-		String bookauthor = request.getParameter("bookauthor");
-		
-		BoardBook book = new BoardBook();
+//		HttpSession session = request.getSession();
+//		Member member = (Member)session.getAttribute("user");
+//		System.out.println("1");
+//		String memberId = member.getMemberId();
+//		String memberNickname = member.getMemberNickname();
+//		String cover = request.getParameter("cover");
+//		String booktitle = request.getParameter("booktitle");
+//		String bookpublisher = request.getParameter("bookpublisher");
+//		String bookauthor = request.getParameter("bookauthor");
+//		
+//		BoardBook book = new BoardBook();
 //		System.out.println("memberIdtest");
 //		book.setBoardBookTitle(booktitle);
 //		book.setBoardBookPublisher(bookpublisher);
 //		book.setBoardBookAuthor(bookauthor);
-//		book.setBoardBookCover(bookcover);
+//		book.setBoardBookCover(cover);
 //		book.setMemberId(memberId);
-//		System.out.println(bookcover);
+//		System.out.println(cover);
 //		System.out.println(booktitle);
 //		System.out.println(bookpublisher);
 //		System.out.println(bookauthor);

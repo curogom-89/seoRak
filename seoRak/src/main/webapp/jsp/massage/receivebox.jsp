@@ -181,7 +181,7 @@ display: inline;
 			
 		<div class="row">
 			<div class="cell" data-title="Product"><%=message.getSendId() %></div>
-			<div class="cell" data-title="Unit Price"><a href='<c:url value="/message/read.do"/>?no=<%=message.getMessageNo()%>'/><%=message.getMessageTitle() %></a></div>
+			<div class="cell" data-title="Unit Price"><a href='<c:url value="http://localhost:8000/seoRak/message/read.do"/>?no=<%=message.getMessageNo()%>'/><%=message.getMessageTitle() %></a></div>
 			<div class="cell" data-title="Quantity"><%=sendTime %></div>
 			<div class="cell" data-title="Date Sold"><%=recvTime %></div>
 			<div class="cell" data-title="Status">
@@ -191,7 +191,7 @@ display: inline;
 		<% }%>
 	</div>
 	<button id="del">삭제</button>
-	<a href="message.jsp"><button type="button" id="writer">쪽지 쓰기</button></a>
+	<a href="http://localhost:8000/seoRak/jsp/massage/message.jsp"><button type="button" id="writer">쪽지 쓰기</button></a>
 </form>
 		<%@include file="../includeBar/bottom.jsp"%>
 </body>

@@ -28,7 +28,7 @@ tb {
 </head>
 
 <body>
-<%@include file="topList.jsp" %>
+<%@include file="../includeBar/topList.jsp" %>
 	<h2>글쓰기</h2>
 	<hr>
 	<div>
@@ -58,8 +58,9 @@ tb {
 			</table>
 		
 		</form>
+		<button id="mamage"><a href="http://localhost:8000/seoRak/jsp/massage/receivebox.jsp">쪽지함으로 이동</a></button>
 	</div>
 	
-	
+	<%@include file="../includeBar/bottom.jsp"%>
 </body>
 </html>

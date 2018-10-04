@@ -326,7 +326,7 @@ div.right a.facebook:hover {
       <label for="pass">Password</label> <br />
       <input type="password" name="password" id="pass" /> <br />
   	  <input type="submit"  value="Login" />
-      <a href="<c:url value="login/signUp.jsp"/>"><input id="signIn" type="button"  value="Sign-In" /></a>
+      <a href="<c:url value="http://localhost:8000/seoRak/jsp/login/signUp.jsp"/>"><input id="signIn" type="button"  value="Sign-In" /></a>
     </div>
     <div class="right">
       <div class="connect">seoRak Project</div>

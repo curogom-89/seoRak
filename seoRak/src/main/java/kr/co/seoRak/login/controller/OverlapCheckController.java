@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.co.seoRak.common.db.MyAppSqlConfig;
+import kr.co.seoRak.repository.domain.Member;
 import kr.co.seoRak.repository.mapper.LoginMapper;
 
 @WebServlet("/login/check.do")
@@ -40,7 +41,7 @@ public class OverlapCheckController extends HttpServlet {
 			}
 		} else {
 			String id = request.getParameter("id");
-			String result = mapper.idCheck(id);
+			Member result = mapper.idCheck(id);
 			if (result == null) {
 				// OK				
 				out.println(1);

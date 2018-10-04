@@ -131,7 +131,7 @@ tr, td {
 <body>
 
 
-	<%@include file="topList.jsp"%>
+	<%@include file="../includeBar/topList.jsp"%>
 
 	<div class="time">
 		<h1>베스트셀러</h1>

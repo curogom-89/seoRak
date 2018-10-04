@@ -189,7 +189,7 @@ h2 {
 			
 		</div>
 	<button id="del">삭제</button>
-	<a href="message.jsp"><button type="button" id="writer">쪽지 쓰기</button></a>
+	<a href="http://localhost:8000/seoRak/jsp/massage/message.jsp"><button type="button" id="writer">쪽지 쓰기</button></a>
 </form>
 </div>
 

@@ -129,7 +129,7 @@ body {
 </head>
 <body>
 
-	<%@include file="../includeBar/topList.jsp"%>
+	<%@include file="../includeBar/topList.jsp" %>
 	<!-------------------------------------------------- top bar------------------------------------------------------------->
 	<br>
 	<h1>자유게시판</h1>
@@ -171,10 +171,10 @@ body {
 
 	<script type="text/javascript">
 		$("#write").click(function() {
-			window.location.replace("/seoRak/jsp/board/boardwrite.jsp");
+			window.location.replace("http://localhost:8000/seoRak/jsp/board/boardwrite.jsp");
 			
 		})
 	</script>
-		<%@include file="../includeBar/bottom.jsp"%>
+
 </body>
 </html>

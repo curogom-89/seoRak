@@ -6,8 +6,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%
-	Board board = (Board) request.getAttribute("board");
+<%  Board board = (Board) request.getAttribute("board");
 	request.setAttribute("boardNo", board.getBoardNo());
 	String title = request.getParameter("title"); 
 	String publisher = request.getParameter("publisher");
@@ -15,6 +14,11 @@
 	String img = request.getParameter("img");
 	String link = request.getParameter("link");
 	String isbn = request.getParameter("isbn");
+	String memberId = request.getParameter("memberId");
+	String cover = request.getParameter("cover");
+	String booktitle = request.getParameter("booktitle");
+	String bookpublisher = request.getParameter("bookpublisher");
+	String bookauthor = request.getParameter("bookauthor");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -82,13 +86,12 @@ ul {
 </head>
 <body>
 
-	<%@include file="../includeBar/topList.jsp"%>
-
+	<%@include file="../includeBar/topList.jsp" %>
 
 	<h1>상세보기</h1>
 	<hr>
 	<div>
-		<form action="/seoRak/jsp/board/boardDetail.do" method="post">
+		<form action="/seoRak/jsp/boardDetail.do<%= img %>&link=<%= link %>&isbn=<%= isbn %>" method="post">
 			<table>
 				<tr>
 					<td><input type="hidden" size="0" value="${board.boardNo}">
@@ -97,12 +100,12 @@ ul {
 					<td><input type="text" name="title" id="title" size="100"
 						placeholder="<%=board.getBoardTitle()%>"></td>
 					<td rowspan="6">
-						<button type="button" name="search" id="search">도서검색</button>
+						<button type="button" id="search">도서검색</button>
 					</td>
 				</tr>
 				<tr>
 					<td rowspan="5">
-						<img src="<%= img %>" /></td>
+						<img name="cover" id="cover" src="<%= img%>"></td>
 				</tr>
 				<tr>
 					<td><input type="text" name="booktitle" id="book" size="100"
@@ -117,11 +120,11 @@ ul {
 						placeholder="저자" value="<%= author%>"></td>
 				</tr>
 				<tr>
-					<td><input type="text" name="memberId" id="memberid" size="100"
-						placeholder="<%=board.getBoardWriter()%>"></td>
+					<td><input type="text" name="memberId" id="author" size="100"
+						placeholder="${user.memberNickname}"></td>
 				</tr>
 				<tr>
-					<td colspan="3"><textarea name="" id="" cols="110" rows="10"><%=board.getBoardContent()%></textarea>
+					<td colspan="3"><textarea name="content" id="content" cols="110" rows="10"><%=board.getBoardContent()%></textarea>
 					</td>
 				</tr>
 			</table>
@@ -135,10 +138,10 @@ ul {
 				<a href="<c:url value='boardlist.do'/>">목록으로 
 			</button>
 			<button name="btn2" type="button" id="update">
-				<a href="boardupdateForm.do?no=${board.boardNo}">수정</a>
+				<a href="http://localhost:8000/seoRak/boardupdateForm.do?no=${board.boardNo}">수정</a>
 			</button>
 			<button name="btn3" type="button" id="delete">
-				<a href="/seoRak/boarddelete.do?no=${board.boardNo}">삭제</a>
+				<a href="boarddelete.do?no=${board.boardNo}">삭제</a>
 			</button>
 			<input type="file" name="attach" id="file" />
 			<!--  
@@ -174,7 +177,8 @@ ul {
 		<hr>
 		<h3>댓글</h3>
 		<div id="comment">
-		<form method="post" action="/seoRak/comment-write.do">
+		
+		<form method="post" action="http://localhost:8000/seoRak/comment-write.do">
 			<input type="hidden" name="no" value="${board.boardNo}" />	
 			<table width="70%">
 			<tr id="commin">
@@ -187,7 +191,7 @@ ul {
 		</div>
 	</div>
 	
-	<form action="/seoRak/comment-update.do" method="post">
+	<form action="http://localhost:8000/seoRak/comment-update.do" method="post">
 		<input type="hidden" name="no" value="${board.boardNo}" />
 		<input type="hidden" name="commentNo" value="${commentNo}" />
 	<div id="commentList">
@@ -218,8 +222,8 @@ ul {
 				      <c:out value="${commentDate}" />
 				  </td>
 				  <td>
-				  	  <a href="/seoRak/comment-delete.do?commentNo=${comment.commentNo}&no=${comment.boardNo}">삭제</a>	
-				  	  <a href="/seoRak/boardDetail.do?commentNo=${comment.commentNo}&no=${comment.boardNo}">수정</a>	
+				  	  <a href="http://localhost:8000/seoRak/comment-delete.do?commentNo=${comment.commentNo}&no=${comment.boardNo}">삭제</a>	
+				  	  <a href="http://localhost:8000/seoRak/boardDetail.do?commentNo=${comment.commentNo}&no=${comment.boardNo}">수정</a>	
 				  </td>
 				 </tr>
 		 	</c:otherwise>
@@ -233,6 +237,6 @@ ul {
 	 </table>
 	</div>
 	</form>	
-		<%@include file="../includeBar/bottom.jsp"%>
+
 </body>
 </html>

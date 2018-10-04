@@ -21,7 +21,7 @@ import kr.co.seoRak.repository.domain.RankingBookInfo;
 import kr.co.seoRak.repository.domain.RankingRankingInfo;
 import kr.co.seoRak.repository.mapper.RankingMapper;
 
-@WebServlet("/seorak/BestSellerRanking.do")
+@WebServlet("/BestSellerRanking.do")
 public class insertRankingController extends HttpServlet{
 
 	RankingMapper mapper = MyAppSqlConfig.getSqlSessionInstance().getMapper(RankingMapper.class);
@@ -48,7 +48,7 @@ public class insertRankingController extends HttpServlet{
 			
 			if(cal.get(cal.DAY_OF_WEEK)!=cal.SUNDAY) {//10월 4일...네이버 베스트셀러상 데이터는 9월 5째주로 뿌려지고있음
 				
-					response.sendRedirect(request.getContextPath() + "/jsp/BestSeller.jsp");
+					response.sendRedirect(request.getContextPath() + "/jsp/booksRanking/BestSeller.jsp");
 			
 			}else{
 				
@@ -529,9 +529,9 @@ public class insertRankingController extends HttpServlet{
 							}
 						}
 					}
-					response.sendRedirect(request.getContextPath() + "/jsp/BestSeller.jsp");
+					response.sendRedirect(request.getContextPath() + "/jsp/booksRanking/BestSeller.jsp");
 				}else {
-					response.sendRedirect(request.getContextPath() + "/jsp/BestSeller.jsp");
+					response.sendRedirect(request.getContextPath() + "/jsp/booksRanking/BestSeller.jsp");
 				}
 			}//outer if-else
 		} catch (IOException  e) {

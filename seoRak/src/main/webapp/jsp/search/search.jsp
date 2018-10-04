@@ -151,7 +151,7 @@
 	</center>
 	<hr>
 	<!--"/seoRak/jsp/myList/Search.do"  -->
-	<form class="search-form" action='<c:url value="/topsearch.do"/>'>
+	<form class="search-form" action='<c:url value="http://localhost:8000/seoRak/topsearch.do"/>'>
 		<select class="search-select" name="detail">
 			<option value="1">제목</option>
 			<option value="2">출판사</option>

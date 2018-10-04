@@ -31,33 +31,26 @@ public class BoardUpdateController extends HttpServlet {
 //		System.out.println("boardTitle : " + request.getParameter("title"));
 //		System.out.println("boardCategory : " + request.getParameter("category"));
 //		System.out.println("boardContent : " + request.getParameter("content"));
-		board.setBoardNo(Integer.parseInt(request.getParameter("boardNo")));
+//		board.setBoardNo(Integer.parseInt(request.getParameter("boardNo")));
 		board.setBoardTitle(request.getParameter("title"));
 		board.setBoardCategory(request.getParameter("category"));
 		board.setBoardContent(request.getParameter("content"));
 //		System.out.println("3");
-		String bookcover = request.getParameter("bookcover");
-		String booktitle = request.getParameter("booktitle");
-		String bookpublisher = request.getParameter("bookpublisher");
-		String bookauthor = request.getParameter("bookauthor");
-
 		
 		BoardBook book = new BoardBook();
 		System.out.println("2");
-		book.setBoardBookTitle(booktitle);
-		book.setBoardBookPublisher(bookpublisher);
-		book.setBoardBookAuthor(bookauthor);
-		book.setBoardBookCover(bookcover);
-		System.out.println("5");
-		System.out.println(booktitle);
-		System.out.println(bookpublisher);
-		System.out.println(bookauthor);
-		System.out.println(bookcover);
-		
+		System.out.println("title: " + request.getParameter("title"));
+		book.setBoardBookTitle(request.getParameter("title"));
+		book.setBoardBookPublisher(request.getParameter("bookpublisher"));
+		book.setBoardBookAuthor(request.getParameter("bookauthor"));
+		book.setBoardBookCover(request.getParameter("cover"));
+		book.setIsbn(request.getParameter("isbn"));
 		
 		mapper.updateBoard(board);
 		bookmapper.insertBoardBook(book);
+		response.sendRedirect("/boardlist.do");
 		
-		response.sendRedirect(request.getContextPath() +"/boardlist.do");
+		
+		
 	}
 }

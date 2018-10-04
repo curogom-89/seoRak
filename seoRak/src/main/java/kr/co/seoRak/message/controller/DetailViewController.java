@@ -36,7 +36,7 @@ public class DetailViewController extends HttpServlet {
 		request.setAttribute("title", message.getMessageTitle());
 		request.setAttribute("content", message.getMessageContent());
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/jsp/messageDetail.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/jsp/massage/messageDetail.jsp");
 		
 		rd.forward(request, response);
 		

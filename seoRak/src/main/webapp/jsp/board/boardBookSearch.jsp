@@ -201,7 +201,7 @@
                         <td><img src="<%= cover %>"/></td>
                         <td id="title">
                         <!-- http://localhost:8000/seoRak/jsp/myListWrite.jsp -->
-                        	<a href="/seoRak/jsp/board/boardwrite.jsp?title=<%= b.getTitle() %>&publisher=<%= b.getPublisher() %>&author=<%= b.getAuthor() %>&img=<%= b.getImage() %>&link=<%= b.getLink() %>&isbn=<%= b.getIsbn() %> ">
+                        	<a href="http://localhost:8000/seoRak/jsp/board/boardwrite.jsp?title=<%= b.getTitle() %>&publisher=<%= b.getPublisher() %>&author=<%= b.getAuthor() %>&img=<%= b.getImage() %>&link=<%= b.getLink() %>&isbn=<%= b.getIsbn() %> ">
                         		<%= b.getTitle() %>
                         	</a>
                         </td>

@@ -29,10 +29,11 @@ public class BoardWriterController extends HttpServlet {
 		String content = request.getParameter("content");
 		String category = request.getParameter("category");
 		String writer = request.getParameter("writer");
-		String bookcover = request.getParameter("bookcover");
+		String cover = request.getParameter("cover");
 		String booktitle = request.getParameter("booktitle");
 		String bookpublisher = request.getParameter("bookpublisher");
 		String bookauthor = request.getParameter("bookauthor");
+		String bookisbn = request.getParameter("isbn");
 		 
 		HttpSession session = request.getSession();
 		Member member = (Member)session.getAttribute("user");
@@ -54,16 +55,20 @@ public class BoardWriterController extends HttpServlet {
 		
 		BoardBook book = new BoardBook();
 		System.out.println("2");
-		book.setBoardBookTitle(booktitle);
+		book.setBoardBookTitle(title);
 		book.setBoardBookPublisher(bookpublisher);
 		book.setBoardBookAuthor(bookauthor);
-		book.setBoardBookCover(bookcover);
+		book.setBoardBookCover(cover);
+		book.setIsbn(bookisbn);
+		book.setMemberId(memberNickname);
 		System.out.println("5");
 		System.out.println(memberNickname);
+		System.out.println(title);
 		System.out.println(booktitle);
 		System.out.println(bookpublisher);
 		System.out.println(bookauthor);
-		System.out.println(bookcover);
+		System.out.println(cover);
+		System.out.println(bookisbn);
 		
 		mapper.insertBoard(board);
 		bookmapper.insertBoardBook(book);
