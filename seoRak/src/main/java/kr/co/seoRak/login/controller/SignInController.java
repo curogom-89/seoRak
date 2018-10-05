@@ -50,7 +50,7 @@ public class SignInController extends HttpServlet{
 
 		//메인으로 이동하기
 		response.sendRedirect(
-				request.getContextPath() + "/main.do");
+				request.getContextPath() + "/jsp/login/mainLogin.jsp");
 
 	}
 	
