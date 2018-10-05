@@ -134,20 +134,20 @@ p{
 		/* 받은 포인트함 가기 */
 		var checkSendPoint = document.querySelector("input[name=checkSendPoint]");
 		checkSendPoint.onclick = function checkPoint(){
-			location.replace("/seoRak/jsp/sendPointBox.do");
+			location.replace("/seoRak/sendPointBox.do");
 		}
 		/* 포인트 보내기 */
 		function openSendPop(){
 			window.open(
 				/* http://localhost:8000/seoRak/jsp/sendPoint.jsp */
-				"/seoRak/jsp/sendPointForm.do", "포인트 보내기", "width=700px,height=500px"	
+				"/seoRak/sendPointForm.do", "포인트 보내기", "width=700px,height=500px"	
 			)
 		}
 	
 		/* 포인트 랭킹 */
 		var pointRanking = document.querySelector("input[name=pointRanking]");
 		pointRanking.onclick = function pointRank(){
-			location.replace("/seoRak/jsp/pointRank.do");
+			location.replace("/seoRak/pointRank.do");
 		}
 	</script>
 
