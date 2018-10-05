@@ -97,7 +97,7 @@ ul {
 	<hr>
 	<div>
 		<form
-			action="/seoRak/jsp/boardDetail.do<%=book.getBoardBookCover()%>&isbn=<%=book.getIsbn()%>"
+			action="<c:url value='/jsp/boardDetail.do<%=book.getBoardBookCover()%>&isbn=<%=book.getIsbn()%>' />"
 			method="post">
 			<table>
 				<tr>

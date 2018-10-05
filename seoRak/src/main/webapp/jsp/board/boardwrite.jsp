@@ -53,7 +53,7 @@ table, td, tr {
 	<hr>
 	<div>
 		<form
-			action="/seoRak/jsp/boardwriter.do?cover=<%=img%>&link=<%=link%>&isbn=<%=isbn%>"
+			action="/seoRak/boardwriter.do?cover=<%=img%>&link=<%=link%>&isbn=<%=isbn%>"
 			method="post" id="writeForm">
 			<table>
 				<tr>

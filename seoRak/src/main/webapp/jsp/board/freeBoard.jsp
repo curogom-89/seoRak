@@ -153,7 +153,7 @@ body {
 		<div class="row">
 			<div class="cell">${b.boardNo}</div>
 			<div class="cell">${b.boardCategory}</div>
-			<div class="cell"><a href="boardDetail.do?no=${b.boardNo}">${b.boardTitle}</a></div>
+			<div class="cell"><a href="<c:url value='/boardDetail.do?no=${b.boardNo}'/>">${b.boardTitle}</a></div>
 <%-- 			<div class="cell"><a href="<c:url value='detail.do?no=${b.boardNo}'/>">${b.boardTitle}</a></div> --%>
 			<div class="cell">${b.boardWriter}</div>
 			<div class="cell">추천서적</div>
@@ -171,7 +171,7 @@ body {
 
 	<script type="text/javascript">
 		$("#write").click(function() {
-			window.location.replace("/seoRak/jsp/boardwrite.jsp");
+			window.location.replace("/seoRak/jsp/board/boardwrite.jsp");
 			
 		})
 	</script>

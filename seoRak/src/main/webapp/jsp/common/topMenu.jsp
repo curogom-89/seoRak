@@ -12,7 +12,7 @@
 				<li><a href="<c:url value='/jsp/login/signUp.jsp'/>">회원가입</a></li>
 			</c:when>
 			<c:otherwise>
-				<li><a href="<c:url value='/jsp/mypoint/myPoint.jsp'/>">포인트</a></li>
+				<li><a href="<c:url value='/myPoint.do'/>">포인트</a></li>
 				<li><a href="<c:url value='/jsp/massage/receivebox.jsp'/>">쪽지함</a></li>
 				<li><a href="<c:url value='http://localhost:8000/seoRak/myInfo.do'/>">${user.memberNickname }</a></li>	
 				<%-- <li><a href="<c:url value='/jsp/login/loginForm.jsp'/>">로그아웃</a></li> --%>

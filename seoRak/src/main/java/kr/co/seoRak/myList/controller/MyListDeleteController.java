@@ -14,7 +14,7 @@ import kr.co.seoRak.repository.domain.Member;
 import kr.co.seoRak.repository.domain.MyBookList;
 import kr.co.seoRak.repository.mapper.MyBookListMapper;
 
-@WebServlet("/jsp/delete.do")
+@WebServlet("/delete.do")
 public class MyListDeleteController extends HttpServlet{
 
 	@Override

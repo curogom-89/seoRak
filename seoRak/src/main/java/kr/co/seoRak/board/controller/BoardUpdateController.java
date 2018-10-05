@@ -48,7 +48,7 @@ public class BoardUpdateController extends HttpServlet {
 		
 		mapper.updateBoard(board);
 		bookmapper.insertBoardBook(book);
-		response.sendRedirect("/seoRak/jsp/boardlist.do");
+		response.sendRedirect("/seoRak/boardlist.do");
 		
 		
 		

@@ -4,7 +4,7 @@
 <%@ page import="kr.co.seoRak.repository.mapper.LoginMapper" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
-	Member member = (Member)request.getAttribute("member");
+	Member member = (Member)session.getAttribute("user");
 	System.out.println("3-----------------------------");
 /* 	String id = member.getMemberId();	
 	int memberPoint = member.getMemberTotalPoint(); */

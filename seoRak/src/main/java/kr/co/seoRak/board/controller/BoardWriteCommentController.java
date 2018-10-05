@@ -38,6 +38,6 @@ public class BoardWriteCommentController extends HttpServlet {
 		String memberNickname = member.getMemberNickname();
 		mapper.insertComment(comment);
 		
-		response.sendRedirect(request.getContextPath() + "/jsp/boardDetail.do?no=" + no);
+		response.sendRedirect(request.getContextPath() + "/boardDetail.do?no=" + no);
 	}
 }

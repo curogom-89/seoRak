@@ -22,7 +22,7 @@ import kr.co.seoRak.repository.mapper.BoardBookMapper;
 import kr.co.seoRak.repository.mapper.BoardMapper;
 import kr.co.seoRak.repository.mapper.CommentMapper;
 
-@WebServlet("/jsp/boardDetail.do")
+@WebServlet("/boardDetail.do")
 public class BoardDetailController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -99,7 +99,7 @@ public class BoardDetailController extends HttpServlet {
 //				
 		
 		RequestDispatcher rd = request.getRequestDispatcher(
-					"/jsp/boardDetail.jsp"
+					"/jsp/board/boardDetail.jsp"
 				);
 		System.out.println(book);
 		rd.forward(request, response);

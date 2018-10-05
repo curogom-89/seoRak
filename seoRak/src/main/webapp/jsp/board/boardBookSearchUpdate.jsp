@@ -149,7 +149,7 @@
 	</center>
 	<hr>
 	<!--"/seoRak/jsp/myList/Search.do"  -->
-	<form class="search-form" action='<c:url value="/jsp/BoardBookSearchupdate.do"/>'>
+	<form class="search-form" action='<c:url value="/BoardBookSearchupdate.do"/>'>
 		<select class="search-select" name="detail">
 			<option value="1">제목</option>
 			<option value="2">출판사</option>
@@ -201,7 +201,7 @@
                         <td><img src="<%= cover %>"/></td>
                         <td id="title">
                         <!-- http://localhost:8000/seoRak/jsp/myListWrite.jsp -->
-                        	<a href="/seoRak/jsp/boardupdate.do?title=<%= b.getTitle() %>&publisher=<%= b.getPublisher() %>&author=<%= b.getAuthor() %>&img=<%= b.getImage() %>&link=<%= b.getLink() %>&isbn=<%= b.getIsbn() %> ">
+                        	<a href="<c:url value='/jsp/boardupdate.do?title=<%= b.getTitle() %>&publisher=<%= b.getPublisher() %>&author=<%= b.getAuthor() %>&img=<%= b.getImage() %>&link=<%= b.getLink() %>&isbn=<%= b.getIsbn() %> ' />">
                         		<%= b.getTitle() %>
                         	</a>
                         </td>

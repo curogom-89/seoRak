@@ -44,7 +44,7 @@ public class SendPointController extends HttpServlet{
 		Member memberReceive = mapperLogin.idCheck(receiver);
 
 		if(memberSend == null || memberReceive== null) {
-			RequestDispatcher rd = request.getRequestDispatcher("/sendPoint.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/jsp/mypoint/sendPoint.jsp");
 			request.setAttribute("unmatch", true);
 			rd.forward(request, response);
 		} else {

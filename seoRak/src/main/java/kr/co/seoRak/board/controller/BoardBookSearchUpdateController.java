@@ -37,7 +37,7 @@ public class BoardBookSearchUpdateController extends HttpServlet{
 //		}
 		request.setAttribute("list", list);
 		// http://localhost:8000/seoRak/jsp/myListBookSearch.jsp
-		RequestDispatcher rd = request.getRequestDispatcher("/jsp/boardBookSearchUpdate.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/jsp/board/boardBookSearchUpdate.jsp");
 		rd.forward(request, response);
 	}
 	

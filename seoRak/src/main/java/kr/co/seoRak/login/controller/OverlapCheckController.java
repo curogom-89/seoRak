@@ -28,7 +28,7 @@ public class OverlapCheckController extends HttpServlet {
 		
 		if (type.equals("nick")) {
 			String nickName = request.getParameter("nickName");
-			String result = mapper.nickCheck(nickName);
+			Member result = mapper.nickCheck(nickName);
 			if (result == null) {
 				// OK				
 				out.println(1);

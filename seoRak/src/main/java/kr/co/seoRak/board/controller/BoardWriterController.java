@@ -77,6 +77,6 @@ public class BoardWriterController extends HttpServlet {
 		mapper.insertBoard(board);
 		bookmapper.insertBoardBook(book);
 		
-		response.sendRedirect(request.getContextPath() + "/jsp/boardlist.do");
+		response.sendRedirect(request.getContextPath() + "/boardlist.do");
 	}
 }
